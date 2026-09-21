@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-20  
 **Package:** `skills/production-engineering-loop`, version 0.5.0  
-**Verdict:** **Local release candidate.** The reproduced helper defect and publication-hygiene findings are resolved; a real GitHub release, hosted CI execution, and install from that immutable release remain external publication steps.
+**Verdict:** **Public repository candidate.** The reproduced helper defect and publication-hygiene findings are resolved, and installation from public `main` is verified. A tagged GitHub release, hosted CI confirmation, and installation from that immutable release remain publication steps.
 
 ## Current result
 
@@ -10,13 +10,13 @@ The repository was hardened after this audit at the maintainer's request:
 
 - SEC-001: fixed locally. Every helper Git subprocess now forces `GIT_NO_LAZY_FETCH=1`, `GIT_ALLOW_PROTOCOL=''`, `GIT_TERMINAL_PROMPT=0`, and `GIT_OPTIONAL_LOCKS=0`, while retaining filesystem-monitor isolation. A new regression removes a promised base object and verifies that `capture`, `check`, and `validate` all fail without executing the configured remote helper.
 - PUB-002: fixed in the candidate public artifacts. The four personal paths were replaced with explicit portable placeholders and marked as sanitized evidence. The installable package continues to contain no personal home paths.
-- PUB-003: all local preparation is complete. Version documentation matches 0.5.0, the development dependency is pinned, CI actions are pinned to immutable revisions, Dependabot is configured, and CI covers Ubuntu Python 3.10–3.12 plus macOS/Windows Python 3.11. Hosted execution and installation from the future public URL remain impossible until the maintainer creates and publishes that repository.
+- PUB-003: the public repository is `NagarjunMa/production-engineering-skills`. The short GitHub command found one skill, installed it into a fresh Codex project, and produced a package matching the local skill folder. Version documentation matches 0.5.0, the development dependency is pinned, CI actions are pinned to immutable revisions, Dependabot is configured, and CI covers Ubuntu Python 3.10–3.12 plus macOS/Windows Python 3.11. A tagged release and installation from that immutable release remain pending.
 
 Local package validation, skill-format validation, dependency audit, and 27 tests pass after these changes. An independent return review reproduced the original hostile setup: an unguarded positive control executed its harmless marker, while the corrected helper's `capture`, `check`, and `validate` commands each failed closed without executing the marker. The reviewer also verified hostile inherited Git environment values were overridden.
 
 The skill can be installed once at personal scope and used across local projects. A project copy also works, including discovery from a nested directory. That does not establish compatibility with every Codex version, organization policy, operating system, remote/cloud workspace, language, or codebase. The workflow provides review and verification discipline; it cannot guarantee maximum-quality output or establish better quality per token from the current evaluations.
 
-The initial findings below are retained to explain the release decision. Their status lines and current result record the post-fix state. No GitHub repository, release, or hosted execution was created by this local audit.
+The initial findings below are retained to explain the release decision. Their status lines and current result record the post-fix state. The original audit predated the public repository; no tagged release was created by this review.
 
 ## Scope and method
 
@@ -59,13 +59,13 @@ These disclose a local account/workspace location, not an observed credential. N
 
 **Status:** Resolved for the candidate public repository. The occurrences were replaced with explicit portable placeholders and labeled as sanitized evidence. A repository-wide repeat scan found no personal home paths.
 
-### PUB-003 — External publication verification remains
+### PUB-003 — Immutable release verification remains
 
-- README intentionally contains `YOUR_GITHUB_OWNER` because no public repository identity has been selected locally.
-- No remote, initial repository commit, immutable release tag, or actual public install URL exists, so a fresh GitHub download cannot yet be verified.
-- The CI matrix and dependency-update configuration are present, but hosted jobs have not run.
+- The public repository is `NagarjunMa/production-engineering-skills`, and installation from its public `main` branch is verified.
+- No immutable release tag has been verified, so release-specific installation and rollback evidence remain pending.
+- The CI matrix and dependency-update configuration are present; results must be associated with the released revision before publishing the final support statement.
 
-These are external release-state gaps rather than code defects. The maintainer must select the repository, publish the reviewed snapshot, observe the configured CI, and test the exact tagged download before making the corresponding release claim.
+These are release-state gaps rather than code defects. The maintainer must tag the reviewed snapshot, observe its configured CI, and test the exact tagged download before making the corresponding release claim.
 
 ## Verified compatibility
 
@@ -99,9 +99,9 @@ A defensible description is: **A Codex-compatible engineering workflow that guid
 
 Before community release:
 
-1. Create an immutable release from this reviewed candidate and observe the configured hosted checks.
+1. Create an immutable release from this reviewed candidate and observe the configured hosted checks for that revision.
 2. Install that exact release in a fresh destination and confirm Codex discovery.
-3. Replace the owner placeholder and enable the real repository's private vulnerability-reporting route.
+3. Enable the repository's private vulnerability-reporting route.
 4. Publish the tested support statement and keep Windows, cloud environments, and other agents labeled as unverified until their runs are recorded.
 
-**Release status: Local release candidate.** The remaining gates require the future public repository or external environments; no unresolved local implementation defect was found.
+**Release status: Public repository candidate.** Installation from public `main` works; the immutable release and broader external environments remain unverified. No unresolved local implementation defect was found.

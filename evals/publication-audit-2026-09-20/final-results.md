@@ -1,6 +1,6 @@
 # Corrected local release-candidate results
 
-Date: 2026-09-20. Source state: uncommitted local repository; no public remote or release exists.
+Date: 2026-09-20. Source state: reviewed local package with public remote; no immutable release has been verified.
 
 ## Results
 
@@ -11,6 +11,7 @@ Date: 2026-09-20. Source state: uncommitted local repository; no public remote o
 - Development dependency audit: no known vulnerabilities in the pinned requirements.
 - Local Skills CLI install: found exactly one skill, copied the package into a fresh project's `.agents/skills/production-engineering-loop`, and exited successfully.
 - Fresh installed copy: byte-for-byte matched the source folder; Codex discovered one enabled repository-scoped `production-engineering-loop` skill.
+- Public GitHub install: `NagarjunMa/production-engineering-skills` exposed exactly one skill; installation from public `main` succeeded, matched the local package, and was discovered by Codex.
 - Standalone package inspection: 24 files, no symlinks, all bundled links valid; helper usable from unrelated scratch.
 - Privacy and limited credential-signature scan: no personal home paths, private-key headers, or tested provider token patterns found.
 - Independent security return review: `capture`, `check`, and `validate` each exited 2 on a missing promised base object and did not execute the configured remote-helper marker. The unguarded positive control executed the marker, proving the probe was effective. Hostile inherited `GIT_ALLOW_PROTOCOL` and `GIT_NO_LAZY_FETCH` values were overridden.
@@ -32,6 +33,6 @@ Reviewer model identity was unknown, so this is an independent fresh-context rev
 ## External steps still unobserved
 
 - Hosted GitHub Actions results, including Linux, Windows, macOS, and Python 3.10.
-- A real public repository, immutable tag/release, and installation from that exact release.
+- An immutable tag/release and installation from that exact release.
 - Private vulnerability reporting enabled on the selected repository.
 - Broader projects, users, other coding agents, and cloud environments.

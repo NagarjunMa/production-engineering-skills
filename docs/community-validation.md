@@ -27,4 +27,4 @@ One successful run establishes only that environment and task. Keep failures and
 - Limitations and artifacts safe to share:
 - Outcome: passed | failed | blocked | not run
 
-Submit only against the future repository's documented contribution/security channel. Suspected unpatched vulnerabilities belong in private vulnerability reporting, not this public record.
+Submit only through the repository's documented contribution or security channel. Suspected unpatched vulnerabilities belong in private vulnerability reporting, not this public record.

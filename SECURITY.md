@@ -6,9 +6,9 @@ Security fixes are applied to the latest published release. Until the first publ
 
 ## Reporting a vulnerability
 
-After this repository is published, enable GitHub private vulnerability reporting and use that private channel for suspected vulnerabilities. Do not include real credentials, private customer data, or exploit activity against systems you do not own. A minimal synthetic reproduction, affected version, impact, and suggested boundary are useful.
+Enable GitHub private vulnerability reporting on `NagarjunMa/production-engineering-skills` and use that private channel for suspected vulnerabilities. Do not include real credentials, private customer data, or exploit activity against systems you do not own. A minimal synthetic reproduction, affected version, impact, and suggested boundary are useful.
 
-Do not open a public issue for an unpatched vulnerability. If private reporting is not enabled on the future repository, the maintainer must add a verified private contact before describing a public security-reporting process; this document does not invent one.
+Do not open a public issue for an unpatched vulnerability. If private reporting is not enabled, the maintainer must add a verified private contact before describing a public security-reporting process; this document does not invent one.
 
 ## Security boundary
 

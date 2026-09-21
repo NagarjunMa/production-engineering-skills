@@ -85,23 +85,25 @@ Avoid installing both personal and project copies unless you intentionally need 
 
 ### 2. Install from GitHub
 
-After this repository has a public owner, replace `YOUR_GITHUB_OWNER` in these commands.
-
-Personal installation for Codex:
+The repository contains one installable skill, so the shortest command is:
 
 ```sh
-npx skills add YOUR_GITHUB_OWNER/production-engineering-loop \
-  --skill production-engineering-loop --agent codex --global --yes
+npx skills add NagarjunMa/production-engineering-skills
 ```
 
-Project installation for Codex, run from the target project's root:
+The installer detects the skill and lets you choose the coding agent and installation scope. For a non-interactive personal installation in Codex:
 
 ```sh
-npx skills add YOUR_GITHUB_OWNER/production-engineering-loop \
-  --skill production-engineering-loop --agent codex --yes
+npx skills add NagarjunMa/production-engineering-skills -g -a codex -y
 ```
 
-For another supported tool, replace `codex` with the agent identifier supported by the [Skills CLI](https://github.com/vercel-labs/skills), or let the installer prompt you to choose. Exact discovery and invocation behavior belongs to the host tool.
+For a non-interactive project installation in Codex, run this from the target project's root:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -a codex -y
+```
+
+For another supported tool, replace `codex` with the agent identifier supported by the [Skills CLI](https://github.com/vercel-labs/skills), or use the short interactive command and choose from the detected agents. Exact discovery and invocation behavior belongs to the host tool.
 
 ### 3. Install from a local clone
 
