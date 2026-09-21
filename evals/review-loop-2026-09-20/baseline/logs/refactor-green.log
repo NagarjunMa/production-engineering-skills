@@ -1,0 +1,11 @@
+test_cli (test_adapters.ExistingTests.test_cli) ... ok
+test_web (test_adapters.ExistingTests.test_web) ... ok
+test_dynamic_registration_rejects_empty (test_contracts.ContractTests.test_dynamic_registration_rejects_empty) ... ok
+test_dynamic_registration_success (test_contracts.ContractTests.test_dynamic_registration_success) ... ok
+test_empty_adapters_remain_distinct (test_contracts.ContractTests.test_empty_adapters_remain_distinct) ... ok
+test_unicode_and_whitespace_contracts (test_contracts.ContractTests.test_unicode_and_whitespace_contracts) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

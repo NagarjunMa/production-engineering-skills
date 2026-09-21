@@ -1,0 +1,250 @@
+# Unassigned — Currency-aware quote API
+
+No issue identifier is supplied or verified. This full PRI record preserves the supplied requirements and sections; planned API behavior is distinguished from the completed documentation task. Source paths are repository-relative.
+
+## Execution Context
+
+- Issue/requirement source: user-supplied Goal, Non-goals, and Invariants in this plan; existing behavior in `README.md` and current source.
+- Relevant project context and decisions (paths/anchors): `docs/engineering-loop/PROJECT.md` and `features/web-quotes.md`; see Design and Quality Constraints below for this proposed addition.
+- Current implementation status: existing single/batch web and CLI quotes exist; `web_quote_currency` does not. Planning is complete; implementation is not authorized in this task.
+- Next incomplete step and acceptance criterion: in a separately authorized implementation task, add currency contract tests for AC-1/AC-2 and serialized compatibility characterization for AC-3.
+- Blocking question, if any: none for completing this plan. Exact case-sensitive USD matching and currency-first error precedence are proposed contract details below, not observed API behavior.
+- Context last verified: 2026-09-18, local file snapshot; no Git repository/branch/history is available. Source fingerprints are recorded under Final Pre-Merge Evidence.
+- Changes since that verification, including uncommitted/untracked files: only this plan edited; Git dirty-state labels are unavailable. Other files verified unchanged by SHA-256 comparison during plan writing.
+
+### Code Locations
+
+| Repository-relative path | Symbol, section, or route | Role: edit/read/test/config | Why needed and intended change | Evidence: verified/candidate/planned; source snapshot |
+| --- | --- | --- | --- | --- |
+| `docs/engineering-loop/features/currency-quotes.md` | Entire PRI | edit | Only authorized current edit; complete design and evaluations | Verified 2026-09-18 |
+| `parcel/web.py` | `web_quote`, `web_quotes`; proposed `web_quote_currency` | read now; future edit | Reuse response/validation translation; add currency adapter without editing existing functions | File and existing symbols verified; new symbol planned |
+| `parcel/policy.py` | `fee_cents` | read | Canonical strict integer validation and fee threshold; preserve unchanged | Verified 2026-09-18 |
+| `parcel/cli.py` | `cli_quote` | read | Independent formatting/error contract; preserve unchanged | Verified 2026-09-18 |
+| `parcel/__init__.py` | Empty package marker | read | Current public usage imports from `parcel.web`; no export framework to extend | Verified 2026-09-18 |
+| `tests/test_quotes.py` | `ExistingQuotes`, `BatchQuotes`; proposed `CurrencyQuotes` | read now; future test | Existing consumers and baseline; add contract checks without weakening existing tests | File/classes verified; CurrencyQuotes planned |
+| `README.md` | Policy, response contracts, Checks | read now; possible future docs | Canonical current contracts; future additive API documentation | Verified 2026-09-18 |
+| `docs/engineering-loop/PROJECT.md`, `docs/engineering-loop/features/web-quotes.md` | Source map and batch contract | read | Reconcile memory with source; do not edit in this task | Verified 2026-09-18 |
+
+### Retrieval and Freshness
+
+- Read first, in order: this plan, project map, README, web/policy/CLI modules, tests, batch feature record. No scoped instructions were found in this project inventory.
+- Existing pattern to follow, with path and symbol: `parcel.web.web_quotes` delegates to `web_quote`; `web_quote` owns web error mapping and calls `parcel.policy.fee_cents`.
+- Search these modules first: `rg -n 'web_quote|web_quotes|web_quote_currency|fee_cents|cli_quote' parcel tests README.md`.
+- Areas not needed initially and why: no network, persistence, service framework, deployment, packaging, or CI files exist in the inspected inventory. Do not introduce them.
+- Expand inspection when: a symbol is missing/renamed, callers/contracts differ, dependencies/configuration change, a check exposes another boundary, or context is stale. Revalidate this snapshot before implementing.
+- Remaining inspection gaps or unresolved locations: external library consumers and actual release mechanism are unknown; inspect them only if supplied in a future implementation/release task. No unread first-party files remain in this small supplied project.
+
+## Problem
+
+- Current behavior: web quotes return status and fee or subtotal error; batches apply the same adapter independently. CLI returns strings. No API accepts or returns currency.
+- Problem and impact: callers cannot request an explicitly USD-denominated quote or receive a currency-specific rejection.
+- Supporting repository evidence: `parcel/web.py` defines only `web_quote` and `web_quotes`; `policy.py` and README define fees in cents without conversion.
+
+## Goal
+
+- Intended behavior: Plan a new public `web_quote_currency(subtotal, currency)` API. Support only USD. Unsupported currency returns status 400 and error "unsupported currency"; for USD retain existing subtotal validation and fee policy, and include currency "USD" on successful responses.
+- Expected user or system outcome: explicit currency on successful new-API quotes, predictable rejection for unsupported currency, and unchanged existing callers.
+
+## Change Contract
+
+### Scope
+
+- Included: documentation-only completion of this plan with design, contracts, evaluation strategy, compatibility/recovery considerations, and current evidence. The planned future implementation is one additive function plus focused tests and relevant API documentation.
+
+### Non-goals
+
+- Explicitly excluded: Currency conversion, external services, implementation during this planning task, dependency changes, and deployment.
+- Also excluded: adding currency parameters to existing APIs, currency-aware batch API, changing fee thresholds, new service/storage layers, and editing any other file during planning.
+
+### Affected Boundaries
+
+- Files and components: locations above; future addition stays within the current web adapter module.
+- APIs and shared contracts: new callable imported from `parcel.web`, with `(subtotal, currency)` arguments and a response dictionary. Existing APIs and signatures stay untouched.
+- Data and schemas: additive new-API success shape `{"status": 200, "fee_cents": 499, "currency": "USD"}` (fee depends on subtotal). Unsupported currency shape `{"status": 400, "error": "unsupported currency"}`. USD subtotal errors retain `{"status": 400, "error": "invalid subtotal"}`, without a currency field.
+- Trust boundaries: caller-provided values enter a pure library function; no HTTP request parsing, authentication boundary, network, or persistence is introduced.
+- Dependencies: standard Python and existing internal adapter/policy only.
+
+### Invariants
+
+- Behavior that must remain unchanged: Existing web_quote, web_quotes, and CLI output/error shapes remain byte-for-byte compatible in serialized content; the new API is additive.
+- Security and privacy guarantees: no new I/O, logs, retained input data, credentials, or caller-input mutation. Invalid values produce the specified public errors, without internal details.
+- Backward-compatibility requirements: preserve current signatures, key insertion order and values, batch ordering/recovery, and CLI text. Do not add currency fields to old responses, including batches.
+
+## Risk Assessment
+
+**Initial risk tier:** Significant
+
+**Rationale:** A new public API and response contract require boundary and compatibility coverage, although implementation is small. This task edits documentation only; the tier describes the planned feature.
+
+- Blast radius: new callers plus any regression accidentally introduced into the reused web adapter; existing CLI shares the fee policy.
+- Security/privacy impact: low for pure local computation; currency/subtotal validation and absence of new side effects remain relevant.
+- Integration or release impact: additive callable and schema; external consumers and release tooling are not supplied. No migration or production data change.
+- Additional review required: future contract/caller and actual diff review before integration; no Critical-tier independent-review requirement is triggered by a quote-only addition with no billing mutation. No release is authorized here.
+
+**Documentation mode:** Full — the user supplied a PRI structure and this plans a public API contract. Preserve all supplied sections and requirements; compact mode is not substituted.
+
+## Design and Quality Constraints
+
+- Existing sound pattern: add `web_quote_currency` alongside `web_quote` and `web_quotes`; compose the current web adapter rather than copying pricing or subtotal validation.
+- Canonical rules: `fee_cents` remains the sole owner of integer/nonnegative validation and 5000-cent threshold. `web_quote` remains the sole owner of web subtotal-error mapping. Keep CLI formatting intentionally separate.
+- Proposed interface algorithm: first reject currencies other than the exact string `USD`; then call `web_quote(subtotal)`. On status 200, return a fresh dictionary with the original status/fee keys followed by `currency: USD`; otherwise preserve the subtotal-error response unchanged. Do not modify the original adapter or route existing calls through the new API.
+- Proposed normalization/precedence: no case folding, whitespace trimming, conversion, or fallback. `usd`, ` USD `, empty string, None, numbers, booleans, lists, and dictionaries are unsupported. Guard the input's string type before comparison so ordinary invalid containers are rejected cleanly. Currency rejection takes precedence when both arguments are invalid; this makes the unsupported-currency contract independent of subtotal.
+- Ownership/dependency direction: web adapter → existing web adapter → policy, no reverse imports or shared mutable state. A single function is sufficient; no registry, service, strategy, or domain currency abstraction is justified for one currency.
+- Applicable standards: README contracts and existing Python unittest conventions; no version-sensitive third-party guidance is needed. No new lint/type tooling is proposed.
+- Evidence required: actual source/caller review for canonical ownership and absence of new I/O, plus tests for observable results. Do not assert internal helper call counts as a substitute for correct behavior.
+
+## Implementation Plan
+
+1. Completed for planning: inspect all supplied implementation, documentation, tests, and inventory; attempt Git status and record absent history. Before future implementation, revalidate source and worktree state.
+2. Completed for planning: identify existing single/batch quote behavior and absent currency API. The next implementation step is AC-1/AC-2 regression tests and AC-3 characterization; it is not authorized now.
+3. Future: add a `CurrencyQuotes` class in `tests/test_quotes.py` with literal expectations from the acceptance table; strengthen byte-level serialized compatibility checks without changing current tests.
+4. Future: establish importable minimal function scaffold if needed, then run tests and confirm currency/response assertions fail for the intended behavior, not merely a missing import or setup error. Keep existing tests green.
+5. Future: implement the smallest coherent adapter described above, delegating USD quotes to `web_quote` and rejecting unsupported currency first.
+6. Future: refactor only evidenced issues with tests green; preserve policy and independent CLI/web contracts.
+7. Future: run focused currency checks and the full repository-native unittest command; inspect changed source and affected callers against design constraints.
+8. Future: record actual evidence and review compatibility/recovery before any separately authorized release; update feature/project docs to actual status. Do not interpret completion of this plan as approval to implement or deploy.
+
+## Security and Privacy Considerations
+
+- Authentication and authorization: N/A — local quote function with no identity, permissions, or privileged operation.
+- Personal data and retention: no data storage or logging; inputs only participate in local computation.
+- Secrets and permissions: no credentials or new privileges needed.
+- Input validation and abuse prevention: support only exact USD; retain strict subtotal validation including rejection of booleans, negatives, and non-integers. Error precedence is explicit. No evaluation/deserialization of caller input.
+- Rate limiting: N/A — no server or remote endpoint is introduced.
+- External services and tool execution: none required or permitted for this planning task or proposed implementation.
+
+## Acceptance Criteria
+
+- [ ] AC-1: New API returns currency USD on successful USD quotes and preserves the canonical fee policy.
+- [ ] AC-2: Unsupported currency returns exactly status 400/error "unsupported currency"; valid USD with invalid subtotal returns the existing subtotal-error shape without currency. Proposed exact-match and currency-first precedence cases are covered.
+- [ ] AC-3: Existing web_quote, web_quotes, and CLI contracts stay unchanged.
+- [ ] AC-4: New API neither mutates caller inputs nor adds I/O, logging, persistence, dependencies, or sensitive error detail; currency and subtotal validation remain at their stated owners.
+- [ ] AC-5: Relevant repository-native checks pass.
+- [ ] AC-6: No unresolved material findings remain.
+
+All boxes remain unchecked for the future implementation. Passing existing baseline tests does not satisfy new-feature criteria or establish release readiness.
+
+## Verification Plan
+
+### Behavior and Regression Tests
+
+- Test: planned `CurrencyQuotes` and compatibility additions in the existing unittest file, using independent literal expectations.
+- Expected result: cases below, including exact dictionary equality for errors so extra fields fail.
+- Acceptance criterion covered: AC-1 through AC-6, with structural review supplementing executable tests.
+
+| Criterion | Preconditions/input and action | Expected result and forbidden effects | Test path and symbol or manual procedure | Baseline/result reference |
+| --- | --- | --- | --- | --- |
+| AC-1 | USD with 0, 4999, 5000, 5001 | 200; fees 499, 499, 0, 0 respectively; currency USD on every success | Planned `CurrencyQuotes.test_usd_boundaries` in `tests/test_quotes.py` | Not run; API absent |
+| AC-2 | USD with -1, True, False, 100.0, "100", None, [], {} | Exactly `{"status": 400, "error": "invalid subtotal"}`; no currency or fee | Planned `CurrencyQuotes.test_invalid_subtotals` | Not run |
+| AC-2 | Valid subtotal with EUR, usd, empty/whitespace variants, None, booleans, numbers, list, dict | Exactly `{"status": 400, "error": "unsupported currency"}`; no normalization or fallback | Planned `CurrencyQuotes.test_unsupported_currency` | Not run |
+| AC-2 | Invalid subtotal and unsupported currency together | Unsupported-currency error takes precedence under proposed design | Planned `CurrencyQuotes.test_error_precedence` | Not run |
+| AC-3 | Existing single/batch calls at 0/4999/5000, invalid subtotal before later valid batch item, empty batch; CLI success/error | Identical dictionary/list content and default `json.dumps(...).encode("utf-8")` bytes against literal pre-change outputs; identical CLI strings/UTF-8 bytes. No currency fields or reordered keys | Existing `ExistingQuotes`/`BatchQuotes` plus planned serialized compatibility tests; use one explicit serializer configuration on both snapshots | Existing 9 tests passed; added byte checks not run |
+| AC-4 | Nested invalid subtotal/currency containers; repeat calls | Inputs equal deep copies; no shared response state between calls | Planned `CurrencyQuotes.test_inputs_unchanged`; source review of response ownership | Not run |
+| AC-4, AC-6 | Inspect final diff, imports, policy and callers | No copied fee/validation rule, new I/O/logging/dependency, altered legacy shapes, or unrelated edits | Manual source/caller review, not brittle tests of helper names | Design review completed; implementation review pending |
+| AC-5 | Run entire maintained test suite after implementation | All old and new assertions pass | Repository-native command below | Current baseline only: 9 passed |
+
+### Repository-native Checks
+
+- Exact commands, working directory, and selection scope: from this project's root, `python3 -B -m unittest discover -s tests -v` for the full suite. Once class exists, `python3 -B -m unittest discover -s tests -v -k CurrencyQuotes` for focused checks. The focused command is planned, not executed here.
+- Supported runtime and source: `python3 --version` reports Python 3.11.1 locally; README specifies Python 3 command, but no supported version range is declared. Do not infer cross-version compatibility.
+- Required hosted CI checks and source: none found in full supplied file inventory. Unknown external release checks — verify if a release environment is later supplied. No formatter/linter/type checker or document-check configuration exists.
+
+### Additional Verification
+
+- Browser/accessibility: N/A — pure library, no UI.
+- Database/migrations: N/A — no stored data or schema.
+- Docker: N/A — no container configuration or service.
+- Secret scanning: no configured scanner; review the small future diff for inadvertent sensitive content. Do not install tooling solely for this plan.
+- Manual or adversarial checks: inspect mixed-invalid precedence, booleans/non-string currencies, exact response keys, no mutation, canonical policy reuse, and legacy serialized bytes. No external sandbox is needed.
+
+### TDD Exception
+
+No TDD exception is claimed for the future API: meaningful executable tests are required before implementation. This task only authors a plan, so new API tests and behavioral red/green execution are deliberately not performed. Current planning validation consists of source inspection, existing baseline tests, retained-heading/requirement checks, and verifying no other files changed. Absence of implementation is authorized scope, not an environment blocker.
+
+## Compatibility, Rollout, and Rollback
+
+- Compatibility constraints: preserve old signatures and byte-for-byte serialized output with the same serializer; unchanged insertion order matters for default JSON output. New currency metadata belongs exclusively to the new API's successful response.
+- Migration requirements: none for existing callers; opt-in new callers import the additional symbol from `parcel.web`. No stored-data migration.
+- Rollout sequence: future tests/red state → implementation → focused/full tests and contract review → separately authorized package/distribution integration. Actual release machinery is unknown; no release actions now.
+- Monitoring: no runtime telemetry infrastructure warranted here; use contract tests. If an external application adopts the function, verify its integration checks in that environment when authorized.
+- Rollback procedure: before adoption, revert only the additive function/tests/docs. After callers adopt it, coordinate reverting those callers before removing the symbol to avoid import failures. Existing fee policy requires no rollback change.
+- Recovery/data-integrity considerations: no persistent writes, transactions, or migration recovery. Do not mutate input objects or introduce shared response state.
+
+## Implementation Progress
+
+- Completed: documentation and source inspection, current baseline, design/contract proposal, evaluation mapping, compatibility and recovery plan.
+- Next incomplete step: in a separately authorized implementation task, add AC-1/AC-2 currency tests and AC-3 serialized compatibility characterization. No implementation work is authorized now.
+- Blockers: none to finishing planning. Git metadata/history and external consumers are unavailable and explicitly bounded.
+- Verification status: plan reviewed; current library's 9 tests pass. New API remains absent and untested.
+
+| Path | Actual action: created/changed/renamed/removed | Responsibility/change | Criterion |
+| --- | --- | --- | --- |
+| `docs/engineering-loop/features/currency-quotes.md` | changed | Filled supplied PRI while preserving required sections and requirements | Planning evidence for AC-1–AC-6; does not implement them |
+
+## Decisions / Deviations
+
+- Decision: use full documentation; retain existing adapter/policy ownership; add a single future currency wrapper. Proposed API semantics are exact USD matching, currency-first validation, and currency field on successful responses only.
+- Reason: public response contracts warrant explicit evaluation; canonical reuse avoids drift; an unsupported-currency result should not depend on subtotal validity. No conversion or input normalization is requested.
+- Difference from approved plan: no supplied requirement removed or relaxed. Design and Quality Constraints added to make architectural decisions reviewable. Exact normalization and precedence details are labeled proposed because source does not already define them.
+- Approval required: No — completing the plan is within existing scope. Future implementation/deployment is outside this documentation-only task; do not proceed automatically.
+
+## Final Pre-Merge Evidence
+
+**Date:** 2026-09-18
+**Verified target branch:** N/A — no Git repository or integration target supplied.
+**Merge base:** N/A — no Git metadata.
+**Reviewed revision/worktree state:** Local supplied snapshot; only this plan changed. No clean-worktree assertion is possible.
+**Excluded unrelated changes:** All other project files left untouched; checksum comparison verifies this task's file boundary.
+**Final risk tier:** Significant for planned public API; documentation-only task complete.
+
+Source snapshot SHA-256 values (the current baseline used these files):
+
+| File | SHA-256 |
+| --- | --- |
+| `README.md` | `bc20482fce1216d14db913995436a04c175405ad90f0f658cb2d67762989fe9c` |
+| `parcel/__init__.py` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `parcel/cli.py` | `b530e6c84963bd12ca0cb95952912d46f1f78f479a72f0e78ea3dee181dc3608` |
+| `parcel/policy.py` | `4d76739dc9d1aa266a5aa69404b33b80f569c57143fa87f4cb5b82c25385c863` |
+| `parcel/web.py` | `03d2fe49f2f6988f4c37c6c31723846d28a72a415dede981e1ecc6ce726a4b4f` |
+| `tests/test_quotes.py` | `1274c56b3148ab8a3055dd3b9b4ac156661a50cb91a7c6d558269b4ff4782165` |
+
+### Acceptance Mapping
+
+- AC-1/AC-2 → proposed currency adapter → explicit positive/negative test plan; no implementation evidence.
+- AC-3 → unchanged legacy paths → existing 9-test baseline passed; byte-level characterization still planned.
+- AC-4 → proposed local adapter and canonical ownership → source-grounded design; future mutation tests/diff review pending.
+- AC-5 → native unittest suite → current baseline only, not new-feature verification.
+- AC-6 → planning review found no unresolved material planning finding; final implementation review pending.
+
+### Check Results
+
+- Passed: 2026-09-18 `python3 -B -m unittest discover -s tests -v`, current fingerprinted snapshot, 9 tests. `python3 --version` reported 3.11.1. `rg --files --hidden .` inventoried all 9 supplied files. Manual source review covered all of them. `shasum -a 256 README.md parcel/*.py tests/test_quotes.py docs/engineering-loop/PROJECT.md docs/engineering-loop/features/web-quotes.md` recorded unchanged-file evidence.
+- Passed: during plan writing, a Python check compared every original Markdown heading (retained in order), verified the four supplied requirement lines unchanged, rejected remaining example placeholders, and compared SHA-256 hashes of all other files before/after. This is structural/documentation evidence, not an API test.
+- Failed: no executed behavioral or documentation checks failed.
+- Skipped: none of the applicable existing checks were skipped.
+- Blocked: `git status --short` could not establish history/worktree metadata: fatal, not a Git repository. No Git-based review/release evidence is available.
+- Not run: proposed currency/serialization tests, implementation red/green cycle, hosted CI, external consumers, release and deployment.
+- Reasons: API implementation is excluded; no CI/release/external environment or static-check tooling is configured. No new dependencies were installed. Historical results in the batch record are not substituted for this task's fresh baseline.
+
+### Findings and Resolutions
+
+- Finding: supplied template left currency matching and simultaneous-invalid-input precedence unspecified; these are observable API details needing explicit design.
+- Resolution: document proposed exact USD matching and currency-first rejection with test cases; do not represent them as existing verified behavior. No material planning finding remains.
+- Checks rerun: no repeated runtime tests necessary after documentation-only edits; structural and unchanged-file checks performed on final text.
+- Design review evidence: source confirms web adapter owns error shape, policy owns validation/fee, CLI formatting differs intentionally, and batch composition already reuses the web adapter. Future design follows these boundaries.
+
+### Remaining Risks
+
+- Risk: API and byte-level compatibility additions are planned, so implementation correctness and release readiness are unverified; external caller/release details are unknown.
+- Owner: Unassigned.
+- Required action: when implementation is separately authorized, refresh this source context, establish red/green contract evidence, review actual changes, and verify integration prerequisites before release.
+
+**Status:** Planned — documentation complete; API not implemented, merged, or deployed.
+
+## Learning and Next-Task Handoff
+
+- Evidenced failure/correction and scoped lesson, if one emerged: no implementation defect or new generalized lesson demonstrated; do not manufacture a lesson from missing template content.
+- Regression check or detection procedure: criterion-to-test table and exact commands above, including existing serialized contract checks.
+- Project-map or lesson-record updates: not made because only this plan may change. Future implementation should update the project map once the API exists; this is a proposed follow-up, not current authorized work.
+- Context locations refreshed or invalidated: all supplied source and project/feature records verified on 2026-09-18; the location map distinguishes planned symbols from existing ones.
+- Remaining work within the agreed scope: none; planning complete. Future API implementation remains outside this task's scope.

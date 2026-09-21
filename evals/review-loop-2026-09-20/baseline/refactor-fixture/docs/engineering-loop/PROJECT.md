@@ -1,0 +1,2 @@
+# Project
+Disposable Python tag adapters, dependency-free unittest, no hosted CI or deployment requested. Reviewed all first-party files at raw-refactor-start, 2026-09-20. helpers.normalize_tag owns the domain rule; adapters.web_tag and adapters.cli_tag own independent status/payload presentations; plugins.run_registered resolves a helper through deployment/registry.json and getattr. Feature: [refactor](features/refactor.md). No external consumers beyond the supplied fixture inspected.

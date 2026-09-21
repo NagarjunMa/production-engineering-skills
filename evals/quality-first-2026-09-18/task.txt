@@ -1,0 +1,1 @@
+Implement web_quotes(subtotals) in parcel/web.py as described in README. Preserve existing behavior, complete meaningful tests, and use production-engineering-loop. Do not add dependencies, a service, persistence, or deployment.

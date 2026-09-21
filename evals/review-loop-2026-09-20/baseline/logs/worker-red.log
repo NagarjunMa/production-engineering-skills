@@ -1,0 +1,47 @@
+test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) ... 
+  test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) (limit=5, length=6) ... FAIL
+  test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) (limit=20, length=13) ... ERROR
+  test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) (limit=20, length=20) ... ERROR
+test_distinct_adapter_contracts (test_boundaries.BoundaryTests.test_distinct_adapter_contracts) ... ok
+test_synthetic_credentials_stay_outside_worker (test_boundaries.BoundaryTests.test_synthetic_credentials_stay_outside_worker) ... FAIL
+test_default_accepts (test_defaults.DefaultTests.test_default_accepts) ... ok
+test_default_rejects (test_defaults.DefaultTests.test_default_rejects) ... ok
+
+======================================================================
+ERROR: test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) (limit=20, length=13)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/baseline/worker-fixture/tests/test_boundaries.py", line 16, in test_configured_boundaries
+    self.assertEqual(tool.worker(text)["value"], "X" * length)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'value'
+
+======================================================================
+ERROR: test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) (limit=20, length=20)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/baseline/worker-fixture/tests/test_boundaries.py", line 16, in test_configured_boundaries
+    self.assertEqual(tool.worker(text)["value"], "X" * length)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'value'
+
+======================================================================
+FAIL: test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) (limit=5, length=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/baseline/worker-fixture/tests/test_boundaries.py", line 20, in test_configured_boundaries
+    self.assertEqual(tool.worker(text).get("error"), "text exceeds limit")
+AssertionError: None != 'text exceeds limit'
+
+======================================================================
+FAIL: test_synthetic_credentials_stay_outside_worker (test_boundaries.BoundaryTests.test_synthetic_credentials_stay_outside_worker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/baseline/worker-fixture/tests/test_boundaries.py", line 27, in test_synthetic_credentials_stay_outside_worker
+    self.assertEqual(response.get("error"), "text exceeds limit")
+AssertionError: None != 'text exceeds limit'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.279s
+
+FAILED (failures=2, errors=2)

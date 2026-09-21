@@ -1,0 +1,105 @@
+{
+  "date": "2026-09-20",
+  "host": "codex-cli 0.154.0-alpha.6.2",
+  "python": "3.11.1",
+  "git": "2.54.0",
+  "native_discovery": [
+    {
+      "project": "project-a",
+      "found": [
+        {
+          "name": "production-engineering-loop",
+          "scope": "repo",
+          "enabled": true,
+          "display_name": "Production Engineering Loop"
+        },
+        {
+          "name": "production-engineering-loop",
+          "scope": "user",
+          "enabled": true,
+          "display_name": "Production Engineering Loop"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "project": "nested",
+      "found": [
+        {
+          "name": "production-engineering-loop",
+          "scope": "repo",
+          "enabled": true,
+          "display_name": "Production Engineering Loop"
+        },
+        {
+          "name": "production-engineering-loop",
+          "scope": "user",
+          "enabled": true,
+          "display_name": "Production Engineering Loop"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "project": "project-b",
+      "found": [
+        {
+          "name": "production-engineering-loop",
+          "scope": "user",
+          "enabled": true,
+          "display_name": "Production Engineering Loop"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "project": "project-c",
+      "found": [
+        {
+          "name": "production-engineering-loop",
+          "scope": "user",
+          "enabled": true,
+          "display_name": "Production Engineering Loop"
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "prompt_loading": {
+    "exit_code": 0,
+    "mentions_skill": true,
+    "contains_skill_body": false,
+    "contains_review_rules": false,
+    "output_chars": 34125
+  },
+  "dependency_audit": {
+    "dependencies": [
+      {
+        "name": "pyyaml",
+        "version": "6.0.3",
+        "vulns": []
+      }
+    ],
+    "fixes": []
+  },
+  "signature_scan": {
+    "scope": "limited signature scan; no entropy scanner/history scan; no values retained",
+    "text_files_scanned": 231,
+    "credential_signature_hits": [],
+    "personal_path_files": [
+      "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/review-report.json",
+      "evals/review-loop-2026-09-20/candidate-evidence/stale-probe.log",
+      "evals/review-loop-2026-09-20/candidate-review-evidence/review-report.json"
+    ]
+  },
+  "security_reproduction": {
+    "helper_exit_code": 2,
+    "harmless_remote_helper_executed": true,
+    "coordinator_confirmed": true
+  },
+  "unit_tests": {
+    "passed": 23,
+    "failed": 0
+  },
+  "code_changes_made": false
+}

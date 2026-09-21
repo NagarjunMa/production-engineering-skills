@@ -1,0 +1,10 @@
+test_configured_boundaries (test_boundaries.BoundaryTests.test_configured_boundaries) ... ok
+test_distinct_adapter_contracts (test_boundaries.BoundaryTests.test_distinct_adapter_contracts) ... ok
+test_synthetic_credentials_stay_outside_worker (test_boundaries.BoundaryTests.test_synthetic_credentials_stay_outside_worker) ... ok
+test_default_accepts (test_defaults.DefaultTests.test_default_accepts) ... ok
+test_default_rejects (test_defaults.DefaultTests.test_default_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.235s
+
+OK

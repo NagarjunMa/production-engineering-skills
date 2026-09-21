@@ -1,0 +1,2 @@
+# Tag adapters
+Web returns HTTP status 422 plus nested JSON errors. CLI returns exit status 2 plus a plain string. These independent public contracts must remain distinct. Tag normalization strips surrounding whitespace, lowercases, and rejects an empty tag with ValueError("empty tag"). A deployment plugin manifest selects a public helper dynamically; inspect deployment fixtures before considering helpers unused. Request: remove redundant normalization code while preserving behavior and public exports. Run python3 -m unittest discover -s tests -v.

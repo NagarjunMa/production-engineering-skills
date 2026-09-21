@@ -1,0 +1,14 @@
+test_default_accepts (test_defaults.DefaultTests.test_default_accepts) ... ok
+test_default_rejects (test_defaults.DefaultTests.test_default_rejects) ... ok
+test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) ... ok
+test_credential_isolation_and_launch_contract (test_worker_contract.WorkerContractTests.test_credential_isolation_and_launch_contract) ... ok
+test_distinct_adapter_contracts (test_worker_contract.WorkerContractTests.test_distinct_adapter_contracts) ... ok
+test_invalid_parent_limits (test_worker_contract.WorkerContractTests.test_invalid_parent_limits) ... ok
+test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) ... ok
+test_legacy_receiver_default (test_worker_contract.WorkerContractTests.test_legacy_receiver_default) ... ok
+test_python_characters_and_prestrip_limit (test_worker_contract.WorkerContractTests.test_python_characters_and_prestrip_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.699s
+
+OK

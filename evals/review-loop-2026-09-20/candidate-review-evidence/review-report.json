@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169",
+  "base": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+  "reviewer": {
+    "identity": "/root/v05_forward/worker_reviewer",
+    "model": null,
+    "implementer_model": null,
+    "fresh_context": true,
+    "kind": "fresh-context"
+  },
+  "verdict": "no_material_findings",
+  "coverage": [
+    "README.md, AGENTS.md, review-input.md, docs/engineering-loop/features/worker-configuration.md reviewed as contract. Source: parent.py entire; policy.py entire; worker.py entire; adapters.py entire; legacy.py entire; tests/test_defaults.py and tests/test_worker_contract.py entire; repository consumer search and raw-base diff.",
+    "AC1: lower/higher/exact/over limits and Unicode/pre-strip cases tested. Plausible wrong omitted/default-only transport fails configured-boundary tests; byte counting fails Unicode case; stripping first fails whitespace rejection.",
+    "AC2: actual process plus launch interception verify sentinel absent, parent sentinel retained, env={} and absolute executable; independent exact payload whitelist and timeout assertions. Wrong env inheritance or config-via-environment caught.",
+    "AC3: invalid parent and direct receiver bool/zero/negative/float/string/null tested; missing receiver limit defaults. Wrong coercion or caller-only validation fails direct receiver cases.",
+    "AC4: distinct adapter exact shapes tested and preserved files byte-compared. Wrong merged shape fails tests; unrelated rename fails comparison.",
+    "AC5: native gate freshly passes; independent review finds no unresolved material issues. Raw-base origin structurally verified; historical red/green claims not treated as fresh observations."
+  ],
+  "limitations": [
+    "Actual model identifier and implementer model are unverified and null. This is a fresh task review, not a substantiated cross-model review. Shared host/tools/filesystem mean isolation is a copied repository, not a security sandbox.",
+    "Integration/release target unknown; supplied raw fixture commit verified only as starting base.",
+    "Only local Python 3.11.1 runtime exercised. External consumers, alternative Python runtimes, ignored installed inputs, parent environment values other than synthetic sentinel, and resource extremes unverified. No external services used.",
+    "Historical baseline/red/green/final logs were supplied as prior claims, not rerun on the old fixture. Baseline omitted transport was independently inspected from git show.",
+    "Malformed JSON/non-text redesign is outside contract. Source tree fingerprint excludes ignored pycache test scratch. No source edits or persistent project-memory writes performed."
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "command": "python3 -m unittest discover -s tests -v",
+      "evidence": "/tmp/pel-v05-eval.X8VqLa/candidate-review-evidence/fresh-tests.log; 2026-09-20; Python 3.11.1; 9 tests passed",
+      "result": "passed",
+      "required": true,
+      "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169"
+    },
+    {
+      "id": "C2",
+      "command": "Independent Python script: compare Tool.local/worker for limits 2,7,13,64 with empty, whitespace, Unicode, exact and over-limit strings; wrap real subprocess.run and assert JSON keys exactly text/limit, env={}, timeout=5, check=True, absolute executable; git show raw base and compare preserved files byte-for-byte.",
+      "evidence": "/tmp/pel-v05-eval.X8VqLa/candidate-review-evidence/independent.log; 2026-09-20T19:10:38Z; Python 3.11.1; passed",
+      "result": "passed",
+      "required": true,
+      "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169"
+    },
+    {
+      "id": "C3",
+      "command": "Read all five production Python files and both test modules; rg -n Tool|normalize_text|validate_limit|web_error|cli_error|thingy .; inspect git diff against ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1.",
+      "evidence": "Fresh source inspection on 2026-09-20: all repository consumers traced. Shared validation rejects non-exact ints and <=0 before len/strip/upper; additive JSON limit consumed using default only when missing. Adapter and legacy files unchanged.",
+      "result": "passed",
+      "required": true,
+      "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169"
+    },
+    {
+      "id": "C4",
+      "command": "python3 $SKILL_DIR/scripts/review_evidence.py check --repo $REVIEW_COPY --packet $PACKET (start and end; public evidence paths sanitized)",
+      "evidence": "Start returned PASS: provenance is current; end /tmp/pel-v05-eval.X8VqLa/candidate-review-evidence/freshness-end.log; 2026-09-20",
+      "result": "passed",
+      "required": true,
+      "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169"
+    }
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "high",
+      "material": true,
+      "classification": "confirmed",
+      "origin": "pre-existing",
+      "status": "resolved",
+      "location": "parent.py:18; worker.py:10; policy.py:4",
+      "claim": "Raw fixture omitted configured limits across the subprocess boundary; nondefault worker decisions differed from local decisions.",
+      "criterion": "AC1, AC2, AC3",
+      "evidence": "High confidence: raw-base parent serialized text only and receiver used normalize_text default; fresh suite and 20 independently selected comparisons pass after correction.",
+      "reproducer": "Tool(5).local(\"xxxxxx\") raises; corrected Tool(5).worker(\"xxxxxx\") returns error text exceeds limit. Tool(20) accepts thirteen characters in both modes.",
+      "resolution": "Parent transports limit beside text; receiver uses additive limit with legacy default; both use canonical positive-integer validation; env remains empty.",
+      "resolved_snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169",
+      "check_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ]
+    },
+    {
+      "id": "R2",
+      "severity": "low",
+      "material": false,
+      "classification": "unsupported",
+      "origin": "pre-existing",
+      "status": "dismissed",
+      "location": "adapters.py:1-6",
+      "claim": "Incoming request to merge web and CLI response shapes conflicts with intentional README contracts.",
+      "criterion": "AC4",
+      "evidence": "High confidence: README explicitly distinguishes HTTP-style and exit/message contracts; tests characterize exact existing shapes; file is byte-identical to raw base.",
+      "reproducer": "web_error(\"bad\") is (400,{\"error\":{\"message\":\"bad\"}}); cli_error(\"bad\") is (2,\"error: bad\").",
+      "resolution": "Keep distinct adapter functions and shapes.",
+      "resolved_snapshot_id": null,
+      "check_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ]
+    },
+    {
+      "id": "R3",
+      "severity": "low",
+      "material": false,
+      "classification": "unsupported",
+      "origin": "pre-existing",
+      "status": "dismissed",
+      "location": "legacy.py:2",
+      "claim": "Incoming rename request is unrelated cosmetic cleanup excluded by task scope.",
+      "criterion": "AC4",
+      "evidence": "High confidence: AGENTS scopes changes to worker report; legacy.py unchanged byte-for-byte; no production consumer found in repository.",
+      "reproducer": "Inspect AGENTS.md and legacy.py diff against raw base; no functional worker defect derives from thingy.",
+      "resolution": "Preserve unrelated legacy symbol.",
+      "resolved_snapshot_id": null,
+      "check_ids": [
+        "C2",
+        "C3"
+      ]
+    }
+  ]
+}

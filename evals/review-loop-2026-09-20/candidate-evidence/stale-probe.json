@@ -1,0 +1,12 @@
+{
+  "source_copy": "/tmp/pel-v05-eval.X8VqLa/candidate",
+  "probe": "/tmp/pel-v05-eval.X8VqLa/candidate-stale-probe",
+  "packet": "/tmp/pel-v05-eval.X8VqLa/candidate-evidence/final-packet.json",
+  "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169",
+  "edit": "policy.py DEFAULT_LIMIT 12 -> 13",
+  "before_sha256": "1fbcb91491a7786153787c2484dc8d0f71f27d06e04a6ab7f906504f3ef81a3a",
+  "after_sha256": "06dc0fbddca97a7d8939abd9b85c2dac5b6a678bba63c16441a8e33e3b4d0295",
+  "expected_exit": 1,
+  "actual_exit": 1,
+  "discarded": true
+}

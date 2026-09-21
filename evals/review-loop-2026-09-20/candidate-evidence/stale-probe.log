@@ -1,0 +1,5 @@
+command: python3 $SKILL_DIR/scripts/review_evidence.py check --repo $STALE_PROBE_COPY --packet $PACKET (public evidence paths sanitized)
+exit_code: 1
+Review evidence is stale; capture and review the current source.
+Changed paths: ["policy.py"]
+HEAD/index/base metadata changed: False

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "head": "b838c2d042dd14dd49b889b4ba0602419d40d72b",
+  "base": "b838c2d042dd14dd49b889b4ba0602419d40d72b",
+  "merge_base": "b838c2d042dd14dd49b889b4ba0602419d40d72b",
+  "contract": "docs/engineering-loop/features/normalization.md",
+  "exclusions": [],
+  "files": {
+    ".gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "AGENTS.md": {
+      "kind": "file",
+      "sha256": "d50aa242d55f05b7e3d3015bb88597266905be99629529c69b11ec704c68a94f",
+      "executable": false
+    },
+    "README.md": {
+      "kind": "file",
+      "sha256": "316a91416224f5f5a7037fb90d693d098c2bceba5a806f8ec34a270edb011e05",
+      "executable": false
+    },
+    "adapters.py": {
+      "kind": "file",
+      "sha256": "82478bd82bf6037a9fe24d611f7446c97dfb9f418fd4c9d5ffa8a76a73adab5d",
+      "executable": false
+    },
+    "deployment/registry.json": {
+      "kind": "file",
+      "sha256": "942e63b5136abd97dc724000ff95407fe3c436d20e10afd52c657bac44fed675",
+      "executable": false
+    },
+    "docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "caf55032973ca94d3b7086c762dbdf284120b485e6ce8d64119763af51638a1c",
+      "executable": false
+    },
+    "docs/engineering-loop/features/normalization.md": {
+      "kind": "file",
+      "sha256": "6d29ae1fd036077f5c1aead1c67991dec58185fc2ac47a39d91d150c95a4e79f",
+      "executable": false
+    },
+    "helpers.py": {
+      "kind": "file",
+      "sha256": "649f8078db0e383166fde98421d280da803be55456f9a0535fb65a21e34d967b",
+      "executable": false
+    },
+    "plugins.py": {
+      "kind": "file",
+      "sha256": "2a7ae88db758fb07761a101e416550207a0fea95652deca70e6641cf27924158",
+      "executable": false
+    },
+    "tests/test_adapters.py": {
+      "kind": "file",
+      "sha256": "8a61446f8fd5fcab2b5c08eb76c75c8f7cb444b9a061a5069c3853abb0e11897",
+      "executable": false
+    },
+    "tests/test_contracts.py": {
+      "kind": "file",
+      "sha256": "59737c3bf1ab50891bba2be9b00e771b502ff33890ec1b72c2e2254e75a31212",
+      "executable": false
+    }
+  },
+  "index": [
+    [
+      ".gitignore",
+      "100644",
+      "c18dd8d83ceed1806b50b0aaa46beb7e335fff13"
+    ],
+    [
+      "AGENTS.md",
+      "100644",
+      "e4188ed7911747f26cc1958ceba6944f47c88e41"
+    ],
+    [
+      "README.md",
+      "100644",
+      "899d6488ee1281ee3fad7bfcdffebad74ee8111f"
+    ],
+    [
+      "adapters.py",
+      "100644",
+      "07daf3a33903c1c6c2bc99ed09b41955a51a4209"
+    ],
+    [
+      "deployment/registry.json",
+      "100644",
+      "0ee17b9e103bc8816c16dc92035f0071eeefb08b"
+    ],
+    [
+      "helpers.py",
+      "100644",
+      "181233318f424e6808cf565be0fe2ae4d6ac989b"
+    ],
+    [
+      "plugins.py",
+      "100644",
+      "185c8da04a5ffcaa05b64b44190e501dca6803a0"
+    ],
+    [
+      "tests/test_adapters.py",
+      "100644",
+      "e42a565f3819df25d541895a32d9ab40d8951ab3"
+    ]
+  ],
+  "limitations": [
+    "Ignored files, external dependencies, runtime environment, and external symlink contents are not captured."
+  ],
+  "snapshot_id": "72005fbf9cc653ad2ca50ab1cd8bfa78f9c4df0afb7f7967f45e55e7798012e5"
+}

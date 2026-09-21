@@ -1,0 +1,2 @@
+2026-09-20T19:12:51.566827+00:00 3.11.1
+PASS: 22 string baseline/adapter comparisons, 11 direct/dynamic helper comparisons, 4 invalid-type propagation comparisons

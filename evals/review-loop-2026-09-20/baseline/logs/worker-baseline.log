@@ -1,0 +1,7 @@
+test_default_accepts (test_defaults.DefaultTests.test_default_accepts) ... ok
+test_default_rejects (test_defaults.DefaultTests.test_default_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.091s
+
+OK

@@ -1,0 +1,180 @@
+--- before/docs/engineering-loop/PROJECT.md
++++ after/docs/engineering-loop/PROJECT.md
+@@ -0,0 +1,33 @@
++# Parcel project context
++
++The [README](../../README.md) specifies a small Python quote library with web
++and CLI consumers. Shipping policy is shared; output and error contracts differ
++intentionally. There is no network, persistence, service, or deployment scope.
++
++## Source map
++
++- `parcel/policy.py`: `fee_cents` owns strict nonnegative integer validation and
++  the 5000-cent free-shipping threshold.
++- `parcel/web.py`: `web_quote` translates policy results/errors to web responses;
++  `web_quotes` applies it to each input in order.
++- `parcel/cli.py`: `cli_quote` formats CLI results/errors independently.
++- `parcel/__init__.py`: empty package marker.
++- `tests/test_quotes.py`: standard-library unittest checks for the entry points.
++
++All six original files, including README, were read on 2026-09-18. No additional
++repository instructions, dependencies, packaging, CI, or static-check configuration
++were present in the project inventory. Python 3.11.1 is available; no supported
++version range is declared. This disposable project has no Git metadata, so no
++commit or clean-worktree claim is available.
++
++## Feature and checks
++
++[Batch web quotes](features/web-quotes.md) records the contract, current execution
++context, design, and evaluation evidence. Single and batch quotes are implemented
++and verified locally.
++
++Run `python3 -B -m unittest discover -s tests -v` from the project root. Baseline:
++3 tests passed on 2026-09-18 before changes. Final source: 9 tests passed on the
++same date, covering ordered batches, invalid-item recovery, empty input, input
++immutability, and existing web/CLI contracts. All final implementation and tests
++were reviewed. No external consumer or release environment is available for inspection.
+--- before/docs/engineering-loop/features/web-quotes.md
++++ after/docs/engineering-loop/features/web-quotes.md
+@@ -0,0 +1,76 @@
++# Batch web quotes
++
++## Contract and execution context
++
++Source: [README](../../../README.md), inspected 2026-09-18. Implement
++`web_quotes(subtotals)` with ordered, independently validated responses, empty
++input support, and no input mutation. Preserve all existing fee, web, and CLI
++contracts. Dependencies, services, persistence, and deployment are out of scope.
++
++Standard risk: additive local orchestration within an established adapter, with
++no policy change or new external boundary. Compact documentation fits this bounded
++operation reusing existing domain policy and adapter behavior.
++
++Verified paths: `parcel/web.py` (`web_quote`, `web_quotes`),
++`parcel/policy.py` (`fee_cents`), `parcel/cli.py` (`cli_quote`), and
++`tests/test_quotes.py` (entry-point consumers). Entire initial source snapshot
++was inspected; there is no Git revision. Status: verified locally on 2026-09-18;
++implementation and applicable checks are complete, with no next incomplete step.
++
++## Design basis
++
++Batch orchestration belongs in `parcel/web.py` and delegates each item to
++`web_quote`. This keeps validation/pricing canonical in `fee_cents` and web
++response translation canonical in `web_quote`. The CLI's distinct formatting
++and error contract remain intentional. No broad exception handling, mutable
++shared state, new abstraction, or dependency is needed. Adding a function is
++compatible with existing entry points; local recovery is removal of that function.
++
++## Acceptance and verification
++
++| ID | Observable criterion | Independent evaluation in `tests/test_quotes.py` | Result |
++| --- | --- | --- | --- |
++| A1 | Responses preserve order and policy boundaries | `BatchQuotes.test_order_and_boundaries`: 5000, 0, 4999, 5001 with literal expected responses | Passed |
++| A2 | Invalid items do not prevent later quotes | `BatchQuotes.test_invalid_items_do_not_stop_later_quotes`: negative, booleans, float, string, None, list, dict between valid values | Passed |
++| A3 | Empty input returns an empty list | `BatchQuotes.test_empty` | Passed |
++| A4 | Inputs remain unchanged | `BatchQuotes.test_input_is_not_mutated`: deep-copy comparison of mixed nested input | Passed |
++| A5 | Existing entry points and policy remain compatible | `ExistingQuotes`: web/CLI threshold and invalid-type tests plus original tests | Passed |
++
++Command: `python3 -B -m unittest discover -s tests -v`, project root,
++Python 3.11.1. Baseline passed: 3 tests on the original source snapshot.
++No configured lint/type/CI checks were found. External consumers are not available.
++
++The same unittest command was run at three snapshots:
++
++- Original source: **passed**, 3 tests, exit 0.
++- Added tests with minimal `web_quotes` returning `[]`: **failed as intended**,
++  9 tests with 9 assertion failures (8 invalid-item subtests and the ordering
++  case), exit 1. Existing compatibility checks passed; this was a behavioral
++  failure, not an import/collection error.
++- Final implementation delegating to `web_quote`: **passed**, all 9 tests, exit 0.
++
++`python3 --version` reported Python 3.11.1. `rg --files --hidden .` inventoried
++the final eight files. `git status --short` reported that this is not a Git
++repository; revision/diff metadata is unavailable. Final source was compared
++against the initially read source and the applied patches. No network or hosted
++checks were run, and no such checks are configured or required here.
++
++## Outcome
++
++Changed `parcel/web.py` by adding `web_quotes` and `tests/test_quotes.py` by adding
++six behavioral tests while preserving the original three. Created
++`docs/engineering-loop/PROJECT.md` and this feature record. No other project
++files changed; no dependencies or infrastructure were added.
++
++Design review traced batch to single-web adapter to shared policy, and inspected
++CLI compatibility and all tests. There is no duplicated validation or price rule,
++no batch-wide error catch that could discard later quotes, no input writes, and
++no change to existing web/CLI functions. List construction provides ordered
++responses and empty-input behavior. No material in-scope findings remain.
++
++Project context is refreshed. No new reusable defect lesson was warranted: the
++observed red state was the deliberate feature scaffold, not a discovered design
++defect. Limits: one local Python version, no external consumers or Git history,
++and no configured hosted/static checks. Non-iterable containers and exceptions
++raised by a caller's iterator are outside the README contract; no new batch-level
++error contract was introduced. Verified locally; nothing was released or committed.
+--- before/parcel/web.py
++++ after/parcel/web.py
+@@ -6,3 +6,8 @@
+         return {"status": 200, "fee_cents": fee_cents(subtotal)}
+     except ValueError:
+         return {"status": 400, "error": "invalid subtotal"}
++
++
++def web_quotes(subtotals):
++    """Return independent web responses in input order without changing inputs."""
++    return [web_quote(subtotal) for subtotal in subtotals]
+--- before/tests/test_quotes.py
++++ after/tests/test_quotes.py
+@@ -1,5 +1,6 @@
+ import unittest
+-from parcel.web import web_quote
++from copy import deepcopy
++from parcel.web import web_quote, web_quotes
+ from parcel.cli import cli_quote
+ 
+ 
+@@ -13,3 +14,43 @@
+     def test_errors(self):
+         self.assertEqual(web_quote(-1), {"status": 400, "error": "invalid subtotal"})
+         self.assertEqual(cli_quote(-1), "Error: invalid subtotal")
++
++    def test_policy_boundaries(self):
++        for subtotal, fee in [(0, 499), (4999, 499), (5000, 0), (5001, 0)]:
++            with self.subTest(subtotal=subtotal):
++                self.assertEqual(web_quote(subtotal), {"status": 200, "fee_cents": fee})
++                self.assertEqual(cli_quote(subtotal), f"Shipping: {fee} cents")
++
++    def test_invalid_types(self):
++        for subtotal in [True, False, 100.0, "100", None, [], {}]:
++            with self.subTest(subtotal=subtotal):
++                self.assertEqual(web_quote(subtotal), {"status": 400, "error": "invalid subtotal"})
++                self.assertEqual(cli_quote(subtotal), "Error: invalid subtotal")
++
++
++class BatchQuotes(unittest.TestCase):
++    def test_order_and_boundaries(self):
++        self.assertEqual(web_quotes([5000, 0, 4999, 5001]), [
++            {"status": 200, "fee_cents": 0},
++            {"status": 200, "fee_cents": 499},
++            {"status": 200, "fee_cents": 499},
++            {"status": 200, "fee_cents": 0},
++        ])
++
++    def test_invalid_items_do_not_stop_later_quotes(self):
++        for invalid in [-1, True, False, 100.0, "100", None, [], {}]:
++            with self.subTest(invalid=invalid):
++                self.assertEqual(web_quotes([0, invalid, 5000]), [
++                    {"status": 200, "fee_cents": 499},
++                    {"status": 400, "error": "invalid subtotal"},
++                    {"status": 200, "fee_cents": 0},
++                ])
++
++    def test_empty(self):
++        self.assertEqual(web_quotes([]), [])
++
++    def test_input_is_not_mutated(self):
++        subtotals = [5000, {"subtotal": [100]}, [0], -1, 4999]
++        original = deepcopy(subtotals)
++        web_quotes(subtotals)
++        self.assertEqual(subtotals, original)

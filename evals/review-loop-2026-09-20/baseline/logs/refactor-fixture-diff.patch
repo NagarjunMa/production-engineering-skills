@@ -1,0 +1,28 @@
+diff --git a/adapters.py b/adapters.py
+index 07daf3a..80add1e 100644
+--- a/adapters.py
++++ b/adapters.py
+@@ -1,12 +1,17 @@
++from helpers import normalize_tag
++
++
+ def web_tag(value):
+-    tag = value.strip().lower()
+-    if not tag:
+-        return 422, {"error": {"message": "empty tag"}}
++    try:
++        tag = normalize_tag(value)
++    except ValueError as exc:
++        return 422, {"error": {"message": str(exc)}}
+     return 200, {"tag": tag}
+ 
+ 
+ def cli_tag(value):
+-    tag = value.strip().lower()
+-    if not tag:
+-        return 2, "error: empty tag"
++    try:
++        tag = normalize_tag(value)
++    except ValueError as exc:
++        return 2, "error: " + str(exc)
+     return 0, tag

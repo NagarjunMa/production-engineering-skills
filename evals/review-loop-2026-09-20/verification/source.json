@@ -1,0 +1,1143 @@
+{
+  "schema_version": 1,
+  "head": null,
+  "base": null,
+  "merge_base": null,
+  "contract": "docs/engineering-loop/features/automated-review-resolution.md",
+  "exclusions": [
+    "evals/review-loop-2026-09-20/verification"
+  ],
+  "files": {
+    ".github/workflows/validate.yml": {
+      "kind": "file",
+      "sha256": "4b843935372cef5729e70ce2c1271e7bcd90177f7348c1ab8dc7da62769b799f",
+      "executable": false
+    },
+    ".gitignore": {
+      "kind": "file",
+      "sha256": "074ee4865b3c20644425576c561c84bc260c3acd183983caf5d67191dfbbf916",
+      "executable": false
+    },
+    "CONTRIBUTING.md": {
+      "kind": "file",
+      "sha256": "9b6327f10028314b4dfe666019428b72e4a3fbcc218ddfe999e346e40e793513",
+      "executable": false
+    },
+    "LICENSE": {
+      "kind": "file",
+      "sha256": "32556e40bffd59a8b8dd2c4e5b31328f4db18aa792af0351c029e776d37f70ae",
+      "executable": false
+    },
+    "README.md": {
+      "kind": "file",
+      "sha256": "1c6d4b6802dfbda0184f7992860b510d64615f9f5e3047892e3b7773b341601c",
+      "executable": false
+    },
+    "docs/audit-2026-09-18.md": {
+      "kind": "file",
+      "sha256": "5f9a22dbc367bc4c217f571cc4d872249265a499bc3e8ba3ce0faa9c6c62e265",
+      "executable": false
+    },
+    "docs/engineering-loop/LESSONS.md": {
+      "kind": "file",
+      "sha256": "c9d5b614706b2d873c340085e4684029cc8102facc151e79c58b79bc657e6341",
+      "executable": false
+    },
+    "docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "90f6739c2ed2333a15d872d595566d37876cb0de00411bca81fd2362e5cf9133",
+      "executable": false
+    },
+    "docs/engineering-loop/features/automated-review-resolution.md": {
+      "kind": "file",
+      "sha256": "26867648fe2de6fb6e8f47309ca939a89fd5d50654b62536759689a993d5a9e7",
+      "executable": false
+    },
+    "docs/engineering-loop/features/feature-context.md": {
+      "kind": "file",
+      "sha256": "7a8030d58cd6952ff8c38b690dd3a3f8ff54bea9d497b8d4d031cfce3b8a4f3a",
+      "executable": false
+    },
+    "docs/engineering-loop/features/project-learning.md": {
+      "kind": "file",
+      "sha256": "e5c3ae3a7a3126d2f9b43e5ffda0b17533acea4c390277d18951677e7b57dae0",
+      "executable": false
+    },
+    "docs/engineering-loop/features/quality-first-modes.md": {
+      "kind": "file",
+      "sha256": "35ba3f35865fb1a5f19b8da21294686f58fff85d80cd8936ce7f432e81704a02",
+      "executable": false
+    },
+    "docs/installation.md": {
+      "kind": "file",
+      "sha256": "df753d3a5b48f184db075b0173099cd75d0efd8e3546048f516dce6231e0a97e",
+      "executable": false
+    },
+    "docs/publishing.md": {
+      "kind": "file",
+      "sha256": "37677914b6129801f44ecfd99dfce8128119c9856cc3bc179cb73a6e8c505840",
+      "executable": false
+    },
+    "docs/self-learning-implementation.md": {
+      "kind": "file",
+      "sha256": "3d975ba5ee6fea0d4783e124d010d50713ee60e3ed1c1160c331a01c33857300",
+      "executable": false
+    },
+    "evals/README.md": {
+      "kind": "file",
+      "sha256": "07b91493daaeaeeed6504e1ff0e1e4c5df5d58d9fdbdaa6fe916f5c0f8da02b6",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/README.md": {
+      "kind": "file",
+      "sha256": "898229032f6ad874df4d68889b7d583c813753787231aab719df2b7201f746dd",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/baseline.diff": {
+      "kind": "file",
+      "sha256": "ec35e30fb607bbc0c7c113573b3e69c88817b548708392ab552ee1461f4b9fbf",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/baseline/README.md": {
+      "kind": "file",
+      "sha256": "24d7db59e5c9d26f18464172f8ea08ee22a88dd02cdbb40a4622dea316f73d2f",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/baseline/stock.py": {
+      "kind": "file",
+      "sha256": "2d031fc7c0f8f8c4a261b052e1f4e03da128b85b15c46690a39b989861ec5b88",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/baseline/tests/test_inventory.py": {
+      "kind": "file",
+      "sha256": "7363ae525b0ab8d67edaf23087a9b6c17a094cc1f1af081f198feee1b495acc1",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/with-skill/README.md": {
+      "kind": "file",
+      "sha256": "24d7db59e5c9d26f18464172f8ea08ee22a88dd02cdbb40a4622dea316f73d2f",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/with-skill/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "2e554ea77effcd7df2c64014c288df22726bb84a5acbee828764a781e09ae46b",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/with-skill/docs/engineering-loop/features/stock-adjustment.md": {
+      "kind": "file",
+      "sha256": "c39a5c71a744fd57605b58570fd6bb7f668d519eeb611e458d3e34a8f9f264e9",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/with-skill/stock.py": {
+      "kind": "file",
+      "sha256": "8305eae3d8d3acffb59c150ebf6dc76e2e21522aac5746dd8ecedec4067096fe",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/completed-fixtures/with-skill/tests/test_inventory.py": {
+      "kind": "file",
+      "sha256": "9f051034e67472158984868f8dec6f6943e72c1fa4f649a75bc1e0f67056276a",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/results.json": {
+      "kind": "file",
+      "sha256": "33eb4c98b2a2c94c07d0322c3ddb4b0fceda3ab59624f24424f66e781f25fda9",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/reviewed-source-sha256.json": {
+      "kind": "file",
+      "sha256": "9ad3aa9ff435769e30b9aac4465a6e5b2d778143d6fdf340e42f67a153fe44fe",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/baseline/README.md": {
+      "kind": "file",
+      "sha256": "24d7db59e5c9d26f18464172f8ea08ee22a88dd02cdbb40a4622dea316f73d2f",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/baseline/stock.py": {
+      "kind": "file",
+      "sha256": "767502c2a31a139dd8d3e4f16254b38d358ded8f7e9ab688e80e085bc1ad958d",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/baseline/tests/test_inventory.py": {
+      "kind": "file",
+      "sha256": "53ecbaebf81eddd55e2a47c63360add9a8522eac61f4e9bfa8495b7ccd5e4cf3",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/with-skill/README.md": {
+      "kind": "file",
+      "sha256": "24d7db59e5c9d26f18464172f8ea08ee22a88dd02cdbb40a4622dea316f73d2f",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/with-skill/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "6a66c8d7f145a356e683e82e15e0cf4bdc472f2cef11343b560aa9ef4a6a291f",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/with-skill/docs/engineering-loop/features/stock-adjustment.md": {
+      "kind": "file",
+      "sha256": "83800cd37fa82cc686c3ccb4108f325e3e38981c39bf24859c0b41f0360199d3",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/with-skill/stock.py": {
+      "kind": "file",
+      "sha256": "767502c2a31a139dd8d3e4f16254b38d358ded8f7e9ab688e80e085bc1ad958d",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/starting-fixtures/with-skill/tests/test_inventory.py": {
+      "kind": "file",
+      "sha256": "53ecbaebf81eddd55e2a47c63360add9a8522eac61f4e9bfa8495b7ccd5e4cf3",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/task.txt": {
+      "kind": "file",
+      "sha256": "0dc863d23f7602bda721646cf368e4c90045af07d991cb34187f1103905f26d4",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/verify_stock.py": {
+      "kind": "file",
+      "sha256": "d6816da31eb5f560798591ce600663c4edca4dfffe3ad4b686b1d13e9206f7b5",
+      "executable": false
+    },
+    "evals/audit-2026-09-18/with-skill.diff": {
+      "kind": "file",
+      "sha256": "8b316c1c8e24eb2530f960806475df917c644f84df5acc10dff12e2ec224e3de",
+      "executable": false
+    },
+    "evals/feature-context-result.md": {
+      "kind": "file",
+      "sha256": "d395ff8f6155b59a1b5c252b39de3cbb15affc3c625f23239a57279eb1b58766",
+      "executable": false
+    },
+    "evals/learning-loop-result.md": {
+      "kind": "file",
+      "sha256": "189bfb8cf41f408aeb84cf17cd8790bf079f2ab52688b25b89220b4eba4710a8",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/README.md": {
+      "kind": "file",
+      "sha256": "f9aa66f3aec57d2fea226cf5f2faeef9df22026578acb42e813d666cfeb328d5",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/compact.diff": {
+      "kind": "file",
+      "sha256": "6536f4d0b0b2d97eeff77cc3120d495e3c6c571a7a1a6a7a11722ba464eba669",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/README.md": {
+      "kind": "file",
+      "sha256": "bc20482fce1216d14db913995436a04c175405ad90f0f658cb2d67762989fe9c",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "41783e689a2ea1fd05ff7c31b2f8f860f0e90ae83b615caaf7705431a253c4a0",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/docs/engineering-loop/features/web-quotes.md": {
+      "kind": "file",
+      "sha256": "a67e3bfafa6ba13be0e43cacb0d6a203fe80b4ec9b8198aa197f606b23108a8e",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/parcel/__init__.py": {
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/parcel/cli.py": {
+      "kind": "file",
+      "sha256": "b530e6c84963bd12ca0cb95952912d46f1f78f479a72f0e78ea3dee181dc3608",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/parcel/policy.py": {
+      "kind": "file",
+      "sha256": "4d76739dc9d1aa266a5aa69404b33b80f569c57143fa87f4cb5b82c25385c863",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/parcel/web.py": {
+      "kind": "file",
+      "sha256": "03d2fe49f2f6988f4c37c6c31723846d28a72a415dede981e1ecc6ce726a4b4f",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/completed-fixture/tests/test_quotes.py": {
+      "kind": "file",
+      "sha256": "1274c56b3148ab8a3055dd3b9b4ac156661a50cb91a7c6d558269b4ff4782165",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/full-completed-plan.md": {
+      "kind": "file",
+      "sha256": "b9eceb0a98af7b678004629dd30e6d31fbbff5a92295e7398069d3b75db6c1c8",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/full-supplied-contract.md": {
+      "kind": "file",
+      "sha256": "fb2ad68ce68ab1a6e306d08699b324637a229707ddc08507237dee1ff9b70fe0",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/full-task.txt": {
+      "kind": "file",
+      "sha256": "d2676cf11789b44543d5ce1de1d1288e28f5a37c7c4b63aafec0119f18a677b5",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/full.diff": {
+      "kind": "file",
+      "sha256": "65554f15adb8031e4659748721618b85d12c188f9d3d7bc090c4b4722337ec38",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/results.json": {
+      "kind": "file",
+      "sha256": "00820ca55df12947dbc01dc5b495aba9ee77d8262c68e12c5e5aa6406641f3ed",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/starting-fixture/README.md": {
+      "kind": "file",
+      "sha256": "bc20482fce1216d14db913995436a04c175405ad90f0f658cb2d67762989fe9c",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/starting-fixture/parcel/__init__.py": {
+      "kind": "file",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/starting-fixture/parcel/cli.py": {
+      "kind": "file",
+      "sha256": "b530e6c84963bd12ca0cb95952912d46f1f78f479a72f0e78ea3dee181dc3608",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/starting-fixture/parcel/policy.py": {
+      "kind": "file",
+      "sha256": "4d76739dc9d1aa266a5aa69404b33b80f569c57143fa87f4cb5b82c25385c863",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/starting-fixture/parcel/web.py": {
+      "kind": "file",
+      "sha256": "a3376aa0a92e0237e6caa79f6b1a412d3d93ae9f4cd0b1ffb9684229568a725e",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/starting-fixture/tests/test_quotes.py": {
+      "kind": "file",
+      "sha256": "b41580ec5d853dd2e933ef61aa6d427fdc0b401e0a68403817e9c34e036bfc98",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/task.txt": {
+      "kind": "file",
+      "sha256": "119425b04973ad874a875ad06a0d0b5faad95ac5c037aaa8d2311ed98d17a6c3",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/tested-skill-sha256.json": {
+      "kind": "file",
+      "sha256": "dc1989278d0e510c5a59551e64a6bf81e06d45a4c3f40edae69f9d8eb6ff1fa2",
+      "executable": false
+    },
+    "evals/quality-first-2026-09-18/verify_quotes.py": {
+      "kind": "file",
+      "sha256": "e64820508ab7de33657c0e88e15b18eacaf232459013acee612396c6c8d3be45",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/README.md": {
+      "kind": "file",
+      "sha256": "9151c4e600de86e3cd0fda0f5c2010b6aa66cba789a0884de4a2123164b88ad5",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline-skill-sha256.json": {
+      "kind": "file",
+      "sha256": "89db6d00e567ab46cd23966396e34781dda7db09deaa1f5d4d49453644b44bd3",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/refactor-baseline.log": {
+      "kind": "file",
+      "sha256": "25ff20acbfeb4f68081211baeb2d90fe669d604b060bb8421606d82044ab1c13",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/refactor-characterization.log": {
+      "kind": "file",
+      "sha256": "0d84a0f9dedb9f810dce2c1451bd50b6cb4ad064f197d6080ccb4ccbf9f3f26d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/refactor-fixture-diff.patch": {
+      "kind": "file",
+      "sha256": "893bb47e6788c8d113b1dc263101258b61b6b00a22af04c366cae51cd4ac4a9c",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/refactor-fixture-status.log": {
+      "kind": "file",
+      "sha256": "e16e684676923923145bc5ac0e529796ea18404a9e228a38e0a9c9c55962e8ee",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/refactor-green.log": {
+      "kind": "file",
+      "sha256": "82eb9aed2e1a7e839d688570184c10d3729793a6d287c44cd28de09b07fbba72",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/snapshots.json": {
+      "kind": "file",
+      "sha256": "1b43a2063444dda15e740a3fcd0903ea5b165f3adad5c1ab1f3609d4f8241ecb",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/worker-baseline.log": {
+      "kind": "file",
+      "sha256": "ab1af200b668f7ea79b548627a993184d063623a8ac16c6c82bf1bd7e8fa3a54",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/worker-compatibility.log": {
+      "kind": "file",
+      "sha256": "b86fa0a4eb720c8c59841b57db63af3534c579258b002b327102490fb8f2be4b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/worker-fixture-diff.patch": {
+      "kind": "file",
+      "sha256": "d178ee3e85362cd03db62824a250b75e3ca35aa5831a75d7bb06b7149f6892b8",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/worker-fixture-status.log": {
+      "kind": "file",
+      "sha256": "2dd9b632c8f0097b041e1ba9362b9cb32d7b9b1c9ea7e51f9746c5fdcc650218",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/worker-green.log": {
+      "kind": "file",
+      "sha256": "b798b4df5121fbdc2d1628bd024cfe18b10c17eebde2f62723ebc62481b7f3d6",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/logs/worker-red.log": {
+      "kind": "file",
+      "sha256": "6910a1599f84ff1a8128d70b34055faf144abc95397ffe65bd7dba084c58b986",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/.gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/AGENTS.md": {
+      "kind": "file",
+      "sha256": "d50aa242d55f05b7e3d3015bb88597266905be99629529c69b11ec704c68a94f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/README.md": {
+      "kind": "file",
+      "sha256": "316a91416224f5f5a7037fb90d693d098c2bceba5a806f8ec34a270edb011e05",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/adapters.py": {
+      "kind": "file",
+      "sha256": "2eac56e045f79ec397d6cebd2027da169e74ece32b80dc08a899cb0a06a4982a",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/deployment/registry.json": {
+      "kind": "file",
+      "sha256": "942e63b5136abd97dc724000ff95407fe3c436d20e10afd52c657bac44fed675",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/helpers.py": {
+      "kind": "file",
+      "sha256": "649f8078db0e383166fde98421d280da803be55456f9a0535fb65a21e34d967b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/plugins.py": {
+      "kind": "file",
+      "sha256": "2a7ae88db758fb07761a101e416550207a0fea95652deca70e6641cf27924158",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-refactor-start/tests/test_adapters.py": {
+      "kind": "file",
+      "sha256": "8a61446f8fd5fcab2b5c08eb76c75c8f7cb444b9a061a5069c3853abb0e11897",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/.gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/AGENTS.md": {
+      "kind": "file",
+      "sha256": "e3b34cfa753c359f726a906bce9f64a2e9c6cde950f9c16cfe68985959c11995",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/README.md": {
+      "kind": "file",
+      "sha256": "41f6680ecb2faceba94fd43db3b72a4ba6fdc08b0ed4194e6f919b17c62b3610",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/adapters.py": {
+      "kind": "file",
+      "sha256": "77d38dacafcf9649b07af37bef2e27831c295cbd3b408c7871f7e420e210a636",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/legacy.py": {
+      "kind": "file",
+      "sha256": "e3bd0b51a07bca3ec5c53c94413ee8718be50c8f145e4476b640264cfcad1070",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/parent.py": {
+      "kind": "file",
+      "sha256": "9185365c1c090abfbc1b13db236d652ee6d0ab0b71a17b8cadf52d483df824cc",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/policy.py": {
+      "kind": "file",
+      "sha256": "3a7e4229960208d47c2d7dc16bf2579197e60428eaa84e8bf0c104cbd05df448",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/review-input.md": {
+      "kind": "file",
+      "sha256": "afd458f021452738276ef369bddde9c19f4e3d9d1fab4edb433f4e9d8b41f87f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/tests/test_defaults.py": {
+      "kind": "file",
+      "sha256": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/raw-worker-start/worker.py": {
+      "kind": "file",
+      "sha256": "a0d028cc8f65c12c092fbb6dc44e60fcfbed546354a73f91c7ad3f836bbe4e3e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/.gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/AGENTS.md": {
+      "kind": "file",
+      "sha256": "d50aa242d55f05b7e3d3015bb88597266905be99629529c69b11ec704c68a94f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/README.md": {
+      "kind": "file",
+      "sha256": "316a91416224f5f5a7037fb90d693d098c2bceba5a806f8ec34a270edb011e05",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/adapters.py": {
+      "kind": "file",
+      "sha256": "82478bd82bf6037a9fe24d611f7446c97dfb9f418fd4c9d5ffa8a76a73adab5d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/deployment/registry.json": {
+      "kind": "file",
+      "sha256": "942e63b5136abd97dc724000ff95407fe3c436d20e10afd52c657bac44fed675",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "a2cf84bd9dfc6f475673b231d5f43b542623d14c9b650c812b8ab2960574022f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/docs/engineering-loop/features/refactor.md": {
+      "kind": "file",
+      "sha256": "62fbcf57f4aeb5258626fd2da084d4c8d0ab2f49c6e3cbb33c4e6e940ba30afa",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/helpers.py": {
+      "kind": "file",
+      "sha256": "649f8078db0e383166fde98421d280da803be55456f9a0535fb65a21e34d967b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/plugins.py": {
+      "kind": "file",
+      "sha256": "2a7ae88db758fb07761a101e416550207a0fea95652deca70e6641cf27924158",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/tests/test_adapters.py": {
+      "kind": "file",
+      "sha256": "8a61446f8fd5fcab2b5c08eb76c75c8f7cb444b9a061a5069c3853abb0e11897",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/refactor-fixture/tests/test_contracts.py": {
+      "kind": "file",
+      "sha256": "bbd8f7a5c824506e3c015a0d474336436f38c6e8efffd18a1e325b052239eaa3",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/.gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/AGENTS.md": {
+      "kind": "file",
+      "sha256": "e3b34cfa753c359f726a906bce9f64a2e9c6cde950f9c16cfe68985959c11995",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/README.md": {
+      "kind": "file",
+      "sha256": "41f6680ecb2faceba94fd43db3b72a4ba6fdc08b0ed4194e6f919b17c62b3610",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/adapters.py": {
+      "kind": "file",
+      "sha256": "77d38dacafcf9649b07af37bef2e27831c295cbd3b408c7871f7e420e210a636",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/docs/engineering-loop/LESSONS.md": {
+      "kind": "file",
+      "sha256": "96b964a66e91d2706b1d28f6b96c10f93092d24d16f3b39f1ad63d6adc0ddff2",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "039ae456325495543e9e8e0eebf6909d9dd8b9b0d6785e0e37235b3f9419556b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/docs/engineering-loop/features/worker-config.md": {
+      "kind": "file",
+      "sha256": "2a225d6682490fd5930a300b68c7c9ff53cc0baeab844f093c1190630d9cbd17",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/legacy.py": {
+      "kind": "file",
+      "sha256": "e3bd0b51a07bca3ec5c53c94413ee8718be50c8f145e4476b640264cfcad1070",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/parent.py": {
+      "kind": "file",
+      "sha256": "533a5c01ece6cbccd90e6b76279c580f5d5051898e57a392845a3f2d557a8261",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/policy.py": {
+      "kind": "file",
+      "sha256": "3a7e4229960208d47c2d7dc16bf2579197e60428eaa84e8bf0c104cbd05df448",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/review-input.md": {
+      "kind": "file",
+      "sha256": "afd458f021452738276ef369bddde9c19f4e3d9d1fab4edb433f4e9d8b41f87f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/tests/test_boundaries.py": {
+      "kind": "file",
+      "sha256": "b64fa6268ebb42338487c6a30354a65122b0d1d2bcba34efb75ee5cb762b1b7d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/tests/test_defaults.py": {
+      "kind": "file",
+      "sha256": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/baseline/worker-fixture/worker.py": {
+      "kind": "file",
+      "sha256": "0c351f31a3fd44a4478fe20d4418202e27cc4979054cf76eda427d51f855955b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/base.txt": {
+      "kind": "file",
+      "sha256": "a425cb88b5d0527f4841ddcfcec6e4afab167ae3ed131486de056db3051479b2",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/baseline.log": {
+      "kind": "file",
+      "sha256": "f906aed67ae33d6fbc8b2981e2d217266745d65f2a12a16ccc5f41128d791c5b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/dispositions.json": {
+      "kind": "file",
+      "sha256": "5cad55239b37da99d4563d59a46264004d5d299e3f814d62d389c96507cc0ae8",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/final-freshness.log": {
+      "kind": "file",
+      "sha256": "3f6981b7635ddaf44c6445676e69ff8dfaf538decaac394a2d70afa7a8210f90",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/final-packet.json": {
+      "kind": "file",
+      "sha256": "b97e943e88cb8f87a7821a986c3cb63c7446e1275b39bcef106435c44c900d4a",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/final-tests.log": {
+      "kind": "file",
+      "sha256": "679928030c538430d7284f6c19e0c40bafaa193e371d2cd3703faea4b77b463f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/green.log": {
+      "kind": "file",
+      "sha256": "0babd01f3dc51b6bba90c590b398312173d5983e84bb447684f61881a5b01045",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/red.log": {
+      "kind": "file",
+      "sha256": "6c4fba4269c8e9392b381a7704dbd2a2e6afe2aa75a36de3c46025e9860f8d69",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/reviewer-validation.log": {
+      "kind": "file",
+      "sha256": "5e994e32224df6efb6facbab54f7631e3e97cc2c3d82ef90587b916ed9f4ff8e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/run-metadata.json": {
+      "kind": "file",
+      "sha256": "914bb6371bcb95cfeb0780a9767664eb8cbcce1320962eb7d99c1811a6a55067",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/stale-probe.json": {
+      "kind": "file",
+      "sha256": "88cd5a80774b7c75101df4051713344e1e84274a3f7206f3cdb2e84cfaa02af1",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/stale-probe.log": {
+      "kind": "file",
+      "sha256": "1aa33e684f97a8c955c12fc09fece984a81b9423012f6a44747a90f965bc82a6",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-evidence/summary.json": {
+      "kind": "file",
+      "sha256": "fcd32cd8273f8cc8cb053146b30b0f9b4e7d197e19c06852daf1cbf0fbcd2c3e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/baseline.log": {
+      "kind": "file",
+      "sha256": "25ff20acbfeb4f68081211baeb2d90fe669d604b060bb8421606d82044ab1c13",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/characterization.log": {
+      "kind": "file",
+      "sha256": "f1b1d08c37570b63ef4545420d0730cb2a1271e1b4009aafdd63acc8b245f800",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/final-freshness.log": {
+      "kind": "file",
+      "sha256": "3f6981b7635ddaf44c6445676e69ff8dfaf538decaac394a2d70afa7a8210f90",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/final-packet.json": {
+      "kind": "file",
+      "sha256": "55b8aef01afd854044ca176aead9ea2e7c9874287c90aa9dab1759f96bc6575c",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/final-tests.log": {
+      "kind": "file",
+      "sha256": "f1b1d08c37570b63ef4545420d0730cb2a1271e1b4009aafdd63acc8b245f800",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/reviewer-validation.log": {
+      "kind": "file",
+      "sha256": "5e994e32224df6efb6facbab54f7631e3e97cc2c3d82ef90587b916ed9f4ff8e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/run-metadata.json": {
+      "kind": "file",
+      "sha256": "2e7069b0757c54a5e9ccdea1336fe0449d5a8aea9d04ec98d755a2a4d44bd06d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-evidence/summary.json": {
+      "kind": "file",
+      "sha256": "6a7ccca5eec9d4a8507f919e0a63601ad68b3553e280b06c2e83e15074812edd",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/differential.log": {
+      "kind": "file",
+      "sha256": "211903caa86ca22cf82f6880be6d68a0ab46973c49178fca58a06ac06808c8ca",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/freshness-end.log": {
+      "kind": "file",
+      "sha256": "3f6981b7635ddaf44c6445676e69ff8dfaf538decaac394a2d70afa7a8210f90",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/freshness-start.log": {
+      "kind": "file",
+      "sha256": "3f6981b7635ddaf44c6445676e69ff8dfaf538decaac394a2d70afa7a8210f90",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/native-tests.log": {
+      "kind": "file",
+      "sha256": "f1b1d08c37570b63ef4545420d0730cb2a1271e1b4009aafdd63acc8b245f800",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/report-validation.log": {
+      "kind": "file",
+      "sha256": "5e994e32224df6efb6facbab54f7631e3e97cc2c3d82ef90587b916ed9f4ff8e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor-review-evidence/review-report.json": {
+      "kind": "file",
+      "sha256": "d31f3461b53284a577f487ef369dec85da1328a4c9fc594e3eae8de99e093ca4",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/.gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/AGENTS.md": {
+      "kind": "file",
+      "sha256": "d50aa242d55f05b7e3d3015bb88597266905be99629529c69b11ec704c68a94f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/README.md": {
+      "kind": "file",
+      "sha256": "316a91416224f5f5a7037fb90d693d098c2bceba5a806f8ec34a270edb011e05",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/adapters.py": {
+      "kind": "file",
+      "sha256": "82478bd82bf6037a9fe24d611f7446c97dfb9f418fd4c9d5ffa8a76a73adab5d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/deployment/registry.json": {
+      "kind": "file",
+      "sha256": "942e63b5136abd97dc724000ff95407fe3c436d20e10afd52c657bac44fed675",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "caf55032973ca94d3b7086c762dbdf284120b485e6ce8d64119763af51638a1c",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/docs/engineering-loop/features/normalization.md": {
+      "kind": "file",
+      "sha256": "6d29ae1fd036077f5c1aead1c67991dec58185fc2ac47a39d91d150c95a4e79f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/helpers.py": {
+      "kind": "file",
+      "sha256": "649f8078db0e383166fde98421d280da803be55456f9a0535fb65a21e34d967b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/plugins.py": {
+      "kind": "file",
+      "sha256": "2a7ae88db758fb07761a101e416550207a0fea95652deca70e6641cf27924158",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/tests/test_adapters.py": {
+      "kind": "file",
+      "sha256": "8a61446f8fd5fcab2b5c08eb76c75c8f7cb444b9a061a5069c3853abb0e11897",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-refactor/tests/test_contracts.py": {
+      "kind": "file",
+      "sha256": "59737c3bf1ab50891bba2be9b00e771b502ff33890ec1b72c2e2254e75a31212",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-review-evidence/fresh-tests.log": {
+      "kind": "file",
+      "sha256": "a0826f50081c31672253190b201682747ebff02b7fb0ed8bfa76f1c84fba9494",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-review-evidence/freshness-end.log": {
+      "kind": "file",
+      "sha256": "3f6981b7635ddaf44c6445676e69ff8dfaf538decaac394a2d70afa7a8210f90",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-review-evidence/independent.log": {
+      "kind": "file",
+      "sha256": "d938274ce97a5bd8601f96c50bf7686de5dd9d45dae8368bf115e7ca667c3b16",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate-review-evidence/review-report.json": {
+      "kind": "file",
+      "sha256": "c3167a1dfe9fd4be02ae890d9c9e233d5874d68eef5b37ce360e98b3fe87721e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/.gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/AGENTS.md": {
+      "kind": "file",
+      "sha256": "e3b34cfa753c359f726a906bce9f64a2e9c6cde950f9c16cfe68985959c11995",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/README.md": {
+      "kind": "file",
+      "sha256": "41f6680ecb2faceba94fd43db3b72a4ba6fdc08b0ed4194e6f919b17c62b3610",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/adapters.py": {
+      "kind": "file",
+      "sha256": "77d38dacafcf9649b07af37bef2e27831c295cbd3b408c7871f7e420e210a636",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/docs/engineering-loop/LESSONS.md": {
+      "kind": "file",
+      "sha256": "592e06be20e8a37040c9309af2b7318bc9ea6609059841d92cacb3040e80daa1",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "afa89a2e4eb34ad28a7eaf873365c7c00f309cada53fe790ca0bd159718fb07c",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/docs/engineering-loop/features/worker-configuration.md": {
+      "kind": "file",
+      "sha256": "3810c91b0c3128bbb44063b976b6304a8129fe17adcb422a186c138420fe9c5d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/legacy.py": {
+      "kind": "file",
+      "sha256": "e3bd0b51a07bca3ec5c53c94413ee8718be50c8f145e4476b640264cfcad1070",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/parent.py": {
+      "kind": "file",
+      "sha256": "3c5f82d6978a9a0ce38b610293774d7d81a2d7da9aa289752b765a690990e26a",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/policy.py": {
+      "kind": "file",
+      "sha256": "1fbcb91491a7786153787c2484dc8d0f71f27d06e04a6ab7f906504f3ef81a3a",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/review-input.md": {
+      "kind": "file",
+      "sha256": "afd458f021452738276ef369bddde9c19f4e3d9d1fab4edb433f4e9d8b41f87f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/tests/test_defaults.py": {
+      "kind": "file",
+      "sha256": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/tests/test_worker_contract.py": {
+      "kind": "file",
+      "sha256": "5d6883be5b023d2c9a70c271cf5e327decff6fa24a39c5003c6b41265d0a49c3",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/candidate/worker.py": {
+      "kind": "file",
+      "sha256": "0c351f31a3fd44a4478fe20d4418202e27cc4979054cf76eda427d51f855955b",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/all-files-after.json": {
+      "kind": "file",
+      "sha256": "f7d0de96722b936b6951e67d2f3494a71a0b066b79599efa424cda6752dcbbf4",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/all-files-before.json": {
+      "kind": "file",
+      "sha256": "f7d0de96722b936b6951e67d2f3494a71a0b066b79599efa424cda6752dcbbf4",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/base-reproducer.log": {
+      "kind": "file",
+      "sha256": "38b3717537ab27a0ccba7e9b67315ff0d70856229cae7068204404add9d5a6a4",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/before.json": {
+      "kind": "file",
+      "sha256": "bb3aa71c443a7a7477f7a18dec48b2430c5f826bb9a5c47d41642775ac563a22",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/copy-verification.txt": {
+      "kind": "file",
+      "sha256": "03c9d5d824a985cd021d7fdfd78903e3356f07c77a6993316225944e1dc03273",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/integrity.txt": {
+      "kind": "file",
+      "sha256": "576d732d2e7ac45e8b2a0a7d3f5f1eead22030d7d432feb2e9721855699268b8",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/native-check.log": {
+      "kind": "file",
+      "sha256": "49ab7272809c501160140f356dceb84920e4816c5d956daf86ccf0af720bf12f",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/review-packet.md": {
+      "kind": "file",
+      "sha256": "24bc4396924bd002319425f5ede7bd1bac7b9618a830faa451884cb0c563c7f4",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/review-report.md": {
+      "kind": "file",
+      "sha256": "f0a48612d1ac38a043fe6bc6cff07a5e0cbe231b210950ba38e40be084c39cd4",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/reviewer-prompt.md": {
+      "kind": "file",
+      "sha256": "7a96f76e4d1721c109685b2afbf6825c6425bdd2476515ef247b8b03ec61fcdf",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/fallback-evidence/runtime.txt": {
+      "kind": "file",
+      "sha256": "fabda6fcb6268b0948f0a3a6de412e289df1a47b5e6b23905979255dafb01d69",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/helper-review/probes.py": {
+      "kind": "file",
+      "sha256": "0590092f2e05fbde0e8f3a2551919e575e815ffae06fa29881eda3454d2f3040",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/helper-review/review-round1.md": {
+      "kind": "file",
+      "sha256": "6c1158941ca247f70ee8fd1503870f29a3fbec145ebef738547a145356a63193",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/helper-review/review-round2.md": {
+      "kind": "file",
+      "sha256": "b66fb18d2c7145ea40c7f24e57a88bdd57c50520aae426c8e5e09f2b009054dc",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/helper-review/reviewed-hashes-round2.json": {
+      "kind": "file",
+      "sha256": "15f34351ce1061a1d32033db8f698b9c7268dfcad446cc1d62730ba999843e9d",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/helper-review/reviewed-hashes.json": {
+      "kind": "file",
+      "sha256": "ba5df85c7680c86924c40ac62d5dcd8016032db1cf2eed8fe6c8174e2ad4b141",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/helper-review/verify_round2.py": {
+      "kind": "file",
+      "sha256": "fe7e280e729d6c49e8c7d51d4facfad024dbc006d94c0d1770e79390b0dd557e",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/staleness-negative-control.log": {
+      "kind": "file",
+      "sha256": "a66dd7f818318e6f030897a9eba7d691dc5bae25d044d13c032518cac02786d2",
+      "executable": false
+    },
+    "evals/review-loop-2026-09-20/verify_outcomes.py": {
+      "kind": "file",
+      "sha256": "92256629e440e3e52d17b92c016290e0bf45c6d8a96172b7a10fe74c816024d9",
+      "executable": false
+    },
+    "requirements-dev.txt": {
+      "kind": "file",
+      "sha256": "b4603b9468ade4d639d2c6f73b89d50e1fa5d227c73ab15be0382cca478513e6",
+      "executable": false
+    },
+    "scripts/validate.py": {
+      "kind": "file",
+      "sha256": "f06b03a34e24424de3eb9f8cb872812bfebdbe850898992aa2a4ece2e6c43fb1",
+      "executable": false
+    },
+    "skills/production-engineering-loop/LICENSE": {
+      "kind": "file",
+      "sha256": "32556e40bffd59a8b8dd2c4e5b31328f4db18aa792af0351c029e776d37f70ae",
+      "executable": false
+    },
+    "skills/production-engineering-loop/SKILL.md": {
+      "kind": "file",
+      "sha256": "5df7c4acea3d5f81bc17d3bb5f5449c5c56d2b23c572712fea82224e8e34a231",
+      "executable": false
+    },
+    "skills/production-engineering-loop/agents/openai.yaml": {
+      "kind": "file",
+      "sha256": "eb5db65c8d93df9875b2d6c80abf2273f3d13c77df2998a9c51682f81f98e01d",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/feature-compact-template.md": {
+      "kind": "file",
+      "sha256": "c5c9cbbe8ce0749f10ae7bab6e0ce883c451fddd7bc90f20cef1e0e0f8c89f45",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/feature-template.md": {
+      "kind": "file",
+      "sha256": "fc113145796e633352bf660a2a889bed34298a7f71ce49653b50658502d70d28",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/lesson-template.md": {
+      "kind": "file",
+      "sha256": "c2e2425b3b2a47eee91bc2c43bad439c4e394207d82ed18382f65c2ad88371a2",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/pel-reviewer.toml": {
+      "kind": "file",
+      "sha256": "3e9c55abacc3a5697d464003aff8202574c697a2ec2661af46213680c7fb51f1",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/project-template.md": {
+      "kind": "file",
+      "sha256": "aa26719f109d6bc83780e90fac4f7d8f7555405903f24add67146881b70a19c7",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/review-packet-template.md": {
+      "kind": "file",
+      "sha256": "c606784cd81a4cbb05b116ed216a1166d80484e26ac170c3bd70d64398712c15",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/review-report-template.json": {
+      "kind": "file",
+      "sha256": "d2a9fe50ba0c56184f36b95d78e592b08ff1447d99b45f4a8b0333a09ece3f82",
+      "executable": false
+    },
+    "skills/production-engineering-loop/assets/reviewer-prompt.md": {
+      "kind": "file",
+      "sha256": "7a96f76e4d1721c109685b2afbf6825c6425bdd2476515ef247b8b03ec61fcdf",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/code-quality-review.md": {
+      "kind": "file",
+      "sha256": "31d99f29d67bab8f2c4e1ed47381176c781dfee58e83ba6590078e8052a458e8",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/codex-review.md": {
+      "kind": "file",
+      "sha256": "8181150405d0b13607ee63b8f18c772ae9517694a8093e1980077b38009c0d24",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/documentation-modes.md": {
+      "kind": "file",
+      "sha256": "e84233651a0269e5a9850951778dac7a749a7ace54762b9b53c80070e0e28836",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/execution-boundaries.md": {
+      "kind": "file",
+      "sha256": "52f4d87e12521e2f2f5371ddbb558ebc6627ab124466dc3eca86dbb05a49e252",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/feature-evaluations.md": {
+      "kind": "file",
+      "sha256": "117abb0a4f91f8b0c6fa30eb25293c4fffc99fff0987859e86424e58a38dc14c",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/independent-review.md": {
+      "kind": "file",
+      "sha256": "75885021cec9f7a772d50761994490dd10c48286de046d373a30b337ee09086a",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/javascript-typescript.md": {
+      "kind": "file",
+      "sha256": "125539610fb92020ebf6a51b0fa12cb92831567c2b3111dc2215967cc4a6f85a",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/project-learning.md": {
+      "kind": "file",
+      "sha256": "ff79506164b6d211ec6ecf83915dec1dfda63934b62cee794ca48a3e580549af",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/repository-adoption.md": {
+      "kind": "file",
+      "sha256": "e17ad9fdcf1bd731efe13172d8a0e0d3ca7a5a06fe02881a7282ab5e5d090c76",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/review-evidence.md": {
+      "kind": "file",
+      "sha256": "7a0b09e2d122038f046ed4c9f3ec458a12b12567aeefc6ccab2f7722b471f574",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/risk-tiers.md": {
+      "kind": "file",
+      "sha256": "bad5cc269cd2bd732b8d0d8115edec16205fdc6a5825da23038ddc447dad84d3",
+      "executable": false
+    },
+    "skills/production-engineering-loop/references/task-context.md": {
+      "kind": "file",
+      "sha256": "00097e7d7a45dedbc21678778e8d675e4da33804d9f5a4792007c57603ea1841",
+      "executable": false
+    },
+    "skills/production-engineering-loop/scripts/review_evidence.py": {
+      "kind": "file",
+      "sha256": "fe3a3d4c2f5caa7e655004966959d6d7f3e0730cd66c2d2c0e65973c17d871de",
+      "executable": false
+    },
+    "tests/test_review_evidence.py": {
+      "kind": "file",
+      "sha256": "aa63fafee260d1b26e6b2cc501a9ea81ea0f0b7e0bfa2d6d4902c0788a79d784",
+      "executable": false
+    },
+    "tests/test_validate.py": {
+      "kind": "file",
+      "sha256": "5e3c0c502df01598b2fa48d40a919d6fe0de1e53526eebb79e6a79276c239b7c",
+      "executable": false
+    }
+  },
+  "index": [],
+  "limitations": [
+    "Ignored files, external dependencies, runtime environment, and external symlink contents are not captured.",
+    "No base supplied; origin of findings cannot be inferred from this packet."
+  ],
+  "snapshot_id": "896161634a0ff58aeac819925b4cb45b2a5ba8a4b7f7c1a4cb7da05216a9af90"
+}

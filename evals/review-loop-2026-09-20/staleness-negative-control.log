@@ -1,0 +1,20 @@
+test_committed_and_dirty_snapshots (test_review_evidence.ReviewEvidenceTests.test_committed_and_dirty_snapshots) ... FAIL
+
+======================================================================
+FAIL: test_committed_and_dirty_snapshots (test_review_evidence.ReviewEvidenceTests.test_committed_and_dirty_snapshots)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/mutation/tests/test_review_evidence.py", line 74, in test_committed_and_dirty_snapshots
+    self.check(expected=1)
+  File "/private/tmp/pel-v05-eval.X8VqLa/mutation/tests/test_review_evidence.py", line 50, in check
+    return self.run_cli('check', '--repo', str(self.root), '--packet', str(self.packet), expected=expected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/pel-v05-eval.X8VqLa/mutation/tests/test_review_evidence.py", line 40, in run_cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 0 != 1 : PASS: provenance is current
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.298s
+
+FAILED (failures=1)

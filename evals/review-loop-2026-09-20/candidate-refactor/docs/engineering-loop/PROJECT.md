@@ -1,0 +1,2 @@
+# Tag adapters
+Dependency-free Python fixture. README.md and AGENTS.md specify behavior-preserving normalization consolidation and retained public exports. adapters.py owns distinct HTTP/CLI responses; helpers.py owns normalize_tag; plugins.py loads deployment/registry.json dynamically. All first-party source, tests, instructions and deployment manifest inspected 2026-09-20. No CI/dependency manifests or external services. Native gate: python3 -m unittest discover -s tests -v. Feature: features/normalization.md. Runtime observed Python 3.11.1; other runtimes not tested.

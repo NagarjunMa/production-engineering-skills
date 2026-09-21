@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "REPLACE_WITH_CAPTURED_ID",
+  "reviewer": {
+    "identity": "REPLACE_WITH_ACTUAL_IDENTITY",
+    "model": null,
+    "implementer_model": null,
+    "fresh_context": true,
+    "kind": "fresh-context"
+  },
+  "verdict": "blocked",
+  "coverage": ["REPLACE_WITH_INSPECTED_SOURCE_AND_ACCEPTANCE_MAPPING"],
+  "limitations": ["Template only; review and checks not yet performed"],
+  "checks": [
+    {
+      "id": "C1",
+      "command": "REPLACE_WITH_EXACT_COMMAND_OR_STRUCTURAL_PROCEDURE",
+      "result": "not_run",
+      "required": true,
+      "snapshot_id": "REPLACE_WITH_CAPTURED_ID",
+      "evidence": "Not run"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "medium",
+      "material": true,
+      "classification": "ambiguous",
+      "origin": "unknown",
+      "status": "open",
+      "location": "REPLACE_WITH_PATH_AND_LOCATION",
+      "claim": "REPLACE_WITH_REACHABLE_FAILURE",
+      "criterion": "REPLACE_WITH_CONTRACT_CRITERION",
+      "evidence": "REPLACE_WITH_OBSERVED_EVIDENCE_AND_CONFIDENCE",
+      "reproducer": "REPLACE_WITH_PROCEDURE_OR_JUSTIFIED_NONEXECUTABLE_CASE",
+      "resolution": "",
+      "resolved_snapshot_id": null,
+      "check_ids": []
+    }
+  ]
+}

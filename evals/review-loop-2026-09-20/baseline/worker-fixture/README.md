@@ -1,0 +1,3 @@
+# Bounded text worker
+Parent Tools support a configured positive integer text limit. Local and subprocess evaluation must agree for every configured limit. The child process receives only an explicitly empty environment; parent credentials must never be inherited. Python is launched by absolute executable path. Maximum lengths count Python characters. Web adapter failures intentionally return HTTP-style data; CLI adapter failures intentionally return exit-code/message pairs. No deployment or package publishing is in scope.
+Run `python3 -m unittest discover -s tests -v`. There are no dependencies or external services.

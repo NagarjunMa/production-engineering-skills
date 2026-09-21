@@ -1,0 +1,14 @@
+{
+  "runtime": "3.11.1",
+  "recorded_at": "2026-09-20T19:11:49.372031+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "starting_base": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+  "implementer_identity": "/root/v05_forward",
+  "implementer_model": null,
+  "model_provenance": "Host role describes GPT-6 family but exact runtime model ID not verifiable; no override requested.",
+  "historical_check_provenance": "baseline.log executed on clean raw base. Red/characterization log used raw-base implementation plus added tests whose current hashes follow. Final tests used captured final implementation. Documentation changed after historical checks, so those checks are not claimed as whole-tree-current evidence.",
+  "test_hashes": {
+    "tests/test_worker_contract.py": "5d6883be5b023d2c9a70c271cf5e327decff6fa24a39c5003c6b41265d0a49c3",
+    "tests/test_defaults.py": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf"
+  }
+}

@@ -1,0 +1,2 @@
+All-file before/after SHA256 maps identical: True
+Includes .git and pre-existing bytecode.

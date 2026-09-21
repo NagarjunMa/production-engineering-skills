@@ -1,0 +1,120 @@
+{
+  "date": "2026-09-18",
+  "python": "3.11.1",
+  "paired_runs": 1,
+  "token_usage": null,
+  "exact_model_version": null,
+  "conditions": {
+    "with-skill": {
+      "files": {
+        "README.md": {
+          "sha256": "24d7db59e5c9d26f18464172f8ea08ee22a88dd02cdbb40a4622dea316f73d2f",
+          "bytes": 710,
+          "lines": 11
+        },
+        "docs/engineering-loop/PROJECT.md": {
+          "sha256": "2e554ea77effcd7df2c64014c288df22726bb84a5acbee828764a781e09ae46b",
+          "bytes": 1450,
+          "lines": 21
+        },
+        "docs/engineering-loop/features/stock-adjustment.md": {
+          "sha256": "c39a5c71a744fd57605b58570fd6bb7f668d519eeb611e458d3e34a8f9f264e9",
+          "bytes": 18193,
+          "lines": 252
+        },
+        "stock.py": {
+          "sha256": "8305eae3d8d3acffb59c150ebf6dc76e2e21522aac5746dd8ecedec4067096fe",
+          "bytes": 540,
+          "lines": 17
+        },
+        "tests/test_inventory.py": {
+          "sha256": "9f051034e67472158984868f8dec6f6943e72c1fa4f649a75bc1e0f67056276a",
+          "bytes": 4214,
+          "lines": 96
+        }
+      }
+    },
+    "baseline": {
+      "files": {
+        "README.md": {
+          "sha256": "24d7db59e5c9d26f18464172f8ea08ee22a88dd02cdbb40a4622dea316f73d2f",
+          "bytes": 710,
+          "lines": 11
+        },
+        "stock.py": {
+          "sha256": "2d031fc7c0f8f8c4a261b052e1f4e03da128b85b15c46690a39b989861ec5b88",
+          "bytes": 535,
+          "lines": 16
+        },
+        "tests/test_inventory.py": {
+          "sha256": "7363ae525b0ab8d67edaf23087a9b6c17a094cc1f1af081f198feee1b495acc1",
+          "bytes": 4336,
+          "lines": 101
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "condition": "with-skill",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_empty_batch_preserves_stock (test_inventory.BatchStockTests.test_empty_batch_preserves_stock) ... ok\ntest_first_invalid_pair_determines_error (test_inventory.BatchStockTests.test_first_invalid_pair_determines_error) ... ok\ntest_repeated_products_use_tentative_quantities (test_inventory.BatchStockTests.test_repeated_products_use_tentative_quantities) ... ok\ntest_success_updates_only_touched_products (test_inventory.BatchStockTests.test_success_updates_only_touched_products) ... ok\ntest_underflow_preserves_entire_stock (test_inventory.BatchStockTests.test_underflow_preserves_entire_stock) ... ok\ntest_unknown_product_preserves_entire_stock (test_inventory.BatchStockTests.test_unknown_product_preserves_entire_stock) ... ok\ntest_zero_delta_touches_zero_quantity_product (test_inventory.BatchStockTests.test_zero_delta_touches_zero_quantity_product) ... ok\ntest_increase (test_inventory.StockTests.test_increase) ... ok\ntest_success_boundaries (test_inventory.StockTests.test_success_boundaries) ... ok\ntest_underflow_preserves_entire_stock (test_inventory.StockTests.test_underflow_preserves_entire_stock) ... ok\ntest_unknown_code_preserves_entire_stock (test_inventory.StockTests.test_unknown_code_preserves_entire_stock) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "condition": "with-skill",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-B",
+        "<repository>/evals/audit-2026-09-18/verify_stock.py",
+        "<repository>/evals/audit-2026-09-18/completed-fixtures/with-skill"
+      ],
+      "returncode": 0,
+      "stdout": "{\"batch_cases\": 7380, \"single_item_cases\": 42, \"status\": \"passed\"}\n",
+      "stderr": ""
+    },
+    {
+      "condition": "baseline",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_empty_adjustments (test_inventory.AdjustManyTests.test_empty_adjustments) ... ok\ntest_first_invalid_pair_determines_error (test_inventory.AdjustManyTests.test_first_invalid_pair_determines_error) ... ok\ntest_repeated_products_use_tentative_quantities (test_inventory.AdjustManyTests.test_repeated_products_use_tentative_quantities) ... ok\ntest_success_updates_only_touched_products (test_inventory.AdjustManyTests.test_success_updates_only_touched_products) ... ok\ntest_underflow_rolls_back_all_products (test_inventory.AdjustManyTests.test_underflow_rolls_back_all_products) ... ok\ntest_unknown_product_rolls_back_all_products (test_inventory.AdjustManyTests.test_unknown_product_rolls_back_all_products) ... ok\ntest_zero_delta_is_included_in_result (test_inventory.AdjustManyTests.test_zero_delta_is_included_in_result) ... ok\ntest_increase (test_inventory.StockTests.test_increase) ... ok\ntest_success_boundaries (test_inventory.StockTests.test_success_boundaries) ... ok\ntest_underflow_preserves_entire_stock (test_inventory.StockTests.test_underflow_preserves_entire_stock) ... ok\ntest_unknown_code_preserves_entire_stock (test_inventory.StockTests.test_unknown_code_preserves_entire_stock) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "condition": "baseline",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-B",
+        "<repository>/evals/audit-2026-09-18/verify_stock.py",
+        "<repository>/evals/audit-2026-09-18/completed-fixtures/baseline"
+      ],
+      "returncode": 0,
+      "stdout": "{\"batch_cases\": 7380, \"single_item_cases\": 42, \"status\": \"passed\"}\n",
+      "stderr": ""
+    }
+  ],
+  "negative_control": {
+    "purpose": "Reject sequential mutation that breaks batch atomicity",
+    "rejected": true,
+    "failure": "AssertionError: ({'A': 0, 'B': 0, 'untouched': 7}, (('A', 2), ('B', -2)), {'A': 2, 'B': 0, 'untouched': 7}, {'A': 0, 'B': 0, 'untouched': 7})"
+  }
+}

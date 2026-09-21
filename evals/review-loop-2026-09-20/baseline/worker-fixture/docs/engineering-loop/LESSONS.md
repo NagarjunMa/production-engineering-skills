@@ -1,0 +1,2 @@
+# Evidence-backed lesson
+In this fixture, default-only subprocess checks passed while configured limits were lost in JSON transport. The failure was observed with limits 5 and 20. Keep a non-default lower and higher boundary case when changing this worker protocol, alongside an environment-isolation case. Applies to this explicit parent/worker protocol; it does not establish a universal testing matrix. Regression: tests/test_boundaries.py. Evidence: baseline/logs/worker-red.log and worker-green.log.

@@ -1,0 +1,17 @@
+{
+  "LICENSE": "32556e40bffd59a8b8dd2c4e5b31328f4db18aa792af0351c029e776d37f70ae",
+  "SKILL.md": "e34183bcf9f368b039ee6c60e01088929371cc96aa4c2da8110771323ba6c37b",
+  "agents/openai.yaml": "eb5db65c8d93df9875b2d6c80abf2273f3d13c77df2998a9c51682f81f98e01d",
+  "assets/feature-compact-template.md": "71f5a9f347b0bf461d89b6cbf87312fe2c9107af50cb4c6c06353305c772b277",
+  "assets/feature-template.md": "93e94374f27215c4abd7474933088ea7894530ed0b296faac21cc7b48391083c",
+  "assets/lesson-template.md": "c2e2425b3b2a47eee91bc2c43bad439c4e394207d82ed18382f65c2ad88371a2",
+  "assets/project-template.md": "aa26719f109d6bc83780e90fac4f7d8f7555405903f24add67146881b70a19c7",
+  "references/code-quality-review.md": "31d99f29d67bab8f2c4e1ed47381176c781dfee58e83ba6590078e8052a458e8",
+  "references/documentation-modes.md": "e84233651a0269e5a9850951778dac7a749a7ace54762b9b53c80070e0e28836",
+  "references/feature-evaluations.md": "28ad3176b0d39de016d4984c2033694b0129c647f6ecc4d32569d6bf5ac92d5e",
+  "references/javascript-typescript.md": "125539610fb92020ebf6a51b0fa12cb92831567c2b3111dc2215967cc4a6f85a",
+  "references/project-learning.md": "ff79506164b6d211ec6ecf83915dec1dfda63934b62cee794ca48a3e580549af",
+  "references/repository-adoption.md": "e17ad9fdcf1bd731efe13172d8a0e0d3ca7a5a06fe02881a7282ab5e5d090c76",
+  "references/risk-tiers.md": "bad5cc269cd2bd732b8d0d8115edec16205fdc6a5825da23038ddc447dad84d3",
+  "references/task-context.md": "00097e7d7a45dedbc21678778e8d675e4da33804d9f5a4792007c57603ea1841"
+}

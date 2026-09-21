@@ -1,0 +1,193 @@
+--- before/docs/engineering-loop/PROJECT.md
++++ after/docs/engineering-loop/PROJECT.md
+@@ -1,11 +1,21 @@
+ # Project context
+ 
+-Small standard-library Python stock module. Product requirements: README.md.
+-Main entry point: inventory.py, adjust_stock. Tests: tests/test_inventory.py, StockTests.
+-No persistence, network, UI, CI, or release configuration. Feature contract and detailed code location map: [stock adjustment](features/stock-adjustment.md).
++Small standard-library Python stock module. Existing requirements: README.md;
++current batch feature requested in the isolated task on 2026-09-18.
++Main entry point: `stock.py:adjust_stock`; `adjust_many` in the same module stages sequential batch adjustments and
++commits touched quantities only after all pairs validate. Tests: `tests/test_inventory.py:StockTests` and BatchStockTests.
++Feature contract and detailed evidence: [stock adjustment](features/stock-adjustment.md).
+ 
+-As of 2026-09-17, the documented stock adjustment behavior is implemented and verified locally: positive, negative and zero integer deltas, valid zero stock, mutation-free underflow and unknown-code errors, and selected-product-only successful mutation. The function validates a candidate quantity before assignment. Unsupported input types and concurrency remain outside scope.
++Freshness: source, tests, README, and prior records read completely 2026-09-18.
++The earlier record's inventory.py path is stale; current tests import stock.py.
++The earlier validate-before-write lesson remains applicable and was verified
++against adjust_stock. No other callers, dependencies, CI, or release targets found.
++Installed skill packages were inventoried; only the explicitly invoked .agents
++skill and applicable references were read. No host auto-discovery is claimed.
+ 
+-Evaluation: `python3 -B -m unittest discover -s tests -v` from repository root, Python 3.11.1; four tests passed, including boundary/error subtests. The feature record retains initial baseline, observed regression failure, final source fingerprints, and acceptance mapping.
+-
+-All five supplied files were inventoried and read: README.md, inventory.py, tests/test_inventory.py, this summary, and the feature record. No other source, callers, manifests, scoped instructions, or release configuration were found. No Git repository or target branch is supplied; this is a dated local snapshot, not CI or release evidence. No remaining work in the agreed scope. Reconfirm source and the feature contract on a later task.
++Baseline: `python3 -B -m unittest discover -s tests -v` passed 4 tests on Python
++3.11.1. Final batch and compatibility suite passed all 11 tests on 2026-09-18;
++ordered repeated products, zero/empty cases, and complete state preservation on
++underflow or unknown codes are covered. No remaining in-scope work. All supplied files are untracked
++in this fixture's Git worktree; no integration branch or release is requested.
++Unsupported types and concurrency remain outside scope.
+--- before/docs/engineering-loop/features/stock-adjustment.md
++++ after/docs/engineering-loop/features/stock-adjustment.md
+@@ -1,6 +1,67 @@
+ # Unassigned — Complete stock adjustment error handling
+ 
+ ## Execution Context
++
++Current task (2026-09-18): add atomic `stock.py:adjust_many` per `../task.txt`
++provided to this isolated fixture. The earlier task and evidence below are historical.
++Verified current source: `stock.py:adjust_stock`, `tests/test_inventory.py:StockTests`,
++and README. The old `inventory.py` map is stale; that path no longer exists.
++Existing source/tests were read completely; no other callers or CI were found.
++Current worktree has all supplied fixture files untracked; prior no-Git statements
++apply only to the earlier session. No branch integration or release is requested.
++Next step: none; B1 through B4 implemented and verified locally.
++No blocking question. Standard risk: local arithmetic and dictionary mutation.
++
++### Current batch contract and evaluations
++
++- B1: Process integer deltas sequentially against tentative quantities, including
++  repeated SKUs; return final quantities for touched SKUs and update supplied stock.
++- B2: Reject each intermediate underflow with the existing ValueError behavior,
++  even if a later delta would restore stock. Preserve the entire input on failure.
++- B3: Unknown SKU raises KeyError; preserve the entire input after earlier valid
++  pairs. The first invalid pair determines the error type.
++- B4: Empty list returns an empty dictionary without mutation; untouched SKUs
++  and all existing adjust_stock behavior remain unchanged.
++- Non-goals: new type policy, dependencies, persistence, UI, concurrency, release.
++- Executed checks: new `tests/test_inventory.py:BatchStockTests` success, repeated
++  SKU, zero, empty, underflow, unknown-product, and ordered-error cases, plus the
++  existing StockTests. Command: `python3 -B -m unittest discover -s tests -v`.
++- Baseline 2026-09-18: that command passed all 4 existing tests, Python 3.11.1.
++- Implementation plan: use an importable no-op scaffold to establish missing
++  behavior (not an import failure); stage all operations, then commit only after
++  all validate. Reuse adjust_stock validation.
++- Final 2026-09-18 result: all 11 tests passed on Python 3.11.1, same command.
++  The scaffold run collected 11 tests and produced 11 expected assertion failures
++  for missing batch quantities/errors; original 4 tests and empty batch passed.
++  This was a behavioral red state, not a collection/import error.
++- B1 evidence: success_updates_only_touched_products,
++  repeated_products_use_tentative_quantities, zero_delta_touches_zero_quantity_product.
++- B2 evidence: underflow_preserves_entire_stock includes prior successful pairs
++  and a repeated-SKU intermediate underflow that later increments could restore.
++- B3 evidence: unknown_product_preserves_entire_stock and
++  first_invalid_pair_determines_error cover unknown codes and error ordering.
++- B4 evidence: empty_batch_preserves_stock and unchanged existing StockTests.
++- Reviewed complete stock.py and tests/test_inventory.py: adjust_stock unchanged;
++  tentative quantities include only touched SKUs, validation occurs in input
++  order, and the sole write to supplied stock follows successful validation.
++  No material in-scope finding remains. No performance claim is made.
++- Changed this task: stock.py (batch API), tests/test_inventory.py (7 batch test
++  methods), this feature record (current contract/evidence), and PROJECT.md
++  (fresh current source map). No files created, renamed, or removed by this task.
++  README and installed skill packages unchanged. Historical paths below retained
++  only as evidence of the earlier session, not current location guidance.
++- Limitations: unsupported types and concurrency excluded; no hosted checks,
++  external callers, deployment, or commits were performed. No release target or
++  merge base was supplied. No network, installations, services, or subagents used.
++- Learning reused: validate before writing caller-owned state; here the commit
++  boundary covers the entire batch. Current tests establish the scoped atomicity
++  guarantee; no separate generalized lesson was needed.
++- Tested SHA-256 fingerprints (2026-09-18 untracked local worktree):
++
++  - stock.py: `8305eae3d8d3acffb59c150ebf6dc76e2e21522aac5746dd8ecedec4067096fe`
++  - tests/test_inventory.py: `9f051034e67472158984868f8dec6f6943e72c1fa4f649a75bc1e0f67056276a`
++
++### Historical execution context (2026-09-17)
+ 
+ - Requirement source: README.md; no issue tracker identifier supplied.
+ - Relevant project context: ../PROJECT.md and the Change Contract below.
+--- before/stock.py
++++ after/stock.py
+@@ -4,3 +4,14 @@
+         raise ValueError("Negative stock")
+     stock[sku] = new_quantity
+     return new_quantity
++
++
++def adjust_many(stock, adjustments):
++    """Apply ordered adjustments atomically and return final touched quantities."""
++    tentative = {}
++    for sku, delta in adjustments:
++        if sku not in tentative:
++            tentative[sku] = stock[sku]
++        adjust_stock(tentative, sku, delta)
++    stock.update(tentative)
++    return tentative
+--- before/tests/test_inventory.py
++++ after/tests/test_inventory.py
+@@ -1,5 +1,5 @@
+ import unittest
+-from stock import adjust_stock
++from stock import adjust_many, adjust_stock
+ 
+ class StockTests(unittest.TestCase):
+     def test_increase(self):
+@@ -32,3 +32,65 @@
+                     with self.assertRaises(KeyError):
+                         adjust_stock(stock, "MISSING", delta)
+                     self.assertEqual(stock, before)
++
++
++class BatchStockTests(unittest.TestCase):
++    def test_success_updates_only_touched_products(self):
++        stock = {"A": 5, "B": 2, "C": 9}
++        result = adjust_many(stock, [("A", 2), ("B", -2)])
++        self.assertEqual(result, {"A": 7, "B": 0})
++        self.assertEqual(stock, {"A": 7, "B": 0, "C": 9})
++
++    def test_repeated_products_use_tentative_quantities(self):
++        stock = {"A": 1, "B": 2, "C": 9}
++        result = adjust_many(stock, [("A", 3), ("B", 0), ("A", -4), ("A", 2)])
++        self.assertEqual(result, {"A": 2, "B": 2})
++        self.assertEqual(stock, {"A": 2, "B": 2, "C": 9})
++
++    def test_zero_delta_touches_zero_quantity_product(self):
++        stock = {"A": 0, "B": 2}
++        self.assertEqual(adjust_many(stock, [("A", 0)]), {"A": 0})
++        self.assertEqual(stock, {"A": 0, "B": 2})
++
++    def test_empty_batch_preserves_stock(self):
++        for initial in [{}, {"A": 5, "B": 2}]:
++            with self.subTest(initial=initial):
++                stock = initial.copy()
++                self.assertEqual(adjust_many(stock, []), {})
++                self.assertEqual(stock, initial)
++
++    def test_underflow_preserves_entire_stock(self):
++        for adjustments in [
++            [("A", -6)],
++            [("B", 3), ("A", -6)],
++            [("A", -3), ("A", -3), ("A", 10)],
++        ]:
++            with self.subTest(adjustments=adjustments):
++                stock = {"A": 5, "B": 2}
++                with self.assertRaisesRegex(ValueError, "^Negative stock$"):
++                    adjust_many(stock, adjustments)
++                self.assertEqual(stock, {"A": 5, "B": 2})
++
++    def test_unknown_product_preserves_entire_stock(self):
++        for initial, adjustments in [
++            ({}, [("MISSING", 0)]),
++            ({"A": 5, "B": 2}, [("MISSING", 1)]),
++            ({"A": 5, "B": 2}, [("A", 2), ("B", -1), ("MISSING", -1)]),
++        ]:
++            with self.subTest(initial=initial, adjustments=adjustments):
++                stock = initial.copy()
++                with self.assertRaises(KeyError) as error:
++                    adjust_many(stock, adjustments)
++                self.assertEqual(error.exception.args, ("MISSING",))
++                self.assertEqual(stock, initial)
++
++    def test_first_invalid_pair_determines_error(self):
++        for adjustments, error_type in [
++            ([("B", 1), ("A", -6), ("MISSING", 1)], ValueError),
++            ([("B", 1), ("MISSING", 1), ("A", -6)], KeyError),
++        ]:
++            with self.subTest(adjustments=adjustments):
++                stock = {"A": 5, "B": 2}
++                with self.assertRaises(error_type):
++                    adjust_many(stock, adjustments)
++                self.assertEqual(stock, {"A": 5, "B": 2})

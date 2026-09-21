@@ -1,0 +1,4 @@
+Base: ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1
+Command: python3 -c 'from parent import Tool\nt=Tool(5)\ntry:\n print("local",t.local("xxxxxx"))\nexcept ValueError as exc:\n print("local rejected:",str(exc))\nprint("worker",t.worker("xxxxxx"))\n'
+local rejected: text exceeds limit
+worker {'value': 'XXXXXX', 'environment_names': ['LC_CTYPE', '__CF_USER_TEXT_ENCODING']}

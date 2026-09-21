@@ -1,0 +1,28 @@
+test_capture_never_emits_source_or_environment_values (test_review_evidence.ReviewEvidenceTests.test_capture_never_emits_source_or_environment_values) ... ok
+test_committed_and_dirty_snapshots (test_review_evidence.ReviewEvidenceTests.test_committed_and_dirty_snapshots) ... ok
+test_contract_and_exclusions (test_review_evidence.ReviewEvidenceTests.test_contract_and_exclusions) ... ok
+test_finding_requires_evidence_and_passing_current_resolution (test_review_evidence.ReviewEvidenceTests.test_finding_requires_evidence_and_passing_current_resolution) ... ok
+test_index_change_even_when_worktree_restored (test_review_evidence.ReviewEvidenceTests.test_index_change_even_when_worktree_restored) ... ok
+test_invalid_base_and_path_escape (test_review_evidence.ReviewEvidenceTests.test_invalid_base_and_path_escape) ... ok
+test_malformed_report_returns_errors_not_traceback (test_review_evidence.ReviewEvidenceTests.test_malformed_report_returns_errors_not_traceback) ... ok
+test_mixed_findings_and_model_claims (test_review_evidence.ReviewEvidenceTests.test_mixed_findings_and_model_claims) ... ok
+test_no_ready_verdict_with_failed_required_check (test_review_evidence.ReviewEvidenceTests.test_no_ready_verdict_with_failed_required_check) ... ok
+test_output_cannot_be_part_of_snapshot_or_overwrite_source (test_review_evidence.ReviewEvidenceTests.test_output_cannot_be_part_of_snapshot_or_overwrite_source) ... ok
+test_packet_integrity_and_stale_report (test_review_evidence.ReviewEvidenceTests.test_packet_integrity_and_stale_report) ... ok
+test_repository_fsmonitor_is_not_executed (test_review_evidence.ReviewEvidenceTests.test_repository_fsmonitor_is_not_executed) ... ok
+test_symlink_does_not_read_external_target (test_review_evidence.ReviewEvidenceTests.test_symlink_does_not_read_external_target) ... ok
+test_unborn_repository (test_review_evidence.ReviewEvidenceTests.test_unborn_repository) ... ok
+test_untracked_deleted_renamed_and_dependency_changes_are_stale (test_review_evidence.ReviewEvidenceTests.test_untracked_deleted_renamed_and_dependency_changes_are_stale) ... ok
+test_complete_portable_package (test_validate.PackagingTests.test_complete_portable_package) ... ok
+test_empty_or_nontext_description_is_rejected (test_validate.PackagingTests.test_empty_or_nontext_description_is_rejected) ... ok
+test_invalid_names_are_rejected (test_validate.PackagingTests.test_invalid_names_are_rejected) ... ok
+test_invalid_yaml_and_nonmapping_frontmatter_are_rejected (test_validate.PackagingTests.test_invalid_yaml_and_nonmapping_frontmatter_are_rejected) ... ok
+test_missing_license_is_rejected (test_validate.PackagingTests.test_missing_license_is_rejected) ... ok
+test_missing_reference_is_rejected (test_validate.PackagingTests.test_missing_reference_is_rejected) ... ok
+test_reference_outside_installable_package_is_rejected (test_validate.PackagingTests.test_reference_outside_installable_package_is_rejected) ... ok
+test_web_links_are_not_treated_as_files (test_validate.PackagingTests.test_web_links_are_not_treated_as_files) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 7.461s
+
+OK

@@ -1,0 +1,7 @@
+test_cli (test_adapters.ExistingTests.test_cli) ... ok
+test_web (test_adapters.ExistingTests.test_web) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

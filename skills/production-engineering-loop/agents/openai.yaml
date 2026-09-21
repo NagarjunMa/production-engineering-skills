@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production Engineering Loop"
+  short_description: "Build cohesive code and verify behavior and design"
+  default_prompt: "Use $production-engineering-loop to understand this project's architecture, implement the task with justified design and meaningful checks, and retain verified project knowledge using the appropriate documentation mode."

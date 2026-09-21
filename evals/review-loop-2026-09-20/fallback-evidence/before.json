@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "head": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+  "base": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+  "merge_base": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+  "contract": "README.md",
+  "exclusions": [],
+  "files": {
+    ".gitignore": {
+      "kind": "file",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "executable": false
+    },
+    "AGENTS.md": {
+      "kind": "file",
+      "sha256": "e3b34cfa753c359f726a906bce9f64a2e9c6cde950f9c16cfe68985959c11995",
+      "executable": false
+    },
+    "README.md": {
+      "kind": "file",
+      "sha256": "41f6680ecb2faceba94fd43db3b72a4ba6fdc08b0ed4194e6f919b17c62b3610",
+      "executable": false
+    },
+    "adapters.py": {
+      "kind": "file",
+      "sha256": "77d38dacafcf9649b07af37bef2e27831c295cbd3b408c7871f7e420e210a636",
+      "executable": false
+    },
+    "docs/engineering-loop/LESSONS.md": {
+      "kind": "file",
+      "sha256": "592e06be20e8a37040c9309af2b7318bc9ea6609059841d92cacb3040e80daa1",
+      "executable": false
+    },
+    "docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "afa89a2e4eb34ad28a7eaf873365c7c00f309cada53fe790ca0bd159718fb07c",
+      "executable": false
+    },
+    "docs/engineering-loop/features/worker-configuration.md": {
+      "kind": "file",
+      "sha256": "3810c91b0c3128bbb44063b976b6304a8129fe17adcb422a186c138420fe9c5d",
+      "executable": false
+    },
+    "legacy.py": {
+      "kind": "file",
+      "sha256": "e3bd0b51a07bca3ec5c53c94413ee8718be50c8f145e4476b640264cfcad1070",
+      "executable": false
+    },
+    "parent.py": {
+      "kind": "file",
+      "sha256": "3c5f82d6978a9a0ce38b610293774d7d81a2d7da9aa289752b765a690990e26a",
+      "executable": false
+    },
+    "policy.py": {
+      "kind": "file",
+      "sha256": "1fbcb91491a7786153787c2484dc8d0f71f27d06e04a6ab7f906504f3ef81a3a",
+      "executable": false
+    },
+    "review-input.md": {
+      "kind": "file",
+      "sha256": "afd458f021452738276ef369bddde9c19f4e3d9d1fab4edb433f4e9d8b41f87f",
+      "executable": false
+    },
+    "tests/test_defaults.py": {
+      "kind": "file",
+      "sha256": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf",
+      "executable": false
+    },
+    "tests/test_worker_contract.py": {
+      "kind": "file",
+      "sha256": "5d6883be5b023d2c9a70c271cf5e327decff6fa24a39c5003c6b41265d0a49c3",
+      "executable": false
+    },
+    "worker.py": {
+      "kind": "file",
+      "sha256": "0c351f31a3fd44a4478fe20d4418202e27cc4979054cf76eda427d51f855955b",
+      "executable": false
+    }
+  },
+  "index": [
+    [
+      ".gitignore",
+      "100644",
+      "c18dd8d83ceed1806b50b0aaa46beb7e335fff13"
+    ],
+    [
+      "AGENTS.md",
+      "100644",
+      "4ec1db1f2c9f3aca3e96d4e6e9513bfae9c1be25"
+    ],
+    [
+      "README.md",
+      "100644",
+      "dfb7864dc924d90f857c69b2b3ce25bb45940663"
+    ],
+    [
+      "adapters.py",
+      "100644",
+      "46bdba0c557e3c69fad5cc3365e210011daa5b11"
+    ],
+    [
+      "legacy.py",
+      "100644",
+      "71c7ef1fda41c9ee4af61fe7acf439ac4cc30dd9"
+    ],
+    [
+      "parent.py",
+      "100644",
+      "9677a73b31d3a94d9bbed84bf7e16f34f07d5710"
+    ],
+    [
+      "policy.py",
+      "100644",
+      "767598fd1d8eeb1980bd3fbf4f75e54272e8b7ea"
+    ],
+    [
+      "review-input.md",
+      "100644",
+      "f998a1d31eed38ed8c93b2faf0aae68d80168ec7"
+    ],
+    [
+      "tests/test_defaults.py",
+      "100644",
+      "2821f0ab1d2c62998205b6fd9921dc731c75f142"
+    ],
+    [
+      "worker.py",
+      "100644",
+      "7ad1794fbf088fee02b88eb2da00422624a1bbe7"
+    ]
+  ],
+  "limitations": [
+    "Ignored files, external dependencies, runtime environment, and external symlink contents are not captured."
+  ],
+  "snapshot_id": "ede77bbfdc5951560c17c44108f5c79dbb432d605e2fe1c42fe52aef142a7b3d"
+}

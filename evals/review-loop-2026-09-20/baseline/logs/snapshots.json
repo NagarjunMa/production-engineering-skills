@@ -1,0 +1,65 @@
+{
+  "worker-fixture": {
+    "head": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+    "files": {
+      ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "AGENTS.md": "e3b34cfa753c359f726a906bce9f64a2e9c6cde950f9c16cfe68985959c11995",
+      "README.md": "41f6680ecb2faceba94fd43db3b72a4ba6fdc08b0ed4194e6f919b17c62b3610",
+      "adapters.py": "77d38dacafcf9649b07af37bef2e27831c295cbd3b408c7871f7e420e210a636",
+      "docs/engineering-loop/LESSONS.md": "96b964a66e91d2706b1d28f6b96c10f93092d24d16f3b39f1ad63d6adc0ddff2",
+      "docs/engineering-loop/PROJECT.md": "039ae456325495543e9e8e0eebf6909d9dd8b9b0d6785e0e37235b3f9419556b",
+      "docs/engineering-loop/features/worker-config.md": "2a225d6682490fd5930a300b68c7c9ff53cc0baeab844f093c1190630d9cbd17",
+      "legacy.py": "e3bd0b51a07bca3ec5c53c94413ee8718be50c8f145e4476b640264cfcad1070",
+      "parent.py": "533a5c01ece6cbccd90e6b76279c580f5d5051898e57a392845a3f2d557a8261",
+      "policy.py": "3a7e4229960208d47c2d7dc16bf2579197e60428eaa84e8bf0c104cbd05df448",
+      "review-input.md": "afd458f021452738276ef369bddde9c19f4e3d9d1fab4edb433f4e9d8b41f87f",
+      "tests/test_boundaries.py": "b64fa6268ebb42338487c6a30354a65122b0d1d2bcba34efb75ee5cb762b1b7d",
+      "tests/test_defaults.py": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf",
+      "worker.py": "0c351f31a3fd44a4478fe20d4418202e27cc4979054cf76eda427d51f855955b"
+    }
+  },
+  "raw-worker-start": {
+    "head": "ea6e6faa98e1e02d4b8e255b5d4a4f05e92118a1",
+    "files": {
+      ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "AGENTS.md": "e3b34cfa753c359f726a906bce9f64a2e9c6cde950f9c16cfe68985959c11995",
+      "README.md": "41f6680ecb2faceba94fd43db3b72a4ba6fdc08b0ed4194e6f919b17c62b3610",
+      "adapters.py": "77d38dacafcf9649b07af37bef2e27831c295cbd3b408c7871f7e420e210a636",
+      "legacy.py": "e3bd0b51a07bca3ec5c53c94413ee8718be50c8f145e4476b640264cfcad1070",
+      "parent.py": "9185365c1c090abfbc1b13db236d652ee6d0ab0b71a17b8cadf52d483df824cc",
+      "policy.py": "3a7e4229960208d47c2d7dc16bf2579197e60428eaa84e8bf0c104cbd05df448",
+      "review-input.md": "afd458f021452738276ef369bddde9c19f4e3d9d1fab4edb433f4e9d8b41f87f",
+      "tests/test_defaults.py": "167476b3dbd54cd8f5027b60c7f4cfa88b62ac4cc5386a93e971cd5538ba4edf",
+      "worker.py": "a0d028cc8f65c12c092fbb6dc44e60fcfbed546354a73f91c7ad3f836bbe4e3e"
+    }
+  },
+  "refactor-fixture": {
+    "head": "b838c2d042dd14dd49b889b4ba0602419d40d72b",
+    "files": {
+      ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "AGENTS.md": "d50aa242d55f05b7e3d3015bb88597266905be99629529c69b11ec704c68a94f",
+      "README.md": "316a91416224f5f5a7037fb90d693d098c2bceba5a806f8ec34a270edb011e05",
+      "adapters.py": "82478bd82bf6037a9fe24d611f7446c97dfb9f418fd4c9d5ffa8a76a73adab5d",
+      "deployment/registry.json": "942e63b5136abd97dc724000ff95407fe3c436d20e10afd52c657bac44fed675",
+      "docs/engineering-loop/PROJECT.md": "a2cf84bd9dfc6f475673b231d5f43b542623d14c9b650c812b8ab2960574022f",
+      "docs/engineering-loop/features/refactor.md": "62fbcf57f4aeb5258626fd2da084d4c8d0ab2f49c6e3cbb33c4e6e940ba30afa",
+      "helpers.py": "649f8078db0e383166fde98421d280da803be55456f9a0535fb65a21e34d967b",
+      "plugins.py": "2a7ae88db758fb07761a101e416550207a0fea95652deca70e6641cf27924158",
+      "tests/test_adapters.py": "8a61446f8fd5fcab2b5c08eb76c75c8f7cb444b9a061a5069c3853abb0e11897",
+      "tests/test_contracts.py": "bbd8f7a5c824506e3c015a0d474336436f38c6e8efffd18a1e325b052239eaa3"
+    }
+  },
+  "raw-refactor-start": {
+    "head": "b838c2d042dd14dd49b889b4ba0602419d40d72b",
+    "files": {
+      ".gitignore": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "AGENTS.md": "d50aa242d55f05b7e3d3015bb88597266905be99629529c69b11ec704c68a94f",
+      "README.md": "316a91416224f5f5a7037fb90d693d098c2bceba5a806f8ec34a270edb011e05",
+      "adapters.py": "2eac56e045f79ec397d6cebd2027da169e74ece32b80dc08a899cb0a06a4982a",
+      "deployment/registry.json": "942e63b5136abd97dc724000ff95407fe3c436d20e10afd52c657bac44fed675",
+      "helpers.py": "649f8078db0e383166fde98421d280da803be55456f9a0535fb65a21e34d967b",
+      "plugins.py": "2a7ae88db758fb07761a101e416550207a0fea95652deca70e6641cf27924158",
+      "tests/test_adapters.py": "8a61446f8fd5fcab2b5c08eb76c75c8f7cb444b9a061a5069c3853abb0e11897"
+    }
+  }
+}

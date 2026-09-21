@@ -1,0 +1,32 @@
+{
+  "task": "Worker review-and-fix forward test",
+  "status": "implemented and verified locally; fresh review complete; not released",
+  "source": "/tmp/pel-v05-eval.X8VqLa/candidate",
+  "packet": "final-packet.json",
+  "snapshot_id": "d0e07a71510eb5f1527c08de303ccbbd5720096dcac974bf991ea821acaf1169",
+  "risk": "Critical (credential isolation invariant)",
+  "documentation": "full",
+  "baseline": "2 tests passed on clean raw fixture",
+  "regression": "9 tests with 12 intended failures before fix; 9 passed afterward",
+  "fresh_review": {
+    "report": "/tmp/pel-v05-eval.X8VqLa/candidate-review-evidence/review-report.json",
+    "kind": "fresh-context",
+    "model": null,
+    "rounds": 1,
+    "verdict": "no_material_findings",
+    "checks": "9 tests, 20 extra comparisons, payload/env/launch assertions and preserved-file comparisons"
+  },
+  "findings": {
+    "R1": "confirmed pre-existing, fixed and independently verified",
+    "R2": "unsupported, distinct adapter contracts retained",
+    "R3": "unsupported for task scope, unrelated cosmetic rename dismissed"
+  },
+  "gaps": [
+    "Exact runtime model unverified.",
+    "Local Python 3.11.1 only; no external consumers or resource stress testing.",
+    "No live systems or deployment; integration target unknown.",
+    "Snapshot helper excludes ignored runtime inputs; isolated reviewer copy is not a read-only security sandbox."
+  ],
+  "main_repository_modified": false,
+  "staleness_negative_control": "stale-probe.log and stale-probe.json: modified copied policy.py rejected with exit 1; probe discarded; final freshness passes"
+}

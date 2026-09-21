@@ -1,0 +1,120 @@
+test_default_accepts (test_defaults.DefaultTests.test_default_accepts) ... ok
+test_default_rejects (test_defaults.DefaultTests.test_default_rejects) ... ok
+test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) ... 
+  test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) (limit=1, length=2) ... FAIL
+  test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) (limit=5, length=6) ... FAIL
+  test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) (limit=20, length=20) ... FAIL
+test_credential_isolation_and_launch_contract (test_worker_contract.WorkerContractTests.test_credential_isolation_and_launch_contract) ... FAIL
+test_distinct_adapter_contracts (test_worker_contract.WorkerContractTests.test_distinct_adapter_contracts) ... ok
+test_invalid_parent_limits (test_worker_contract.WorkerContractTests.test_invalid_parent_limits) ... ok
+test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) ... 
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=True) ... FAIL
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=False) ... FAIL
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=0) ... FAIL
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=-1) ... FAIL
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=1.5) ... FAIL
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit='5') ... FAIL
+  test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=None) ... FAIL
+test_legacy_receiver_default (test_worker_contract.WorkerContractTests.test_legacy_receiver_default) ... ok
+test_python_characters_and_prestrip_limit (test_worker_contract.WorkerContractTests.test_python_characters_and_prestrip_limit) ... FAIL
+
+======================================================================
+FAIL: test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) (limit=1, length=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 24, in test_configured_boundaries
+    self.assertEqual(result.get("error"), "text exceeds limit")
+AssertionError: None != 'text exceeds limit'
+
+======================================================================
+FAIL: test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) (limit=5, length=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 24, in test_configured_boundaries
+    self.assertEqual(result.get("error"), "text exceeds limit")
+AssertionError: None != 'text exceeds limit'
+
+======================================================================
+FAIL: test_configured_boundaries (test_worker_contract.WorkerContractTests.test_configured_boundaries) (limit=20, length=20)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 27, in test_configured_boundaries
+    self.assertEqual(result.get("value"), "X" * length)
+AssertionError: None != 'XXXXXXXXXXXXXXXXXXXX'
+
+======================================================================
+FAIL: test_credential_isolation_and_launch_contract (test_worker_contract.WorkerContractTests.test_credential_isolation_and_launch_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 43, in test_credential_isolation_and_launch_contract
+    self.assertEqual(result.get("value"), "X" * 13)
+AssertionError: None != 'XXXXXXXXXXXXX'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=1.5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit='5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_invalid_receiver_limits (test_worker_contract.WorkerContractTests.test_invalid_receiver_limits) (limit=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 62, in test_invalid_receiver_limits
+    self.assertEqual(
+AssertionError: None != 'limit must be a positive integer'
+
+======================================================================
+FAIL: test_python_characters_and_prestrip_limit (test_worker_contract.WorkerContractTests.test_python_characters_and_prestrip_limit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/pel-v05-eval.X8VqLa/candidate/tests/test_worker_contract.py", line 32, in test_python_characters_and_prestrip_limit
+    self.assertEqual(Tool(2).worker(" x ").get("error"), "text exceeds limit")
+AssertionError: None != 'text exceeds limit'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.729s
+
+FAILED (failures=12)

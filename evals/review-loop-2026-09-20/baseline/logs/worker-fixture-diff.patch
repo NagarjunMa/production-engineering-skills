@@ -1,0 +1,33 @@
+diff --git a/parent.py b/parent.py
+index 9677a73..00f9142 100644
+--- a/parent.py
++++ b/parent.py
+@@ -17,7 +17,7 @@ class Tool:
+     def worker(self, text):
+         completed = subprocess.run(
+             [sys.executable, str(Path(__file__).with_name("worker.py"))],
+-            input=json.dumps({"text": text}), text=True, capture_output=True,
++            input=json.dumps({"text": text, "limit": self.limit}), text=True, capture_output=True,
+             env={}, check=True, timeout=5,
+         )
+         return json.loads(completed.stdout)
+diff --git a/worker.py b/worker.py
+index 7ad1794..2bc1e24 100644
+--- a/worker.py
++++ b/worker.py
+@@ -1,13 +1,13 @@
+ import json
+ import os
+ import sys
+-from policy import normalize_text
++from policy import DEFAULT_LIMIT, normalize_text
+ 
+ 
+ def main():
+     request = json.load(sys.stdin)
+     try:
+-        result = {"value": normalize_text(request["text"])}
++        result = {"value": normalize_text(request["text"], request.get("limit", DEFAULT_LIMIT))}
+     except ValueError as exc:
+         result = {"error": str(exc)}
+     # Names only: integration diagnostics never expose environment values.

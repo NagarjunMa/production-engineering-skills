@@ -1,0 +1,37 @@
+{
+  "task": "Pure refactor forward test",
+  "status": "implemented and verified locally; required fresh review complete; not released",
+  "source": "/tmp/pel-v05-eval.X8VqLa/candidate-refactor",
+  "risk": "Standard, shared-rule change triggers fresh review",
+  "documentation": "compact",
+  "snapshot_id": "72005fbf9cc653ad2ca50ab1cd8bfa78f9c4df0afb7f7967f45e55e7798012e5",
+  "baseline": "2 tests passed",
+  "characterization": "4 tests passed on pre-refactor source and after consolidation",
+  "changes": [
+    "adapters.py delegates normalization to existing public helpers.normalize_tag",
+    "added literal behavior characterization covering helper, dynamic plugin, distinct adapters, empty/Unicode/whitespace inputs",
+    "project/feature documentation"
+  ],
+  "preserved": [
+    "helpers.py public normalize_tag export",
+    "plugins.py",
+    "deployment/registry.json",
+    "README.md",
+    "AGENTS.md",
+    "independent HTTP/CLI error shapes"
+  ],
+  "fresh_review": {
+    "report": "/tmp/pel-v05-eval.X8VqLa/candidate-refactor-review-evidence/review-report.json",
+    "kind": "fresh-context",
+    "model": null,
+    "rounds": 1,
+    "verdict": "no_material_findings",
+    "checks": "4 native tests and 37 independent baseline/dynamic/error-propagation assertions; start/end freshness passes"
+  },
+  "limitations": [
+    "Runtime model unknown; no cross-model claim.",
+    "Only local Python 3.11.1; unknown external consumers/integration target.",
+    "Copied review tree is isolation from edits, not a security sandbox; ignored runtime inputs not fingerprinted."
+  ],
+  "main_repository_modified": false
+}

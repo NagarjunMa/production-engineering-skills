@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-18",
+  "python": "3.11.1",
+  "scenario": "compact quality",
+  "model_version": null,
+  "host_version": null,
+  "checks": [
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "test_empty (test_quotes.BatchQuotes.test_empty) ... ok\ntest_input_is_not_mutated (test_quotes.BatchQuotes.test_input_is_not_mutated) ... ok\ntest_invalid_items_do_not_stop_later_quotes (test_quotes.BatchQuotes.test_invalid_items_do_not_stop_later_quotes) ... ok\ntest_order_and_boundaries (test_quotes.BatchQuotes.test_order_and_boundaries) ... ok\ntest_cli (test_quotes.ExistingQuotes.test_cli) ... ok\ntest_errors (test_quotes.ExistingQuotes.test_errors) ... ok\ntest_invalid_types (test_quotes.ExistingQuotes.test_invalid_types) ... ok\ntest_policy_boundaries (test_quotes.ExistingQuotes.test_policy_boundaries) ... ok\ntest_web (test_quotes.ExistingQuotes.test_web) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "-B",
+        "<repository>/evals/quality-first-2026-09-18/verify_quotes.py",
+        "<repository>/evals/quality-first-2026-09-18/completed-fixture"
+      ],
+      "exit": 0,
+      "stdout": "{\"batch_cases\": 1111, \"existing_entrypoint_cases\": 20, \"status\": \"passed\"}\n",
+      "stderr": ""
+    }
+  ],
+  "files": {
+    "README.md": {
+      "sha256": "bc20482fce1216d14db913995436a04c175405ad90f0f658cb2d67762989fe9c",
+      "lines": 10
+    },
+    "docs/engineering-loop/PROJECT.md": {
+      "sha256": "41783e689a2ea1fd05ff7c31b2f8f860f0e90ae83b615caaf7705431a253c4a0",
+      "lines": 33
+    },
+    "docs/engineering-loop/features/web-quotes.md": {
+      "sha256": "a67e3bfafa6ba13be0e43cacb0d6a203fe80b4ec9b8198aa197f606b23108a8e",
+      "lines": 76
+    },
+    "parcel/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lines": 0
+    },
+    "parcel/cli.py": {
+      "sha256": "b530e6c84963bd12ca0cb95952912d46f1f78f479a72f0e78ea3dee181dc3608",
+      "lines": 8
+    },
+    "parcel/policy.py": {
+      "sha256": "4d76739dc9d1aa266a5aa69404b33b80f569c57143fa87f4cb5b82c25385c863",
+      "lines": 4
+    },
+    "parcel/web.py": {
+      "sha256": "03d2fe49f2f6988f4c37c6c31723846d28a72a415dede981e1ecc6ce726a4b4f",
+      "lines": 13
+    },
+    "tests/test_quotes.py": {
+      "sha256": "1274c56b3148ab8a3055dd3b9b4ac156661a50cb91a7c6d558269b4ff4782165",
+      "lines": 56
+    }
+  },
+  "negative_control": {
+    "rejected": true,
+    "defect": "Silently drops invalid inputs instead of returning per-item errors",
+    "failure": "AssertionError: ((-1,), [])"
+  },
+  "full_planning": {
+    "preserved_heading_count": 29,
+    "preserved_requirement_lines": 5,
+    "other_files_unchanged": 8,
+    "api_implemented": false,
+    "acceptance_boxes_checked": false,
+    "status": "Planned",
+    "plan_sha256": "b9eceb0a98af7b678004629dd30e6d31fbbff5a92295e7398069d3b75db6c1c8",
+    "runtime_checks": "Agent reported 9 existing tests passed; parent verified source/tests byte-identical to independently tested compact output."
+  }
+}
