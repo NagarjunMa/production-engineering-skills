@@ -1,0 +1,4 @@
+node_modules/
+out/*
+!out/production-engineering-loop-social.mp4
+!out/social-final.png

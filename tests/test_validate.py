@@ -1,6 +1,7 @@
 """Regression cases for installable metadata and self-contained references."""
 
 import re
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -35,6 +36,7 @@ class PackagingTests(unittest.TestCase):
             "LICENSE",
             "agents/openai.yaml",
             "scripts/review_evidence.py",
+            "references/host-compatibility.md",
             "references/independent-review.md",
             "references/review-evidence.md",
             "assets/reviewer-prompt.md",
@@ -43,6 +45,21 @@ class PackagingTests(unittest.TestCase):
         ):
             self.assertTrue((SKILL / relative).is_file(), relative)
         self.assertNotEqual(SKILL, ROOT)
+
+    def test_package_remains_self_contained_in_documented_host_layouts(self):
+        parents = (
+            ".agents/skills",
+            ".claude/skills",
+            ".cursor/skills",
+            ".gemini/skills",
+            ".qwen/skills",
+            ".opencode/skills",
+        )
+        for parent in parents:
+            with self.subTest(parent=parent):
+                destination = Path(self.temp.name) / parent / SKILL.name
+                shutil.copytree(SKILL, destination)
+                self.assertEqual(validate(destination), [])
 
     def test_installable_folder_contains_no_personal_home_paths(self):
         markers = ("/Users/", "C:\\Users\\")
@@ -80,6 +97,21 @@ class PackagingTests(unittest.TestCase):
             with self.subTest(description=description[:30]):
                 self.write_skill(description=description)
                 self.assertTrue(any("Description must" in error for error in validate(self.skill)))
+
+    def test_invalid_compatibility_is_rejected(self):
+        for compatibility in ("''", "[]", "x" * 501):
+            with self.subTest(compatibility=compatibility[:30]):
+                (self.skill / "SKILL.md").write_text(
+                    "---\n"
+                    "name: example-skill\n"
+                    "description: Review a change.\n"
+                    "license: MIT\n"
+                    f"compatibility: {compatibility}\n"
+                    "---\n"
+                    "# Instructions\n",
+                    encoding="utf-8",
+                )
+                self.assertTrue(any("compatibility must" in error for error in validate(self.skill)))
 
     def test_invalid_yaml_and_nonmapping_frontmatter_are_rejected(self):
         for frontmatter in ["name: [", "- name", "null"]:

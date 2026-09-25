@@ -1,0 +1,25 @@
+{
+  "name": "production-engineering-loop-animation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "still": "remotion still src/index.ts ProductionEngineeringLoop out/final-frame.png --frame=449",
+    "render": "remotion render src/index.ts ProductionEngineeringLoop out/production-engineering-loop.mp4",
+    "render:explainer": "remotion render src/index.ts HowTheLoopWorks out/production-engineering-loop-how-it-works.mp4",
+    "render:social": "remotion render src/index.ts SocialLoop out/production-engineering-loop-social.mp4",
+    "gif": "remotion render src/index.ts ProductionEngineeringLoop out/production-engineering-loop.gif --codec=gif"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.527",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.527",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

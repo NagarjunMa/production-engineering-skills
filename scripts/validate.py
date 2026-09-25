@@ -37,6 +37,13 @@ def validate(skill: Path) -> list[str]:
     description = metadata.get("description")
     if not isinstance(description, str) or not description.strip() or len(description) > 1024:
         errors.append("Description must be nonempty text, at most 1024 characters")
+    compatibility = metadata.get("compatibility")
+    if compatibility is not None and (
+        not isinstance(compatibility, str)
+        or not compatibility.strip()
+        or len(compatibility) > 500
+    ):
+        errors.append("compatibility must be nonempty text, at most 500 characters")
     if not match[2].strip():
         errors.append("Skill body is empty")
     extra = metadata.get("metadata", {})
@@ -72,7 +79,7 @@ def main() -> int:
         print("\n".join(f"ERROR: {error}" for error in errors), file=sys.stderr)
         return 1
     print("PASS: skill metadata, bundled links, and license consistency")
-    print("Not evaluated: host discovery, instruction following, or engineering outcomes")
+    print("Not evaluated: host runtime discovery, instruction following, or engineering outcomes")
     return 0
 
 
