@@ -1,8 +1,8 @@
-# Codex compatibility and publication security audit
+# Publication security audit and multi-host portability addendum
 
-**Date:** 2026-09-20  
-**Package:** `skills/production-engineering-loop`, version 0.5.0  
-**Verdict:** **Public repository candidate.** The reproduced helper defect and publication-hygiene findings are resolved, and installation from public `main` is verified. A tagged GitHub release, hosted CI confirmation, and installation from that immutable release remain publication steps.
+**Date:** 2026-09-20; portability addendum 2026-09-23
+**Package:** `skills/production-engineering-loop`, local version 0.6.0; public audited revision 0.5.0
+**Verdict:** **Local v0.6 release candidate.** The v0.5 security findings remain resolved. The current package validates and installs through the Skills CLI for six host targets, with native OpenCode discovery confirmed. The v0.6 revision still requires commit, hosted CI, immutable release, and release-download verification before those release claims apply to it.
 
 ## Current result
 
@@ -10,9 +10,9 @@ The repository was hardened after this audit at the maintainer's request:
 
 - SEC-001: fixed locally. Every helper Git subprocess now forces `GIT_NO_LAZY_FETCH=1`, `GIT_ALLOW_PROTOCOL=''`, `GIT_TERMINAL_PROMPT=0`, and `GIT_OPTIONAL_LOCKS=0`, while retaining filesystem-monitor isolation. A new regression removes a promised base object and verifies that `capture`, `check`, and `validate` all fail without executing the configured remote helper.
 - PUB-002: fixed in the candidate public artifacts. The four personal paths were replaced with explicit portable placeholders and marked as sanitized evidence. The installable package continues to contain no personal home paths.
-- PUB-003: the public repository is `NagarjunMa/production-engineering-skills`. The short GitHub command found one skill, installed it into a fresh Codex project, and produced a package matching the local skill folder. Version documentation matches 0.5.0, the development dependency is pinned, CI actions are pinned to immutable revisions, Dependabot is configured, and CI covers Ubuntu Python 3.10–3.12 plus macOS/Windows Python 3.11. A tagged release and installation from that immutable release remain pending.
+- PUB-003: for public v0.5, the repository is `NagarjunMa/production-engineering-skills`. The short GitHub command found one skill, installed it into a fresh Codex project, and produced a matching package. CI actions are pinned to immutable revisions, Dependabot is configured, and [hosted run 35556792913](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/35556792913) passed all five jobs on public `main` commit `a58818220c8f59fd1717457b73758ef1f0018462`: Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11. Local v0.6 documentation and metadata are aligned, but a v0.6 hosted run and immutable release installation remain pending.
 
-Local package validation, skill-format validation, dependency audit, and 27 tests pass after these changes. An independent return review reproduced the original hostile setup: an unguarded positive control executed its harmless marker, while the corrected helper's `capture`, `check`, and `validate` commands each failed closed without executing the marker. The reviewer also verified hostile inherited Git environment values were overridden.
+Local package validation, skill-format validation, dependency audit, and 29 tests pass after the portability changes. A disposable Skills CLI run targeted Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode; its three physical destination copies (`.agents`, `.claude`, and `.qwen`) each matched all 25 current package files. OpenCode 1.18.27 discovered the installed skill from `.agents/skills`. This establishes package/install compatibility, not equal instruction following or engineering outcomes across models. The earlier independent return review reproduced the original hostile setup: an unguarded positive control executed its harmless marker, while the corrected helper's `capture`, `check`, and `validate` commands each failed closed without executing the marker.
 
 The skill can be installed once at personal scope and used across local projects. A project copy also works, including discovery from a nested directory. That does not establish compatibility with every Codex version, organization policy, operating system, remote/cloud workspace, language, or codebase. The workflow provides review and verification discipline; it cannot guarantee maximum-quality output or establish better quality per token from the current evaluations.
 
@@ -63,7 +63,7 @@ These disclose a local account/workspace location, not an observed credential. N
 
 - The public repository is `NagarjunMa/production-engineering-skills`, and installation from its public `main` branch is verified.
 - No immutable release tag has been verified, so release-specific installation and rollback evidence remain pending.
-- The CI matrix and dependency-update configuration are present; results must be associated with the released revision before publishing the final support statement.
+- The CI matrix and dependency-update configuration are present. Hosted run 35556792913 passed on public `main` commit `a58818220c8f59fd1717457b73758ef1f0018462`; no equivalent result is yet associated with an immutable release.
 
 These are release-state gaps rather than code defects. The maintainer must tag the reviewed snapshot, observe its configured CI, and test the exact tagged download before making the corresponding release claim.
 
@@ -90,18 +90,18 @@ Official sources checked on 2026-09-20: [Codex skills](https://learn.chatgpt.com
 - Existing fsmonitor isolation regression passed. Additional probes passed parent-symlink escape rejection, contract traversal rejection, Git-metadata path rejection, FIFO refusal without blocking, existing-output overwrite refusal, and inert command strings in reports. Malformed reports failed cleanly in exercised cases.
 - Limited signature scan: 231 text files, no private-key/GitHub/AWS/OpenAI/Slack token-pattern matches. No entropy-based secret scanner was available; this is not proof of absence of all secrets. There is no commit history to scan.
 - `pip-audit -r requirements-dev.txt` found no known vulnerabilities in the pinned development dependency, PyYAML 6.0.3. The optional helper uses the standard library.
-- Docker server was unavailable. No Linux/Windows native run, Python 3.10 runtime run, clean-account global install, live TOML reviewer-role load, cross-model run, remote/cloud install, or real GitHub release download was performed in this audit.
+- Docker server was unavailable. The later hosted CI run exercised the package checks on Linux and Windows and Python 3.10, but no interactive native host workflow was exercised there. No clean-account global install, live TOML reviewer-role load, cross-model run, remote/cloud install, or real GitHub release download was performed in this audit.
 - No native automatic model-selection guarantee follows from discovery. Available models, tools, organizational policy, repository commands, and permissions determine what can actually execute.
 
 ## Recommended public claim and release gate
 
-A defensible description is: **A Codex-compatible engineering workflow that guides implementation, architecture review, evidence-backed verification, and reusable project knowledge.** Avoid promises of perfect code, universal compatibility, security certification, or maximum quality per token. Existing matched trials did not establish improved defect detection or measured token efficiency over the baseline.
+A defensible description is: **A portable Agent Skill for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode that guides implementation, architecture review, evidence-backed verification, and reusable project knowledge. Package installation is verified across these targets; end-to-end task behavior is currently verified most deeply on Codex.** Avoid promises of perfect code, equivalent behavior on every model, universal compatibility, security certification, or maximum quality per token. Existing matched trials did not establish improved defect detection or measured token efficiency over the baseline.
 
 Before community release:
 
-1. Create an immutable release from this reviewed candidate and observe the configured hosted checks for that revision.
-2. Install that exact release in a fresh destination and confirm Codex discovery.
+1. Create an immutable release from a reviewed revision and observe the configured hosted checks for that release revision.
+2. Install that exact release in fresh destinations for the six documented host targets; confirm package equality and record native discovery results separately.
 3. Enable the repository's private vulnerability-reporting route.
-4. Publish the tested support statement and keep Windows, cloud environments, and other agents labeled as unverified until their runs are recorded.
+4. Publish the tested support statement and keep unexercised task behavior, cloud environments, and organization-specific configurations labeled as unverified until their runs are recorded.
 
-**Release status: Public repository candidate.** Installation from public `main` works; the immutable release and broader external environments remain unverified. No unresolved local implementation defect was found.
+**Release status: Local v0.6 candidate.** Installation from the previous public `main` works and hosted CI passed for public v0.5 commit `a58818220c8f59fd1717457b73758ef1f0018462`. The local v0.6 package passes its current checks and multi-host installation test, but its commit, hosted CI, immutable release, and broader host task evaluations remain pending. No unresolved local implementation defect was found.

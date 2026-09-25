@@ -12,11 +12,11 @@ Success means portable instructions and resources, clear installation guidance, 
 
 | Layer/tool | Observed choice | Role and evidence |
 | --- | --- | --- |
-| Installable skill | Markdown with YAML frontmatter | Canonical instructions in `skills/production-engineering-loop/SKILL.md`; current metadata version `0.5.0` |
+| Installable skill | Portable Agent Skills directory with Markdown/YAML entrypoint | Canonical instructions in `skills/production-engineering-loop/SKILL.md`; current metadata version `0.6.0` |
 | Supporting resources | Markdown references and templates | Bundled under the skill's `references/` and `assets/` directories |
 | Host metadata | Optional YAML | `skills/production-engineering-loop/agents/openai.yaml`; no mandatory host tool dependency |
 | Review provenance | Optional Python 3.10+ standard library and Git | Bundled `scripts/review_evidence.py` captures/checks source and validates report structure; no network or repository code execution |
-| Reviewer orchestration | Host delegation with portable fallback | Fresh Codex reviewer instructions; optional TOML configuration asset, not globally installed |
+| Reviewer orchestration | Host delegation with portable fallback | Host-neutral fresh-context contract plus optional Codex reviewer instructions and TOML asset |
 | Development validation | Python with PyYAML | `scripts/validate.py`, `tests/test_validate.py`, and `requirements-dev.txt`; PyYAML pinned to `6.0.3` for the current release candidate |
 | Continuous integration | GitHub Actions matrix | `.github/workflows/validate.yml`; Ubuntu Python 3.10–3.12 plus macOS/Windows Python 3.11, packaging checks and validator tests; hosted runs pending publication |
 | Optional installer | External Skills CLI via npm | README install commands; v0.1.0 smoke test used CLI 1.7.0 |
@@ -28,14 +28,14 @@ There is no application runtime, web framework, database, or deployed service in
 | Path | Responsibility | Inspection |
 | --- | --- | --- |
 | `skills/production-engineering-loop/SKILL.md` | Mode, scope, risk, project learning, evaluations, implementation/review/validation loop | Read and revised |
-| `skills/production-engineering-loop/references/` | Conditional depth for risk, quality, JS/TS, adoption, memory, and feature evaluations | Existing references read during initial creation; adoption and new learning guidance inspected for this change |
+| `skills/production-engineering-loop/references/` | Conditional depth for risk, quality, JS/TS, adoption, memory, feature evaluations, and host compatibility | Host portability reference added for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode |
 | `skills/production-engineering-loop/assets/` | Project, feature, and lesson templates copied/adapted into target repositories | Authored and reviewed for this change |
-| `scripts/validate.py` | Metadata, local bundled links, and license checks | Read; unchanged in this feature |
+| `scripts/validate.py` | Agent Skills metadata, local bundled links, and license checks | Compatibility metadata validation added for v0.6 |
 | `skills/production-engineering-loop/scripts/review_evidence.py` | Git/worktree manifests, freshness, report consistency | Implemented with real Git/subprocess tests; independent review found and corrected fsmonitor execution |
 | `tests/test_review_evidence.py` | Provenance and report regressions | Uses isolated repositories; covers dirty/committed/unborn source, report resolution, filesystem-monitor isolation, and offline failure for missing promised objects |
-| `tests/test_validate.py` | Eight packaging-validator tests | Established during initial creation; rerun for this feature |
+| `tests/test_validate.py` | Packaging-validator and portable-layout tests | Covers complete copies under six documented host layouts plus metadata/link/license constraints |
 | `evals/README.md` | Behavioral scenarios and evidence requirements | Extended for learning, drift, scope, and feature evaluations |
-| `README.md`, `docs/installation.md`, `docs/publishing.md` | Public usage, installation, compatibility, and publication | README/publication updated; native installation paths unchanged |
+| `README.md`, `docs/installation.md`, `docs/publishing.md` | Public usage, installation, compatibility, and publication | README and installation guide make multi-host support and evidence limits explicit |
 | `docs/self-learning-implementation.md` | Detailed loop, record lifecycle, proposed helpers, and cross-session evaluation design | Written after the maintainer requested the detailed implementation explanation; proposed automation is not implemented |
 | `docs/engineering-loop/` | This repository's current context and feature records | Created for this change |
 | `.github/workflows/validate.yml`, `.github/dependabot.yml` | CI for packaging/validator tests and dependency updates | OS/runtime matrix expanded; actions pinned to immutable revisions; hosted runs pending publication |
@@ -51,6 +51,7 @@ The host reads the skill, then selected references/templates. Its project-specif
 | [PRI feature contracts and focused retrieval](features/feature-context.md) | v0.3.0 preserves the supplied template and adds Execution Context | Format/package checks, eight validator tests, installer smoke test, and bounded red/green feature run passed | Requested change complete; no measured token-savings claim |
 | [Quality-first engineering and documentation modes](features/quality-first-modes.md) | v0.4.0 makes routine design review explicit and adds compact/full selection | Package/eight validator tests passed; compact implementation and full planning scenarios reviewed; wider architecture/host scenarios untested | Requested refinement complete; broader evaluation/publication remain separate |
 | [Automated independent review and findings resolution](features/automated-review-resolution.md) | v0.5 portable protocol, bundled evidence CLI, templates, and Codex adapter implemented | See feature record and retained v0.5 evaluations for exact checks and remaining host coverage | Public release and plugin packaging remain separate |
+| [Multi-host Agent Skills portability](features/multi-host-portability.md) | v0.6 host-neutral core guidance, six-host install/invocation reference, and portable-layout validation implemented | Package checks and disposable Skills CLI installation cover all six targets; runtime behavior remains host-specific evidence | Collect real task outcomes from non-Codex hosts |
 
 The [self-learning implementation design](../self-learning-implementation.md) explains the memory lifecycle and proposed helpers. The [v0.3.0 audit](../audit-2026-09-18.md) subsequently exercised fresh-session continuation and stale-path recovery once; both skill and no-skill implementations passed the bounded behavior checker. This is feasibility evidence, not a general quality or efficiency benchmark. No automatic memory/index helpers are implemented.
 
@@ -66,4 +67,4 @@ The [self-learning implementation design](../self-learning-implementation.md) ex
 
 ## Freshness and coverage
 
-Updated 2026-09-20 while planning the automated review and findings-resolution loop. This repository has no initial commit; files remain uncommitted, so no commit identifier establishes a reproducible release snapshot. The map covers owned package/development files, not `.git` internals, installed dependencies, or other personal skills. Multi-session reliability and other coding hosts require additional evaluation; documentation-based compatibility alone does not establish those outcomes.
+Updated 2026-09-23 for multi-host portability. The v0.6 changes remain local until committed and released, so the public default branch still represents the previous package. The map covers owned package/development files, not `.git` internals, installed dependencies, or other personal skills. Non-Codex task behavior still requires representative host evaluations; format, installation, and discovery evidence alone do not establish equivalent engineering outcomes.

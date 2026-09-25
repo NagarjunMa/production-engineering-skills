@@ -2,6 +2,10 @@
 
 **Build maintainable code. Verify its behavior. Carry that discipline between projects.**
 
+[![Validate skill package](https://github.com/NagarjunMa/production-engineering-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/NagarjunMa/production-engineering-skills/actions/workflows/validate.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Skill metadata](https://img.shields.io/badge/skill-v0.6.0-4c1.svg)](skills/production-engineering-loop/SKILL.md)
+
 A portable skill for AI coding agents that turns implementation into a bounded loop:
 
 ```text
@@ -12,6 +16,42 @@ Update project map + lessons ← Verify ← Review ← Implement / fix
 ```
 
 Use it to build features, fix bugs, review changes, and refactor existing code. It starts from the problem statement and the relevant source, retains verified project knowledge across tasks, scales scrutiny to risk, and requires evidence before claiming success. It works with new or existing projects, with or without a formal implementation plan, commit, branch, or GitHub repository.
+
+The same package is designed for **Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode**. Its core workflow uses the open Agent Skills format and does not depend on one vendor's tool names, subagent system, or UI metadata.
+
+**Start here:** [Quick start](#quick-start) · [Daily workflow](#how-it-changes-the-daily-development-workflow) · [Reliability](#what-can-you-rely-on) · [Installation](#install-for-a-new-user) · [Examples](#use-it-on-real-work) · [Troubleshooting](#troubleshooting)
+
+## Quick start
+
+For a project installation, use Node.js 22.20 or newer, npm, and Git. Open a terminal in that project's root and install the skill:
+
+```sh
+cd /path/to/your-project
+npx skills add NagarjunMa/production-engineering-skills
+```
+
+Choose your coding agent when the installer asks. Open that agent in the project and give it a real outcome:
+
+```text
+Use the production-engineering-loop skill to implement this task.
+First inspect the relevant code and existing project conventions. Define the
+acceptance and failure cases, make the smallest coherent change, run the relevant
+checks, review the result, and report anything that remains unverified.
+
+Task: [describe the behavior you want and any constraints]
+```
+
+The expected result is more than a code diff. The agent should explain the behavior and constraints the change must satisfy (its change contract), the affected boundaries it inspected, the checks it actually ran, the findings it resolved, and any remaining risk. Start with [installation](#install-for-a-new-user) if you want the skill available across every project or need a specific agent or manual path.
+
+## Who is it for?
+
+| User | How it helps |
+| --- | --- |
+| Software engineer | Adds repeatable contract, architecture, regression, compatibility, and review discipline around agent-generated changes. |
+| Tech lead or maintainer | Keeps shared rules, affected consumers, rollout risk, and verification evidence visible across contributors and sessions. |
+| Solo builder | Supplies a practical definition of done without requiring enterprise infrastructure or a large process. |
+| Builder without a traditional engineering background | Turns a desired outcome into acceptance cases, repository-aware implementation, tests, review, and an honest handoff. |
+| Reviewer | Supports read-only inspection or evidence-backed review-and-fix against committed, staged, or uncommitted source. |
 
 ## What is this skill?
 
@@ -62,6 +102,75 @@ It also supports distinct working modes:
 | Behavior-preserving refactor | Improve structure while characterizing and preserving required behavior. |
 | Project onboarding | Map the product, stack, architecture, important files, risks, and inspection gaps before later feature work. |
 
+## How it changes the daily development workflow
+
+The skill does not replace normal engineering work. It makes the important parts explicit and asks the agent to carry them through to completion. Skip it for copy-only edits, simple explanations, and status reports where no engineering decision or source evaluation is needed.
+
+| Daily moment | Without a defined loop | With Production Engineering Loop |
+| --- | --- | --- |
+| Starting a task | The agent may begin editing from the prompt alone | It reads the request, relevant source, repository instructions, tests, and existing project records before selecting an approach |
+| Planning | Success can remain subjective | The agent defines observable acceptance cases, failure paths, scope, invariants, and risk |
+| Coding | A plausible local solution may ignore callers or duplicate rules | The agent checks affected consumers, canonical business rules, existing patterns, and responsibility boundaries |
+| Testing | “Tests pass” may mean one convenient command | The agent maps criteria to checks and distinguishes passed, failed, blocked, skipped, and not-run evidence |
+| Reviewing | Suggestions may be implemented without validation | Findings are verified against the contract and source, classified, resolved with evidence, or dismissed with a reason |
+| Handoff | The next session has to rediscover the work | The project map and feature record retain current paths, decisions, actual results, remaining work, and proven lessons |
+
+For a bounded everyday change, use compact mode and let the agent keep the record short. For public contracts, migrations, authentication, payments, shared architecture, or other high-impact work, the skill expands the design, compatibility, security, rollback, and review evidence.
+
+The first substantive run can take longer because the agent must learn the relevant part of the repository. Later runs can reuse verified project context, but the skill refreshes stale paths and never treats saved documentation as more authoritative than the current source.
+
+## How it supports development standards
+
+“Industry standard” is not one universal checklist. The skill first follows the repository's established sound conventions and required checks. Where the project has no clear convention, it asks for the smallest design that makes ownership, dependencies, behavior, and failure handling explicit.
+
+| Quality area | Practice applied | Evidence expected before completion |
+| --- | --- | --- |
+| Requirements | Observable behavior, non-goals, invariants, and material failure cases | Acceptance criteria mapped to implementation and checks |
+| Architecture | Existing pattern fit, cohesive responsibilities, dependency direction, and justified abstractions | Relevant callers and boundaries inspected; design choice recorded when material |
+| Correctness | Success, edge, negative, state-transition, and recovery behavior | Meaningful behavioral or regression checks with actual results |
+| Maintainability | One appropriate owner for shared rules, intentional differences preserved, dead or redundant code avoided | Diff and affected-path review, with duplication decisions explained when material |
+| Security and privacy | Authorization, validation, secrets, sensitive logging, data handling, abuse paths, and trust boundaries considered when relevant | Adversarial cases or explicit limitations proportional to risk |
+| Compatibility | APIs, schemas, stored data, clients, configuration, defaults, and independently deployed consumers considered | Compatibility evidence plus migration or rollback plan when needed |
+| Verification integrity | No fabricated results, hidden failures, weakened tests, or stale review evidence | Exact commands/procedures, tested source state, and unresolved blockers reported |
+| Delivery | Implemented, verified, released, and deployed remain distinct states | Honest handoff with remaining risks and required next action |
+
+This process can help a project reach a higher standard, but it cannot supply missing product decisions, domain expertise, realistic test environments, or human release authority. Repository policies and qualified review remain decisive.
+
+## What can you rely on?
+
+Reliability has four different layers:
+
+| Layer | What is established |
+| --- | --- |
+| Package | The installable folder is self-contained, uses the Agent Skills format, has no installation hook or required API key, and passed package/link validation. |
+| Deterministic helper | The optional evidence helper has executable regression coverage, forces Git inventory operations offline, detects stale source packets, and validates report structure. It does not judge code quality or prove that a reported check ran. |
+| Agent behavior | The instructions define scope, review, verification, and stopping rules, but the host model and available tools determine how faithfully and effectively they are applied. |
+| Project outcome | Confidence comes from the acceptance cases, source inspection, tests, review, and limitations produced for that specific task. Installing the skill alone is not evidence that a change is correct. |
+
+Current local v0.6 evidence includes 29 tests, package and skill-format validation, a byte-for-byte Skills CLI installation targeting all six documented hosts, and native OpenCode discovery. The last public v0.5 revision additionally has Codex discovery, dependency auditing, and a five-job GitHub Actions matrix across Ubuntu, macOS, Windows, and Python 3.10–3.12. The security correction for the optional Git helper was independently reproduced with a positive control and return review. See the [current publication audit](docs/publication-audit-2026-09-20.md) and [retained evaluation evidence](evals/README.md) for scope and limitations.
+
+The evaluations do **not** prove a universal improvement over a capable baseline, a defect-free result, reliable activation in every coding tool, or measured quality-per-token gains. Evaluate the skill on representative work in your own repository before making it a required team workflow.
+
+## If you are new to software development
+
+You do not need to know every design pattern or test framework to use the skill. Give the agent the behavior you want, the users affected, examples of correct and incorrect outcomes, and constraints you already know. Let it inspect the repository before it proposes architecture.
+
+Use these guardrails:
+
+1. Start with a small task or a review-only run so you can inspect the workflow without risking a large change.
+2. Ask for compact mode unless the change affects authentication, payments, stored data, migrations, public APIs, permissions, or other high-impact boundaries.
+3. Read the final **failed**, **blocked**, and **not run** checks. Generated code is not finished merely because some tests passed.
+4. Do not authorize deployment, destructive data changes, credential changes, or production access solely because the agent reports success.
+5. Ask a qualified engineer or domain reviewer to inspect security-sensitive, financial, legal, privacy, migration, and production-critical work.
+
+A useful first request is:
+
+```text
+Use $production-engineering-loop in review-only mode. Explain the current change
+in plain language, identify the behavior it is supposed to preserve, run safe
+relevant checks, and list material problems or missing evidence. Do not edit files.
+```
+
 ## What it does not promise
 
 This skill does not guarantee perfect or vulnerability-free code, certify compliance, replace required human review, make deployment decisions, or prove that a reported test actually ran. Model capability, repository context, available tools, permissions, tests, and reviewer judgment still determine the outcome.
@@ -70,9 +179,9 @@ It does not retrain the model or silently modify itself. Its “self-improving�
 
 ## Install for a new user
 
-The complete installable package is the [skills/production-engineering-loop](skills/production-engineering-loop/SKILL.md) folder. It contains the skill entrypoint, supporting references, templates, optional evidence helper, Codex UI metadata, an optional reviewer-role example, and the license. Repository-level tests, evaluation artifacts, and development documentation are not runtime dependencies.
+The complete installable package is the [skills/production-engineering-loop](skills/production-engineering-loop/SKILL.md) folder. It contains the portable skill entrypoint, supporting references, templates, optional evidence helper, host compatibility guidance, optional Codex UI/reviewer metadata, and the license. The Codex files are adapters; other hosts ignore them and use the same core workflow. Repository-level tests, evaluation artifacts, and development documentation are not runtime dependencies.
 
-The package uses the open [Agent Skills format](https://agentskills.io/specification). Normal use requires no API key, MCP server, background service, installation hook, Python runtime, or GitHub account. The command-line installer requires Node.js/npm. Git and Python 3.10+ are needed only if the agent uses the optional source-evidence helper.
+The package uses the open [Agent Skills format](https://agentskills.io/specification). Normal use requires no API key, MCP server, background service, installation hook, Python runtime, or GitHub account. The documented GitHub installation requires Node.js 22.20 or newer, npm, and Git. Manual installation and the core workflow require none of those tools. The optional source-evidence helper requires Git and Python 3.10+.
 
 ### 1. Choose the installation scope
 
@@ -91,27 +200,123 @@ The repository contains one installable skill, so the shortest command is:
 npx skills add NagarjunMa/production-engineering-skills
 ```
 
-The installer detects the skill and lets you choose the coding agent and installation scope. For a non-interactive personal installation in Codex:
+In a normal terminal, the installer presents this flow:
+
+1. Select one or more coding agents from the detected/supported agent list.
+2. Choose **Project** to install in the current repository or **Global** to make the skill available across your local projects.
+3. Review the destination summary and confirm the installation.
+
+An agent-integrated terminal may detect the active coding agent and skip the agent picker. Use one of the explicit commands below when you want a different target or a fully repeatable installation.
+
+The selected agent and scope determine **where** the skill is installed. Every destination receives the same complete, self-contained `production-engineering-loop` package so its shared references, templates, helper, and license remain available. Repository development files such as tests, evaluations, documentation, and media are not installed with the skill.
+
+If you prefer a direct command, choose **one tool below**. Use the personal command to make the skill available across your projects, or run the project command from a repository root to install it only there.
+
+#### Codex
+
+Personal installation:
 
 ```sh
 npx skills add NagarjunMa/production-engineering-skills -g -a codex -y
 ```
 
-For a non-interactive project installation in Codex, run this from the target project's root:
+Project installation:
 
 ```sh
 npx skills add NagarjunMa/production-engineering-skills -a codex -y
 ```
 
-For another supported tool, replace `codex` with the agent identifier supported by the [Skills CLI](https://github.com/vercel-labs/skills), or use the short interactive command and choose from the detected agents. Exact discovery and invocation behavior belongs to the host tool.
+Invoke with `$production-engineering-loop`.
+
+#### Claude Code
+
+Personal installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -g -a claude-code -y
+```
+
+Project installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -a claude-code -y
+```
+
+Invoke with `/production-engineering-loop`.
+
+#### Cursor
+
+Personal installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -g -a cursor -y
+```
+
+Project installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -a cursor -y
+```
+
+Invoke with `/production-engineering-loop` or attach it with `@`.
+
+#### Gemini CLI
+
+Personal installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -g -a gemini-cli -y
+```
+
+Project installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -a gemini-cli -y
+```
+
+Confirm discovery with `/skills list`, then ask Gemini to use `production-engineering-loop`.
+
+#### Qwen Code
+
+Personal installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -g -a qwen-code -y
+```
+
+Project installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -a qwen-code -y
+```
+
+Invoke with `/production-engineering-loop`.
+
+#### OpenCode
+
+Personal installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -g -a opencode -y
+```
+
+Project installation:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -a opencode -y
+```
+
+Ask OpenCode to use `production-engineering-loop`. Confirm discovery with `opencode debug skill`.
+
+Install only for tools you use. Avoid installing both personal and project copies for the same tool unless you intentionally maintain different versions. The [Skills CLI](https://github.com/vercel-labs/skills) supports additional agents beyond the six documented here.
 
 ### 3. Install from a local clone
 
-To test or develop the skill before publication:
+To test or develop the skill before publication, replace `<agent-id>` with one identifier shown above—for example, `codex`, `claude-code`, or `opencode`:
 
 ```sh
 npx skills add /absolute/path/to/production-engineering-loop \
-  --skill production-engineering-loop --agent codex --yes
+  --skill production-engineering-loop --agent <agent-id> --yes
 ```
 
 Add `--global` when you want that local installation available across projects.
@@ -120,39 +325,89 @@ Add `--global` when you want that local installation available across projects.
 
 Copy the **whole** `skills/production-engineering-loop` directory into the host's personal or project skills directory. Do not copy only `SKILL.md`; its references, templates, license, helper, and metadata are part of the package.
 
-For Codex:
+| Coding agent | Project parent | Personal parent |
+| --- | --- | --- |
+| Codex | `.agents/skills/` | `~/.codex/skills/` |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Cursor | `.agents/skills/` or `.cursor/skills/` | `~/.cursor/skills/` |
+| Gemini CLI | `.agents/skills/` or `.gemini/skills/` | `~/.gemini/skills/` |
+| Qwen Code | `.qwen/skills/` | `~/.qwen/skills/` |
+| OpenCode | `.agents/skills/` or `.opencode/skills/` | `~/.config/opencode/skills/` |
 
-| Scope | Destination |
-| --- | --- |
-| Personal | `~/.agents/skills/production-engineering-loop/` |
-| Project | `<project>/.agents/skills/production-engineering-loop/` |
-
-The [installation and compatibility guide](docs/installation.md) contains Windows instructions, directories for Claude Code, Cursor, GitHub Copilot, and Gemini CLI, update/removal guidance, and a file-based fallback for tools without native skill support.
+The [installation and compatibility guide](docs/installation.md) contains host-specific discovery checks, Windows instructions, update/removal guidance, and a file-based fallback for tools without native skill support.
 
 ### 5. Confirm the installation
 
 1. Restart or reload the coding tool if it does not refresh skills automatically.
 2. Open the tool's skill list and confirm that **Production Engineering Loop** appears once and is enabled.
-3. Start with an explicit, bounded request so activation is unambiguous.
+3. Use the invocation shown under your coding tool above, followed by an explicit, bounded request.
 
-For Codex:
+Use this host-neutral first task:
 
 ```text
-Use $production-engineering-loop to review the current uncommitted changes.
+Use the production-engineering-loop skill to review the current uncommitted changes.
 Do not edit files. Check behavior, affected callers, modularity, duplication,
 and the relevant tests. Report exact evidence and remaining limitations.
 ```
 
 Installation proves that the host can discover the package. It does not by itself prove that every model will follow every instruction correctly. Evaluate a known task and inspect the resulting plan, changes, checks, and review evidence.
 
+### 6. Update or remove it
+
+Update a personal installation:
+
+```sh
+npx skills update production-engineering-loop -g -y
+```
+
+Update the current project's installation:
+
+```sh
+npx skills update production-engineering-loop -p -y
+```
+
+Remove a personal installation from one or more hosts by naming their agent identifiers:
+
+```sh
+npx skills remove production-engineering-loop -g -a claude-code -a opencode -y
+```
+
+Removing the installed skill does not remove project documentation the agent previously created. Those records belong to the project and should be reviewed like any other repository files.
+
+## Security and permissions
+
+Installing the skill adds instructions and bundled resources. It does not install a background service, request an API key, connect an external account, add an MCP server, or run code automatically. The optional Python helper runs only when the agent invokes that review-evidence workflow.
+
+The coding agent still has the permissions supplied by its host and by you. A skill is guidance, not a sandbox. Review commands before granting elevated access, keep credentials out of prompts and repositories, and retain your normal approval controls for deployments, production data, destructive operations, and external communications.
+
+Review-only mode instructs the agent not to edit source or mutate external systems. When the host supports read-only controls or isolated scratch environments, the skill asks the agent to use them. The optional Git evidence helper disables transports and lazy fetching so missing objects fail instead of causing a network fetch or remote-helper execution.
+
+See [SECURITY.md](SECURITY.md) for the supported-version and vulnerability-reporting policy.
+
+## Troubleshooting
+
+| Symptom | What to do |
+| --- | --- |
+| Skill does not appear | Restart or reload the agent, then run `npx skills list` or `npx skills ls -g`. Confirm the package was installed for the intended agent and scope. |
+| Skill appears twice | Remove either the personal or project copy, then reload. Keep both only when you intentionally manage different versions. |
+| Agent does not activate it automatically | Use the host-specific invocation in the installation table, or ask the agent to read the installed `SKILL.md` and apply it to the task. |
+| Agent produces too much documentation | Request compact mode. The engineering checks stay applicable while the written record becomes shorter. |
+| Fresh review cannot run | The agent should prepare the portable review packet and mark independent review pending; it must not claim that self-review satisfied the requirement. |
+| Project has no tests | For executable behavior, the agent should add the smallest meaningful test setup when authorized and practical. Missing tooling or prerequisites are blockers, not permission to substitute prose. Structural/manual verification is appropriate only when executable testing is not meaningful, and the limitation must be explicit. |
+| Python is unavailable | Continue with the core workflow and manual evidence. Only the optional provenance helper requires Python 3.10+. |
+| Git is unavailable | Install the package manually and use the core workflow without the provenance helper. The documented GitHub CLI installation and optional helper require Git. |
+| First task feels slow | Start with a bounded subsystem. Initial repository mapping costs time; later tasks can reuse verified context and refresh only affected areas. |
+
+For host-specific paths, Windows installation, and file-based fallback instructions, use the [installation and compatibility guide](docs/installation.md).
+
 ## Use it on real work
 
-Explicitly name the skill and describe the outcome and constraints. You can supply a short task, an issue, or the full PRI-style template bundled with this project.
+Explicitly name the skill and describe the outcome and constraints. You can supply a short task, an issue, or the full feature template bundled with this project.
 
 Implementation example:
 
 ```text
-Use $production-engineering-loop to implement cursor pagination for GET /orders.
+Use the production-engineering-loop skill to implement cursor pagination for GET /orders.
 Preserve the existing response fields and authorization behavior.
 Define the acceptance and failure cases, implement the change, run the relevant
 repository checks, review the result, and resolve confirmed findings.
@@ -161,7 +416,7 @@ repository checks, review the result, and resolve confirmed findings.
 Project onboarding and implementation example:
 
 ```text
-Use $production-engineering-loop to read this problem statement and inspect the
+Use the production-engineering-loop skill to read this problem statement and inspect the
 relevant codebase. Record the product, stack, architecture, file responsibilities,
 and inspection gaps. Define evaluations for the requested feature, implement it,
 and update the project records with actual results.
@@ -170,16 +425,31 @@ and update the project records with actual results.
 Review-and-fix example:
 
 ```text
-Use $production-engineering-loop to review the current branch against this problem
+Use the production-engineering-loop skill to review the current branch against this problem
 statement. Verify each finding against the current source, fix confirmed in-scope
 issues, add regression coverage where appropriate, and rerun affected checks.
 ```
 
-In Claude Code, invoke `/production-engineering-loop` followed by the task. In other tools, select the installed skill or ask the agent to read its `SKILL.md`. Automatic invocation depends on the host; explicit invocation is preferable for the first test.
+In Codex, invoke `$production-engineering-loop`. Claude Code, Cursor, and Qwen Code support `/production-engineering-loop`; Cursor also supports attaching the skill with `@`. Gemini CLI and OpenCode can discover it from their skill directories and load it from a direct request. Automatic invocation depends on the host and model, so use the explicit route for the first test.
 
 A useful handoff might look like this **illustrative example**, not a result from this repository:
 
 > Implemented the pagination fix while preserving the response shape. Significant risk: public API contract. Passed: focused pagination tests and type checks. Integration tests were blocked by an unavailable local database. Implementation is complete; integration verification remains pending.
+
+## Evaluate it in your own workflow
+
+Adopt the skill based on observed results in your repositories, not the size or confidence of its output.
+
+1. Choose a bounded task with clear acceptance behavior and at least one meaningful failure path.
+2. Preserve the starting source and requirements. If comparing workflows, use equivalent starting states and the same independent acceptance checks.
+3. Run the skill explicitly and retain the changed files, commands, results, findings, and limitations.
+4. Independently evaluate correctness, compatibility, modularity, duplication, abstraction choices, verification integrity, and whether the documentation matches the code.
+5. Record defects caught, defects missed, unsupported suggestions, regressions, elapsed time, and token/tool measurements only when the host exposes them.
+6. Repeat on different task types before making the skill mandatory for a team.
+
+A good result is a change whose behavior and affected boundaries are understandable, whose important failure cases are checked, whose design fits the repository, and whose remaining uncertainty is visible. More files, tests, prose, abstractions, or reviewer rounds do not automatically mean higher quality.
+
+Use the [community validation record](docs/community-validation.md) to capture comparable runs without publishing private source, customer data, credentials, or personal paths.
 
 ## How much process does it add?
 
@@ -238,7 +508,7 @@ For the detailed execution flow, memory lifecycle, optional automation component
 
 ## Feature contracts that reduce repeated discovery
 
-The [full feature template](skills/production-engineering-loop/assets/feature-template.md) preserves the maintainer's PRI-style problem, goal, change contract, risk assessment, implementation plan, security/privacy, acceptance, verification, rollout, progress, decisions, and final pre-merge evidence sections, with explicit design and quality constraints. The [compact template](skills/production-engineering-loop/assets/feature-compact-template.md) retains the essential contract, design, checks, and handoff for bounded work. Use a verified issue identifier or an explicitly unassigned title.
+The [full feature template](skills/production-engineering-loop/assets/feature-template.md) preserves the maintainer's detailed structure for the problem, goal, change contract, risk assessment, implementation plan, security/privacy, acceptance, verification, rollout, progress, decisions, and final pre-merge evidence, with explicit design and quality constraints. The [compact template](skills/production-engineering-loop/assets/feature-compact-template.md) retains the essential contract, design, checks, and handoff for bounded work. Use a verified issue identifier or an explicitly unassigned title.
 
 Its added **Execution Context** provides a compact starting point: the next incomplete step, repository-relative paths and symbols, edit/read/test/config roles, relevant callers, check commands, and the source snapshot supporting the map. Locations are marked verified, candidate, or planned. An extra handoff section records relevant learning and refreshed context.
 
@@ -248,13 +518,24 @@ When executable testing is meaningful, the supplied plan follows red/green: add 
 
 ## Compatibility and validation
 
-Native skill paths are documented for Codex, Claude Code, Cursor, GitHub Copilot, and Gemini CLI. This is documentation-based compatibility, not a claim that every model or product version has been tested. Tools without native skills can use explicit file-based instructions if they can read the package. See [the compatibility guide](docs/installation.md).
+| Environment | Current evidence |
+| --- | --- |
+| Codex desktop/CLI on macOS | Public and local installation, personal/project discovery, nested-project discovery, explicit invocation, and fresh-review workflow exercised |
+| GitHub Actions | [Run 35556792913](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/35556792913) passed all five package-validation and test jobs for public `main` commit `a588182` across Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11 |
+| Skills CLI | The public repository exposes one skill; local multi-target installation verifies the same package layout for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode |
+| Claude Code and OpenCode installed locally | The multi-target installer produced both host layouts and OpenCode discovered the exact current package; Claude Code runtime discovery and full task-behavior evaluations remain pending |
+| Cursor, Gemini CLI, and Qwen Code | Native paths and invocation are documented from current vendor guidance; full task behavior has not yet been independently exercised on these hosts |
+| Other file-capable agents | Can use the bundled `SKILL.md` and relative resources explicitly; this is a fallback rather than verified native integration |
 
-Initial v0.1.0 validation on 2026-09-17 passed: skill format checks, eight packaging-validator tests, and a disposable project installation using Skills CLI 1.7.0 targeting all five listed agents. The installer produced shared `.agents/skills` and `.claude/skills` copies; every installed package file matched the source. Validation evidence for the v0.2.0 learning loop is maintained in its [feature record](docs/engineering-loop/features/project-learning.md).
+The repository retains source snapshots, deterministic checks, behavioral scenarios, independent findings, corrections, and limitations. Historical v0.1–v0.5 records explain how the current v0.6 workflow developed; they are not treated as proof of current behavior. Start with the [publication audit](docs/publication-audit-2026-09-20.md), [evaluation index](evals/README.md), and [community validation template](docs/community-validation.md).
 
-The v0.3.0 feature-contract and focused-retrieval changes have their own [evidence record](docs/engineering-loop/features/feature-context.md). A [subsequent audit](docs/audit-2026-09-18.md) records that snapshot's bounded continuation and no-skill comparison. v0.4.0 made quality primary and added compact/full documentation; see its [feature record](docs/engineering-loop/features/quality-first-modes.md). v0.5.0 adds fresh review orchestration, execution-boundary guidance, findings resolution, and optional provenance helpers. Earlier results are historical, not proof of revised behavior.
+Native skill paths are documented for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode in the [compatibility guide](docs/installation.md). Product versions, organizational policies, available models, and tool permissions can change actual behavior.
 
-These checks do **not** demonstrate engineering quality, host activation, or instruction following. Use the [behavioral evaluation scenarios](evals/README.md) to evaluate actual runs and record the agent, model, version, and outcomes. No cross-agent behavioral benchmark has been established for this initial version.
+## Support and feedback
+
+Report reproducible bugs, documentation gaps, and compatibility results in [GitHub Issues](https://github.com/NagarjunMa/production-engineering-skills/issues). Include the host tool and version, installation scope, skill version or source revision, task type, observed behavior, and a minimal sanitized reproduction when possible. Never publish credentials, customer data, private source, or personal paths.
+
+For suspected security vulnerabilities, follow [SECURITY.md](SECURITY.md) instead of opening a public issue. Use the [community validation record](docs/community-validation.md) when sharing evidence from a real project.
 
 ## Develop and publish
 

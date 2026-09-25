@@ -1,28 +1,97 @@
 # Installation and compatibility
 
-Install the folder `skills/production-engineering-loop`, not the repository root. That folder is a complete runtime package: keep `SKILL.md`, `references/`, `assets/`, `scripts/`, `agents/`, and `LICENSE` together. Root-level tests, evaluations, and documentation are development/publication evidence and are not required after installation. The skill has no executable installation hook; its standard-library evidence script runs only when the agent explicitly uses that optional workflow.
+Production Engineering Loop uses the open Agent Skills `SKILL.md` format. The same package is intended for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, OpenCode, and other compatible agents. Host-specific files are optional adapters: `agents/openai.yaml` improves Codex presentation, and `references/codex-review.md` plus `assets/pel-reviewer.toml` describe optional Codex review orchestration. Other hosts can ignore those files without losing the core Understand → Build → Verify → Learn workflow.
+
+Install the folder `skills/production-engineering-loop`, not an isolated `SKILL.md`. Keep `references/`, `assets/`, `scripts/`, `agents/`, and `LICENSE` beside it so relative resources remain available. Root-level tests, evaluations, media, and development documentation are publication evidence rather than runtime dependencies.
+
+## Fastest installation
+
+The interactive command discovers the package and, in a normal terminal, asks which coding agents and scope to target:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills
+```
+
+The prompt flow is:
+
+1. Select one or more agents.
+2. Choose **Project** for the current repository or **Global** for use across local projects.
+3. Review the destination summary and confirm.
+
+An agent-integrated terminal can detect the active host and install for it without showing the agent picker. Use an explicit `-a` command when a different target is required. Scope controls the destination, while every selected destination receives the same complete skill directory. The installer does not include this repository's tests, evaluations, documentation, or media in the installed skill.
+
+For one personal/global installation, choose the relevant identifier:
+
+```sh
+# Codex
+npx skills add NagarjunMa/production-engineering-skills -g -a codex -y
+
+# Claude Code
+npx skills add NagarjunMa/production-engineering-skills -g -a claude-code -y
+
+# Cursor
+npx skills add NagarjunMa/production-engineering-skills -g -a cursor -y
+
+# Gemini CLI
+npx skills add NagarjunMa/production-engineering-skills -g -a gemini-cli -y
+
+# Qwen Code
+npx skills add NagarjunMa/production-engineering-skills -g -a qwen-code -y
+
+# OpenCode
+npx skills add NagarjunMa/production-engineering-skills -g -a opencode -y
+```
+
+One command can target every documented host:
+
+```sh
+npx skills add NagarjunMa/production-engineering-skills -g \
+  -a codex -a claude-code -a cursor -a gemini-cli -a qwen-code -a opencode -y
+```
+
+Omit `-g` for project installation. Install only for agents you actually use. Avoid duplicate personal and project copies unless different versions are intentional.
+
+The GitHub/Skills CLI route requires Node.js 22.20 or newer, npm, and Git. Manual installation and the core workflow require none of them. The optional source-evidence helper requires Python 3.10+ and Git.
 
 ## Native skill locations
 
-Vendor documentation checked on 2026-09-17. Each path below is the **parent** into which you copy the `production-engineering-loop` folder. Availability can vary by version, product surface, and organization policy.
+Vendor and Skills CLI documentation checked on 2026-09-23. Each path is the parent into which the complete `production-engineering-loop` folder is installed.
 
-| Tool | Project directory | Personal directory | Source |
-| --- | --- | --- | --- |
-| Codex | `.agents/skills/` | `~/.agents/skills/` | [OpenAI](https://learn.chatgpt.com/docs/build-skills) |
-| Claude Code | `.claude/skills/` | `~/.claude/skills/` | [Anthropic](https://code.claude.com/docs/en/skills) |
-| Cursor | `.cursor/skills/` or `.agents/skills/` | `~/.cursor/skills/` | [Cursor](https://cursor.com/docs/skills) |
-| GitHub Copilot | `.github/skills/` or `.agents/skills/` | `~/.copilot/skills/` | [GitHub](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills) |
-| Gemini CLI | `.gemini/skills/` or `.agents/skills/` | `~/.gemini/skills/` | [Gemini CLI](https://geminicli.com/docs/cli/skills/) |
+| Tool | Skills CLI ID | Project directory | Personal directory | Documentation |
+| --- | --- | --- | --- | --- |
+| Codex | `codex` | `.agents/skills/` | `~/.codex/skills/` | [OpenAI](https://developers.openai.com/codex/skills) |
+| Claude Code | `claude-code` | `.claude/skills/` | `~/.claude/skills/` | [Anthropic](https://code.claude.com/docs/en/skills) |
+| Cursor | `cursor` | `.agents/skills/` or `.cursor/skills/` | `~/.cursor/skills/` | [Cursor](https://cursor.com/docs/skills) |
+| Gemini CLI | `gemini-cli` | `.agents/skills/` or `.gemini/skills/` | `~/.gemini/skills/` | [Gemini CLI](https://geminicli.com/docs/cli/using-agent-skills/) |
+| Qwen Code | `qwen-code` | `.qwen/skills/` | `~/.qwen/skills/` | [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/) |
+| OpenCode | `opencode` | `.agents/skills/` or `.opencode/skills/` | `~/.config/opencode/skills/` | [OpenCode](https://opencode.ai/docs/skills/) |
 
-Personal directories on your laptop are not automatically available to remote/cloud agents. Use the host's documented sync mechanism or project installation. Copying a skill into a project is a repository change; follow your team's contribution policy.
+Personal directories on a laptop are not automatically available to cloud agents. Use the host's documented sync feature or commit a project installation when the remote environment must load the skill. Project installation changes the repository, so follow the team's contribution policy.
 
-GitHub is not required for local use. A developer can install from a local clone or copy the complete folder. Once installed, the workflow can evaluate uncommitted/staged work, a chosen branch or revision range, selected code, or completed existing code. Git and Python 3.10+ are optional requirements of the provenance helper only; the instructions and templates work without them using clearly recorded manual evidence.
+## Invoke and verify discovery
 
-The [Skills CLI](https://github.com/vercel-labs/skills) also supports other agents and may choose different supported aliases. Consult its current agent list rather than assuming every agent uses one directory. Do not install duplicate copies in several directories that the same agent scans.
+| Host | Explicit use | Discovery check |
+| --- | --- | --- |
+| Codex | `$production-engineering-loop` | Confirm it appears once in the skill list. |
+| Claude Code | `/production-engineering-loop` | Type `/` and find `production-engineering-loop`. |
+| Cursor | `/production-engineering-loop` or attach with `@` | Open Customize → Skills or search the `/` menu. |
+| Gemini CLI | Ask it to use `production-engineering-loop` | Run `/skills list`; use `/skills reload` after changes. |
+| Qwen Code | `/production-engineering-loop` | Run `/skills` or use slash-command autocomplete. |
+| OpenCode | Ask it to use `production-engineering-loop` | Run `opencode debug skill`. |
 
-## Manual example: project installation
+Start with a bounded, read-only request so discovery and instruction following are visible without changing source:
 
-Run from the target project's root, replacing the source path with your local clone. This example uses `.agents/skills`; substitute the native path from the table if needed. It refuses to overwrite an existing installation.
+```text
+Use the production-engineering-loop skill to review the current uncommitted changes.
+Do not edit files. Check behavior, affected callers, modularity, duplication,
+and relevant tests. Report exact evidence and remaining limitations.
+```
+
+Discovery proves only that the host loaded the package. It does not prove that every host model will follow the workflow equally well. Validate behavior on a known task and record the host/version, source state, checks, findings, and limitations.
+
+## Manual project installation
+
+Run from the target project's root. This example uses the shared `.agents/skills` location recognized by Codex, Cursor, Gemini CLI, and OpenCode. Use `.claude/skills` for Claude Code or `.qwen/skills` for Qwen Code. The example refuses to overwrite an existing installation.
 
 macOS/Linux:
 
@@ -48,13 +117,22 @@ New-Item -ItemType Directory -Force '.agents\skills' | Out-Null
 Copy-Item -Recurse $skillSource $skillDest
 ```
 
-Reload skills or start a new agent session, then confirm the skill appears in the host's skill list. Try an explicit review-only request on a small known diff and inspect whether the agent reads the skill and preserves the worktree. Automatic invocation is a host decision; installation does not ensure activation on every task.
+Reload the host's skills or start a new session. For updates, compare local modifications before replacing the folder. For removal, delete only the installed `production-engineering-loop` folder or use `npx skills remove` with the same scope and agent identifier used during installation.
 
-For updates, review the new version and compare any local modifications before replacing the installed folder. For uninstall, remove only the installed `production-engineering-loop` folder or symlink from the chosen scope. If installed with Skills CLI, use its documented `remove` command with the matching scope and agent.
+## Capability differences
+
+The engineering contract is the same on every host, while orchestration differs:
+
+- File, search, edit, shell, browser, planning, and approval tool names vary. The skill asks the active agent to use its available safe equivalents.
+- Codex UI metadata is ignored by other hosts. It does not contain core workflow instructions.
+- Fresh reviewer delegation is optional. Hosts with subagents or isolated contexts can automate it; other hosts produce the same portable review packet for a separate session, model, human, or CI job.
+- If a host cannot execute commands, it can still inspect source and design, but it must mark executable verification as not run.
+- If Python or Git is unavailable, the core workflow remains usable and evidence is recorded manually instead of through the optional helper.
+- Permissions remain controlled by the host and user. Installing a skill does not grant filesystem, shell, network, production, or external-service access.
 
 ## Other tools and instruction-file fallback
 
-If an agent can read repository files but lacks native skills, copy the package into `docs/skills/production-engineering-loop/` in the target project, then use this prompt:
+If an agent can read repository files but lacks native Agent Skills discovery, copy the complete package into `docs/skills/production-engineering-loop/` and use:
 
 ```text
 Read docs/skills/production-engineering-loop/SKILL.md and apply it to this task.
@@ -62,6 +140,6 @@ Resolve its relative references within that skill folder.
 Task: [describe the outcome and constraints].
 ```
 
-For repeated use, add that routing instruction to the repository instruction file the host actually supports, preserving its existing content. A filename such as `AGENTS.md` is not universal. If the agent cannot read files, provide the main skill and relevant references as prompt context; automatic discovery and command execution will not be available.
+For repeated use, add a short routing instruction to the repository instruction file the host actually supports while preserving existing content. No filename such as `AGENTS.md` is universal. If the agent cannot read files, provide `SKILL.md` and only the relevant referenced material as prompt context.
 
-This fallback reuses the workflow; it is not native installation support or a guarantee of equivalent behavior. No universal installer can add capabilities a host does not expose.
+This fallback reuses the workflow; it is not native installation support or a guarantee of equivalent behavior. No installer can add capabilities a host does not expose.

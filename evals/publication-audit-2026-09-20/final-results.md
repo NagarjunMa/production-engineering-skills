@@ -1,8 +1,18 @@
 # Corrected local release-candidate results
 
-Date: 2026-09-20. Source state: reviewed local package with public remote; no immutable release has been verified.
+Date: 2026-09-20, updated 2026-09-23 with local v0.6 portability evidence. Source state: reviewed local package with public remote; no immutable release has been verified.
 
-## Results
+## v0.6 portability update
+
+- Package validator and Codex skill-format validator: passed.
+- Python 3.11 test suite: 29 passed.
+- Skills CLI targeted `codex`, `claude-code`, `cursor`, `gemini-cli`, `qwen-code`, and `opencode` in one disposable project.
+- The resulting `.agents`, `.claude`, and `.qwen` copies each matched all 25 current source-package files byte for byte.
+- OpenCode 1.18.27 discovered `production-engineering-loop` from the disposable project's `.agents/skills` directory without model execution.
+- Claude Code 2.1.153 is installed locally, but native discovery and task behavior were not exercised in this update. Cursor, Gemini CLI, and Qwen Code runtimes were unavailable locally.
+- These results establish format and installation portability. They do not establish equivalent task quality across hosts or models.
+
+## Historical v0.5 results
 
 - Package validator: passed.
 - Codex skill-format validator: passed.
@@ -12,6 +22,7 @@ Date: 2026-09-20. Source state: reviewed local package with public remote; no im
 - Local Skills CLI install: found exactly one skill, copied the package into a fresh project's `.agents/skills/production-engineering-loop`, and exited successfully.
 - Fresh installed copy: byte-for-byte matched the source folder; Codex discovered one enabled repository-scoped `production-engineering-loop` skill.
 - Public GitHub install: `NagarjunMa/production-engineering-skills` exposed exactly one skill; installation from public `main` succeeded, matched the local package, and was discovered by Codex.
+- Hosted CI: [GitHub Actions run 35556792913](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/35556792913) passed all five jobs for public `main` commit `a58818220c8f59fd1717457b73758ef1f0018462`: Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11.
 - Standalone package inspection: 24 files, no symlinks, all bundled links valid; helper usable from unrelated scratch.
 - Privacy and limited credential-signature scan: no personal home paths, private-key headers, or tested provider token patterns found.
 - Independent security return review: `capture`, `check`, and `validate` each exited 2 on a missing promised base object and did not execute the configured remote-helper marker. The unguarded positive control executed the marker, proving the probe was effective. Hostile inherited `GIT_ALLOW_PROTOCOL` and `GIT_NO_LAZY_FETCH` values were overridden.
@@ -32,7 +43,8 @@ Reviewer model identity was unknown, so this is an independent fresh-context rev
 
 ## External steps still unobserved
 
-- Hosted GitHub Actions results, including Linux, Windows, macOS, and Python 3.10.
 - An immutable tag/release and installation from that exact release.
 - Private vulnerability reporting enabled on the selected repository.
 - Broader projects, users, other coding agents, and cloud environments.
+
+The hosted result validates the package checks on that public revision. It does not exercise an interactive coding-agent workflow on Linux or Windows and does not validate the current uncommitted documentation changes.
