@@ -11,7 +11,7 @@
     "gif": "remotion render src/index.ts ProductionEngineeringLoop out/production-engineering-loop.gif --codec=gif"
   },
   "dependencies": {
-    "@remotion/cli": "4.0.527",
+    "@remotion/cli": "4.0.538",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "remotion": "4.0.527",
