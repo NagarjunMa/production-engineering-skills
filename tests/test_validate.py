@@ -36,6 +36,8 @@ class PackagingTests(unittest.TestCase):
             "LICENSE",
             "agents/openai.yaml",
             "scripts/review_evidence.py",
+            "scripts/check_context.py",
+            "references/context-checks.md",
             "references/host-compatibility.md",
             "references/independent-review.md",
             "references/review-evidence.md",

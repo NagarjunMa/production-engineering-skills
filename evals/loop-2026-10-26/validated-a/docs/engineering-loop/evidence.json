@@ -1,0 +1,45 @@
+{
+  "captured_at": "2026-10-26T14:04:22.096382+00:00",
+  "project": "/private/tmp/pel-forward-final-NhvVF0yk/session-a",
+  "snapshot_id": "af9fcb5892586bacc221704f4249ca3cb4009f0c851213797f6a1a780f4c88d1",
+  "files_sha256": {
+    "README.md": "17f13c29ef034d59c430e7f78f6fcc016bf29404fd94af193dd30b3d578a3eb3",
+    "docs/engineering-loop/PROJECT.md": "60dc22591fa19d0d58a7fcaf46b8fceae3c2181ddd67d67b8e1d2830ab72f513",
+    "docs/engineering-loop/features/atomic-adjustment.md": "deace1017026e1a4347712961cb6a1a0464447f2b8f4b67ca0087521f428dc7d",
+    "inventory.py": "3175687c783eaabaf352d72e3974c482123573a833876a9e9881392d45efcc7e",
+    "tests/test_inventory.py": "4edc2b371ffc34b1371090248262c04065efab5d112c62bcb9beddc95bbf1548"
+  },
+  "excluded": {
+    "docs/engineering-loop/evidence.json": "Evidence-only receipt, avoids hashing itself."
+  },
+  "source_state": "Project-local Git metadata absent; all files included except receipt. Base/branch unknown.",
+  "runtime": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "checks": [
+    {
+      "command": "python3 -B -m unittest discover -s tests -v",
+      "cwd": "/private/tmp/pel-forward-final-NhvVF0yk/session-a",
+      "result": "passed",
+      "tests": 3,
+      "subcases": 14,
+      "provenance": "Executed after implementation; source and tests unchanged since passing run."
+    },
+    {
+      "procedure": "Self-review complete production function, all local callers/tests, README, and final source diff.",
+      "result": "passed",
+      "finding": "INV-1 resolved; no known material code findings."
+    },
+    {
+      "procedure": "Fresh independent review required for Significant tier",
+      "result": "not_run",
+      "reason": "Further agents prohibited by task; portable handoff retained in feature record."
+    }
+  ],
+  "review": {
+    "kind": "self-review",
+    "model": null,
+    "fresh_context": false,
+    "independent_review": "pending",
+    "reviewer_rounds_used": 0
+  },
+  "release": "not requested or performed"
+}

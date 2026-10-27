@@ -35,6 +35,8 @@ Use for a bounded change; follow the documentation-mode rules. Preserve existing
 
 ## Outcome and handoff
 
+Finalize substantive record updates before final review capture. Keep later snapshot IDs/review receipts in separate evidence, linked here by a stable path before capture.
+
 - Actual created/changed/renamed/removed files and responsibilities:
 - Design review evidence: relevant pattern, caller, redundancy, and boundary checks:
 - Findings resolved; checks rerun:

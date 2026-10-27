@@ -3,7 +3,7 @@ name: production-engineering-loop
 description: Implement, review, and refactor code for correctness, repository architecture fit, cohesive modules, and consistent business rules. Use for features, bug fixes, code reviews, codebase onboarding, and changes to configuration, schemas, or integrations. Retain project context, define feature evaluations, and use compact or full documentation with the same applicable quality checks. Supports review-only and review-and-fix requests, with or without a plan. Skip automatic use for copy-only edits, explanations, or status reports.
 license: MIT
 metadata:
-  version: "0.6.0"
+  version: "0.7.0"
 ---
 
 # Production Engineering Loop
@@ -120,7 +120,7 @@ Bound automated review to three reviewer rounds per task by default, or a smalle
 
 Critical work needs an explicit additional review before release: a qualified human or an independent reviewer if the environment permits one. An automated review is evidence, not deployment authority. If additional review is unavailable, finish safe authorized implementation and validation, then mark release readiness as pending. Do not describe a second self-review as independent approval.
 
-Before handoff, update the project map and relevant feature record with actual created/changed/removed files, implemented behavior, evaluation results, and remaining work. Convert a demonstrated failure or correction into a narrowly scoped lesson and a regression check where appropriate. Preserve the evidence, conditions where the lesson applies, and any superseded guidance; never turn an assumption or a single passing run into a universal rule. Reconcile conflicting or stale memory with source and user decisions. Do not silently edit the installed skill, weaken acceptance criteria, or start unrequested backlog work in the name of learning. This loop improves retained project knowledge and evaluations; it does not train the underlying model.
+Before handoff, update the project map and relevant feature record with actual created/changed/removed files, implemented behavior, evaluation results, and remaining work. When using source fingerprints, finalize substantive records before the last capture; put final snapshot IDs and review receipts in separate evidence, as described in [review-evidence.md](references/review-evidence.md). Convert a demonstrated failure or correction into a narrowly scoped lesson and a regression check where appropriate. Preserve the evidence, conditions where the lesson applies, and any superseded guidance; never turn an assumption or a single passing run into a universal rule. Reconcile conflicting or stale memory with source and user decisions. Do not silently edit the installed skill, weaken acceptance criteria, or start unrequested backlog work in the name of learning. This loop improves retained project knowledge and evaluations; it does not train the underlying model.
 
 ## Report what is established
 

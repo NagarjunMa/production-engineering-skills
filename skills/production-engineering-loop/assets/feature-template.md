@@ -190,6 +190,8 @@ Reuse existing authorization. Record `No — within existing scope` where applic
 
 ## Final Pre-Merge Evidence
 
+Finalize this record before the final source capture. Put final snapshot IDs and later review receipts in separate evidence and use stable pointers here; writing a record's own final hash into it would invalidate that hash.
+
 **Date:**
 **Verified target branch:**
 **Merge base:**

@@ -10,6 +10,9 @@ import os
 from pathlib import Path
 import sys
 
+if not __debug__:
+    raise SystemExit('Python optimization disables acceptance checks; run without -O/PYTHONOPTIMIZE.')
+
 
 def verify_worker():
     tool_type = importlib.import_module('parent').Tool

@@ -2,13 +2,13 @@
 
 ## Supported version
 
-Security fixes are applied to the latest published release. Until the first public release exists, the local `0.5.x` package is pre-release software and no hosted support channel is active.
+The public default branch contains v0.6.0. The v0.7.0 changes are under local verification and are not yet released. No versioned GitHub release has been published. Report the exact commit and installation method when requesting a security fix; branch installations can change.
 
 ## Reporting a vulnerability
 
-Enable GitHub private vulnerability reporting on `NagarjunMa/production-engineering-skills` and use that private channel for suspected vulnerabilities. Do not include real credentials, private customer data, or exploit activity against systems you do not own. A minimal synthetic reproduction, affected version, impact, and suggested boundary are useful.
+Use [GitHub private vulnerability reporting](https://github.com/NagarjunMa/production-engineering-skills/security/advisories/new) for suspected vulnerabilities. The route was enabled and verified on 2026-10-26. Do not include real credentials, private customer data, or exploit activity against systems you do not own. A minimal synthetic reproduction, affected commit/version, impact, and suggested boundary are useful.
 
-Do not open a public issue for an unpatched vulnerability. If private reporting is not enabled, the maintainer must add a verified private contact before describing a public security-reporting process; this document does not invent one.
+Do not open a public issue containing an unpatched vulnerability or exploit. If GitHub reporting is unavailable, request a working private contact without disclosing the vulnerability in public.
 
 ## Security boundary
 

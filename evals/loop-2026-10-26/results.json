@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "kind": "agent-forward-test",
+  "skill_sha256": {
+    "LICENSE": "32556e40bffd59a8b8dd2c4e5b31328f4db18aa792af0351c029e776d37f70ae",
+    "SKILL.md": "43d92bd9d2cf0458c2103a1ce144aefdf31f91bc7568cd51b34b67cce2a11e51",
+    "agents/openai.yaml": "eb5db65c8d93df9875b2d6c80abf2273f3d13c77df2998a9c51682f81f98e01d",
+    "assets/feature-compact-template.md": "bdef1da9512bceac20f6b26df0fbf89a00dd89b9a87cd6bb33bf5acb7fc98bea",
+    "assets/feature-template.md": "7cf252f82ac2c5b3cd7771ad324e0be5df1a92712995a4073067bb97d87a97bf",
+    "assets/lesson-template.md": "c2e2425b3b2a47eee91bc2c43bad439c4e394207d82ed18382f65c2ad88371a2",
+    "assets/pel-reviewer.toml": "3e9c55abacc3a5697d464003aff8202574c697a2ec2661af46213680c7fb51f1",
+    "assets/project-template.md": "aa26719f109d6bc83780e90fac4f7d8f7555405903f24add67146881b70a19c7",
+    "assets/review-packet-template.md": "c606784cd81a4cbb05b116ed216a1166d80484e26ac170c3bd70d64398712c15",
+    "assets/review-report-template.json": "d2a9fe50ba0c56184f36b95d78e592b08ff1447d99b45f4a8b0333a09ece3f82",
+    "assets/reviewer-prompt.md": "7a96f76e4d1721c109685b2afbf6825c6425bdd2476515ef247b8b03ec61fcdf",
+    "references/code-quality-review.md": "31d99f29d67bab8f2c4e1ed47381176c781dfee58e83ba6590078e8052a458e8",
+    "references/codex-review.md": "8181150405d0b13607ee63b8f18c772ae9517694a8093e1980077b38009c0d24",
+    "references/context-checks.md": "76b45734bfb9d62ea57395043c8b21eec24fa457413883d282bb97d2a971f883",
+    "references/documentation-modes.md": "e84233651a0269e5a9850951778dac7a749a7ace54762b9b53c80070e0e28836",
+    "references/execution-boundaries.md": "52f4d87e12521e2f2f5371ddbb558ebc6627ab124466dc3eca86dbb05a49e252",
+    "references/feature-evaluations.md": "117abb0a4f91f8b0c6fa30eb25293c4fffc99fff0987859e86424e58a38dc14c",
+    "references/host-compatibility.md": "19dfdc8a31105fef731feee8d02d797578761575e95799f0ef3a5a4a8efe4a1e",
+    "references/independent-review.md": "7903af1aa3a4903f6dc9910e9b1cffd51093bd71d36ad964785854e72ab80d4e",
+    "references/javascript-typescript.md": "125539610fb92020ebf6a51b0fa12cb92831567c2b3111dc2215967cc4a6f85a",
+    "references/project-learning.md": "8917360953ba03d51f37d843b6f44dc568918afc7d7134cdecdf25c0be28d42b",
+    "references/repository-adoption.md": "e17ad9fdcf1bd731efe13172d8a0e0d3ca7a5a06fe02881a7282ab5e5d090c76",
+    "references/review-evidence.md": "d3c33775ea460406f8307e523017b387926dad7b24e623b43684dbb75e588b99",
+    "references/risk-tiers.md": "bad5cc269cd2bd732b8d0d8115edec16205fdc6a5825da23038ddc447dad84d3",
+    "references/task-context.md": "00097e7d7a45dedbc21678778e8d675e4da33804d9f5a4792007c57603ea1841",
+    "scripts/check_context.py": "fa79fcb63302b4f8c802603f640a0e1e2b27e3a25cd2aafee26e5686f50af91b",
+    "scripts/review_evidence.py": "9727a8366462e95317f2395d90295f82ebb4ce3b520cb96c4983c4ba8ff0a850"
+  },
+  "runs": [
+    {
+      "id": "implementation",
+      "host": "Codex desktop subagent; exact application build unavailable",
+      "model": null,
+      "fresh_context": true,
+      "result": "passed",
+      "task": "evals/loop-2026-10-26/task-a.txt",
+      "observations": "Corrected-package fresh context: 3 native tests/14 input cases and 336 independent cases passed; validated before mutation, retained map/lesson, and honestly left prohibited fresh review pending. Coordinator reproduced 2 original-code failures.",
+      "artifacts": {
+        "evals/loop-2026-10-26/task-a.txt": "8f9b5af6e2ec11a8471d3fdec3194be7484f1ce002157326d0a5dc7b6a9870d9",
+        "evals/loop-2026-10-26/validated-a/README.md": "17f13c29ef034d59c430e7f78f6fcc016bf29404fd94af193dd30b3d578a3eb3",
+        "evals/loop-2026-10-26/validated-a/docs/engineering-loop/PROJECT.md": "60dc22591fa19d0d58a7fcaf46b8fceae3c2181ddd67d67b8e1d2830ab72f513",
+        "evals/loop-2026-10-26/validated-a/docs/engineering-loop/evidence.json": "cccf3105ec8b5176d994d0bd7c7dafebe3ec792bdbecbffd3564277a7efdbc98",
+        "evals/loop-2026-10-26/validated-a/docs/engineering-loop/features/atomic-adjustment.md": "deace1017026e1a4347712961cb6a1a0464447f2b8f4b67ca0087521f428dc7d",
+        "evals/loop-2026-10-26/validated-a/inventory.py": "3175687c783eaabaf352d72e3974c482123573a833876a9e9881392d45efcc7e",
+        "evals/loop-2026-10-26/validated-a/tests/test_inventory.py": "4edc2b371ffc34b1371090248262c04065efab5d112c62bcb9beddc95bbf1548",
+        "evals/loop-2026-10-26/verify_single.py": "3929e9c279ab6606f5e8c64fffbefda560bad92e5a986e64f345951954951d4e"
+      },
+      "checks": [
+        {
+          "command": "python3 -B -m unittest discover -s tests -v (validated-a)",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "3 tests / 14 input cases passed"
+        },
+        {
+          "command": "python3 -B evals/loop-2026-10-26/verify_single.py <validated-a>",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "336 independent single-item cases passed"
+        }
+      ]
+    },
+    {
+      "id": "continuation",
+      "host": "Codex desktop subagent; exact application build unavailable",
+      "model": null,
+      "fresh_context": true,
+      "result": "passed",
+      "task": "evals/loop-2026-10-26/task-b.txt",
+      "observations": "Corrected-package fresh continuation: 8 native tests/27 input cases and 7380 batch + 42 single checks passed. Reused canonical rule; corrected stale inventory.py paths; rejected unverified zero-rejection advice and scoped logging note. Coordinator reproduced 11 scaffold failures.",
+      "artifacts": {
+        "evals/loop-2026-10-26/task-b.txt": "eaac1574712e22e3daf1ba04666cbd7790c370ba25c1b3ce780438b757545deb",
+        "evals/loop-2026-10-26/validated-b/README.md": "c80e6a10a8a754bc2cfbb6fee61ced0e1aa1672fd56e25286c6315b3ad63b8ad",
+        "evals/loop-2026-10-26/validated-b/docs/engineering-loop/LESSONS.md": "e019c26717bf97e732e4a42e1c27c732923f60ca6b4d2a2cd992f1b18122a2b0",
+        "evals/loop-2026-10-26/validated-b/docs/engineering-loop/PROJECT.md": "90b2319989e637f0923df36d4cc704431cc9329bea6ff0d5d82f2f1f139ad2da",
+        "evals/loop-2026-10-26/validated-b/docs/engineering-loop/context-before-rename.json": "3af97feddf1fa604ab68c8d67aae5e70946039869446213d2ff3050e9b4c78e6",
+        "evals/loop-2026-10-26/validated-b/docs/engineering-loop/evidence-batch.json": "399d510d0d54bdc5743143c7bada55881f2f9826325f7cd5d2b095c06610e42e",
+        "evals/loop-2026-10-26/validated-b/docs/engineering-loop/evidence.json": "cccf3105ec8b5176d994d0bd7c7dafebe3ec792bdbecbffd3564277a7efdbc98",
+        "evals/loop-2026-10-26/validated-b/docs/engineering-loop/features/atomic-adjustment.md": "6e6a58ec9cf87e9ff2b438c2d7862464088fcdff8bd8546867d995f15f3d044e",
+        "evals/loop-2026-10-26/validated-b/stock.py": "dc9f3c8bb0e813985b89daaa13fb7dcadcd829ccd8af90204dcb5c584dcbce5a",
+        "evals/loop-2026-10-26/validated-b/tests/test_inventory.py": "249b5f4bce5d0eb7cd508d54bab4e2a9c4f59d367d25497912a64be05b0d601b"
+      },
+      "checks": [
+        {
+          "command": "python3 -B -m unittest discover -s tests -v (validated-b)",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "8 tests / 27 input cases passed"
+        },
+        {
+          "command": "python3 -B evals/audit-2026-09-18/verify_stock.py <validated-b>",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "7380 batch cases and 42 single-item cases passed"
+        }
+      ]
+    },
+    {
+      "id": "review-only",
+      "host": "Codex desktop subagent; exact application build unavailable",
+      "model": null,
+      "fresh_context": true,
+      "result": "passed",
+      "task": "Review search.py against README without editing any workspace file",
+      "observations": "Corrected-package fresh review-only context reported zero-limit defect with 9 passing checks and the expected zero-limit failure; coordinator before/after comparison verified original two files identical and no new files.",
+      "artifacts": {
+        "evals/loop-2026-10-26/read-only-review.md": "013ee200da105aa87231c3067a5bf63b5acae9f07930838f05fb41e4120b171f",
+        "evals/loop-2026-10-26/review-only/README.md": "6fb232dfbb27ccc2ddebe5c0874c1b17b4993ecaec54ab30754ae4cb1456bf9e",
+        "evals/loop-2026-10-26/review-only/search.py": "27943244d4e204ed3dc528f9b10172c8c9192d9d36a97468eade03e26f52af18"
+      },
+      "checks": [
+        {
+          "command": "diff -qr <original-review-only> <reviewed-workspace>",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "Both original files identical; no new files"
+        },
+        {
+          "command": "Coordinator inspected fresh report against search.py and README",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "Confirmed zero becomes 100; appropriate scope and origin limitations"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "One bounded same-host run per scenario, not a matched baseline or proof of quality improvement.",
+    "All contexts inherited host configuration, including Ponytail; exact model/build independently unknown.",
+    "Writable disposable workspaces with before/after checks, not enforced read-only sandboxes.",
+    "Fresh review was deliberately prohibited inside feature fixtures and remained pending.",
+    "Cross-host runtime behavior, broad repositories, concurrent memory edits, and repeated trials were not established."
+  ],
+  "iteration": "Fresh executions after CRLF/cache review corrections; initial run retained separately"
+}

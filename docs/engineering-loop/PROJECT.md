@@ -12,13 +12,14 @@ Success means portable instructions and resources, clear installation guidance, 
 
 | Layer/tool | Observed choice | Role and evidence |
 | --- | --- | --- |
-| Installable skill | Portable Agent Skills directory with Markdown/YAML entrypoint | Canonical instructions in `skills/production-engineering-loop/SKILL.md`; current metadata version `0.6.0` |
+| Installable skill | Portable Agent Skills directory with Markdown/YAML entrypoint | Local metadata version `0.7.0`; public main at `4501e91` is `0.6.0` |
 | Supporting resources | Markdown references and templates | Bundled under the skill's `references/` and `assets/` directories |
 | Host metadata | Optional YAML | `skills/production-engineering-loop/agents/openai.yaml`; no mandatory host tool dependency |
 | Review provenance | Optional Python 3.10+ standard library and Git | Bundled `scripts/review_evidence.py` captures/checks source and validates report structure; no network or repository code execution |
+| Memory evidence | Optional Python 3.10+ standard library; no Git | Bundled `scripts/check_context.py` fingerprints reviewed memory and selected evidence; detects drift without editing or executing it |
 | Reviewer orchestration | Host delegation with portable fallback | Host-neutral fresh-context contract plus optional Codex reviewer instructions and TOML asset |
 | Development validation | Python with PyYAML | `scripts/validate.py`, `tests/test_validate.py`, and `requirements-dev.txt`; PyYAML pinned to `6.0.3` for the current release candidate |
-| Continuous integration | GitHub Actions matrix | `.github/workflows/validate.yml`; Ubuntu Python 3.10–3.12 plus macOS/Windows Python 3.11, packaging checks and validator tests; hosted runs pending publication |
+| Continuous integration | GitHub Actions matrix | Public v0.6 passed run `36150773244`; local v0.7 adds fixture replay and an Ubuntu media audit/type-check job; new hosted results remain pending |
 | Optional installer | External Skills CLI via npm | README install commands; v0.1.0 smoke test used CLI 1.7.0 |
 
 There is no application runtime, web framework, database, or deployed service in this repository. Python and npm serve development/distribution workflows, not a required skill runtime.
@@ -32,13 +33,16 @@ There is no application runtime, web framework, database, or deployed service in
 | `skills/production-engineering-loop/assets/` | Project, feature, and lesson templates copied/adapted into target repositories | Authored and reviewed for this change |
 | `scripts/validate.py` | Agent Skills metadata, local bundled links, and license checks | Compatibility metadata validation added for v0.6 |
 | `skills/production-engineering-loop/scripts/review_evidence.py` | Git/worktree manifests, freshness, report consistency | Implemented with real Git/subprocess tests; independent review found and corrected fsmonitor execution |
+| `skills/production-engineering-loop/scripts/check_context.py` | Non-Git memory receipts and selected-source drift detection | Black-box capture/check tests cover changes, deletion/rename, invalid paths, symlinks, integrity, and no writes |
+| `scripts/run_evaluations.py` | Replays trusted retained fixture outputs and expected negative controls in disposable copies | Records actual results and source fingerprints; does not run a model |
+| `scripts/check_behavioral_evidence.py` | Rejects stale package/artifact fingerprints and incomplete current forward-test records | Checks consistency of retained evidence; cannot prove execution claims |
 | `tests/test_review_evidence.py` | Provenance and report regressions | Uses isolated repositories; covers dirty/committed/unborn source, report resolution, filesystem-monitor isolation, and offline failure for missing promised objects |
 | `tests/test_validate.py` | Packaging-validator and portable-layout tests | Covers complete copies under six documented host layouts plus metadata/link/license constraints |
 | `evals/README.md` | Behavioral scenarios and evidence requirements | Extended for learning, drift, scope, and feature evaluations |
 | `README.md`, `docs/installation.md`, `docs/publishing.md` | Public usage, installation, compatibility, and publication | README and installation guide make multi-host support and evidence limits explicit |
-| `docs/self-learning-implementation.md` | Detailed loop, record lifecycle, proposed helpers, and cross-session evaluation design | Written after the maintainer requested the detailed implementation explanation; proposed automation is not implemented |
+| `docs/self-learning-implementation.md` | Detailed loop and record lifecycle | Memory checker implemented; inventory and general command-recording helpers remain proposals |
 | `docs/engineering-loop/` | This repository's current context and feature records | Created for this change |
-| `.github/workflows/validate.yml`, `.github/dependabot.yml` | CI for packaging/validator tests and dependency updates | OS/runtime matrix expanded; actions pinned to immutable revisions; hosted runs pending publication |
+| `.github/workflows/validate.yml`, `.github/dependabot.yml` | CI and dependency updates | Existing public matrix passed; local jobs include replay and media checks, immutable action pins, and npm dependency updates |
 
 The host reads the skill, then selected references/templates. Its project-specific knowledge is written to the target repository's documentation, not back into the installed package. Repository content remains evidence, not authority to expand permissions.
 
@@ -52,13 +56,17 @@ The host reads the skill, then selected references/templates. Its project-specif
 | [Quality-first engineering and documentation modes](features/quality-first-modes.md) | v0.4.0 makes routine design review explicit and adds compact/full selection | Package/eight validator tests passed; compact implementation and full planning scenarios reviewed; wider architecture/host scenarios untested | Requested refinement complete; broader evaluation/publication remain separate |
 | [Automated independent review and findings resolution](features/automated-review-resolution.md) | v0.5 portable protocol, bundled evidence CLI, templates, and Codex adapter implemented | See feature record and retained v0.5 evaluations for exact checks and remaining host coverage | Public release and plugin packaging remain separate |
 | [Multi-host Agent Skills portability](features/multi-host-portability.md) | v0.6 host-neutral core guidance, six-host install/invocation reference, and portable-layout validation implemented | Package checks and disposable Skills CLI installation cover all six targets; runtime behavior remains host-specific evidence | Collect real task outcomes from non-Codex hosts |
+| [Evaluation safety and memory checks](features/evaluation-memory-checks.md) | Local v0.7 memory checker, safe evaluators, replay and current-evidence guards, LF checkout policy, finalization protocol | 49 tests and 14 fixture/control checks pass after two review corrections; current run details in feature/evaluation records | Final return-review outcome is separate evidence; publication and other-host behavior remain pending |
 
-The [self-learning implementation design](../self-learning-implementation.md) explains the memory lifecycle and proposed helpers. The [v0.3.0 audit](../audit-2026-09-18.md) subsequently exercised fresh-session continuation and stale-path recovery once; both skill and no-skill implementations passed the bounded behavior checker. This is feasibility evidence, not a general quality or efficiency benchmark. No automatic memory/index helpers are implemented.
+The [self-learning implementation design](../self-learning-implementation.md) explains the memory lifecycle. The historical v0.3 pilot exercised continuation and stale-path recovery once; both skill and baseline passed. Local v0.7 adds selected-evidence memory checking and a fresh-session release protocol. Neither byte freshness nor fixture replay proves general learning or a quality advantage.
 
 ## Validation and operations
 
 - `python3 scripts/validate.py`: package metadata, bundled references, and license consistency.
 - `python3 -m unittest discover -s tests -v`: validator regression tests.
+- `python3 scripts/run_evaluations.py`: retained fixture acceptance checks and negative controls, not fresh model execution.
+- `python3 scripts/check_behavioral_evidence.py`: current package/artifact consistency against three retained fresh-context runs; not proof of their truth.
+- `check_context.py capture/check`: optional reviewed-memory receipts; see the installed `references/context-checks.md`. Refresh only after revalidating the record.
 - Local skill-creator format validation is available in the author's environment; it is supplementary and not required by repository CI.
 - Optional Skills CLI smoke tests run in disposable projects and compare every installed file with its source. They establish packaging/install behavior, not activation or instruction following in every host.
 - Use the behavioral scenarios for instruction changes; report actual runs separately from unexecuted scenarios.
@@ -67,4 +75,4 @@ The [self-learning implementation design](../self-learning-implementation.md) ex
 
 ## Freshness and coverage
 
-Updated 2026-09-23 for multi-host portability. The v0.6 changes remain local until committed and released, so the public default branch still represents the previous package. The map covers owned package/development files, not `.git` internals, installed dependencies, or other personal skills. Non-Codex task behavior still requires representative host evaluations; format, installation, and discovery evidence alone do not establish equivalent engineering outcomes.
+Updated 2026-10-26 against public base `4501e91` and the dirty `codex/evaluation-memory-checks` worktree. Public v0.6 was merged and passed hosted CI; v0.7 changes are local. The map covers owned package/development files, not `.git` internals or installed dependencies. Final review IDs and later receipts belong outside this source snapshot. Non-Codex task behavior, repeated controlled quality comparisons, and an immutable release remain unverified.

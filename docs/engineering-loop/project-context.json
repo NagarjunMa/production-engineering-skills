@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "record": "docs/engineering-loop/PROJECT.md",
+  "files": {
+    ".gitattributes": {
+      "kind": "file",
+      "sha256": "d3d1e5064de20e177959e64a1ee93f569af6608f03a99f3afedd319ebaf963bd",
+      "executable": false
+    },
+    ".github/workflows/validate.yml": {
+      "kind": "file",
+      "sha256": "5d56901f7da07741d5c59e346ea57bc1db0bed6b313040944a9f73fde0e0463d",
+      "executable": false
+    },
+    "README.md": {
+      "kind": "file",
+      "sha256": "3cb388416f991f595ccf4636f813704245f067cddfc24dc97353d1f814150273",
+      "executable": false
+    },
+    "docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "392fb12ad0274ef5edc3ef8884d305593012f7d998a0e428240f2915a00e251b",
+      "executable": false
+    },
+    "scripts/check_behavioral_evidence.py": {
+      "kind": "file",
+      "sha256": "09c1651963348ee6af6a2c1586755a31bfe333af6febee9eb67bba044fea2b15",
+      "executable": false
+    },
+    "scripts/run_evaluations.py": {
+      "kind": "file",
+      "sha256": "3ab52b8e60320774b44403eee07e6ed2c41e4ecdbdbe1f60e794677b810af7cd",
+      "executable": false
+    },
+    "skills/production-engineering-loop/SKILL.md": {
+      "kind": "file",
+      "sha256": "43d92bd9d2cf0458c2103a1ce144aefdf31f91bc7568cd51b34b67cce2a11e51",
+      "executable": false
+    },
+    "skills/production-engineering-loop/scripts/check_context.py": {
+      "kind": "file",
+      "sha256": "fa79fcb63302b4f8c802603f640a0e1e2b27e3a25cd2aafee26e5686f50af91b",
+      "executable": false
+    }
+  },
+  "snapshot_id": "0677050c86d7afca2cfb4ec791028eb8fa1b62741c91603fbd8f98714534a96e"
+}

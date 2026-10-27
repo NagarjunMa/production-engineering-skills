@@ -10,6 +10,9 @@ import json
 from pathlib import Path
 import sys
 
+if not __debug__:
+    raise SystemExit('Python optimization disables acceptance checks; run without -O/PYTHONOPTIMIZE.')
+
 
 def expected(subtotal):
     if type(subtotal) is not int or subtotal < 0:

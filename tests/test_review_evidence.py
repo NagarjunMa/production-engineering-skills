@@ -116,6 +116,15 @@ class ReviewEvidenceTests(unittest.TestCase):
                      '--output', str(self.root / 'app.py'), expected=2)
         self.assertEqual((self.root / 'app.py').read_text(), original)
 
+    def test_final_documentation_precedes_capture_and_receipts_stay_separate(self):
+        self.write('contract.md', 'Requirement: preserve limits.\nImplementation and design notes finalized.\n')
+        packet = self.capture('--exclude', 'evidence')
+        self.write('evidence/final.json', json.dumps(self.report(packet)))
+        self.validate(self.report(packet))
+        self.check()
+        self.write('contract.md', 'Changed requirement after review.\n')
+        self.check(expected=1)
+
     def test_capture_never_emits_source_or_environment_values(self):
         self.write('secret.txt', 'UNIQUE_PRIVATE_VALUE_0198')
         self.capture()
