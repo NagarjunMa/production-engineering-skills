@@ -8,8 +8,8 @@
 - Invariants and material failure cases: the core workflow and evidence standards remain unchanged; optional Codex metadata must not become a dependency; every relative resource must survive installation; unsupported host behavior must remain labeled unverified.
 - Risk tier and affected boundaries: Standard documentation/package-interface change affecting discovery, installation, and user expectations.
 - Documentation mode: Compact — behavior is bounded to package portability and has no application runtime.
-- Verified source snapshot and worktree state: local working tree with pre-existing README/publication documentation edits and new uncommitted media; unrelated edits preserved.
-- Implementation status: Implemented locally; verification recorded below.
+- Verified source snapshot and worktree state: historical local evaluation below; subsequently merged to public main as `4501e91d555222ec53873bd13c3671fb59714c5e`.
+- Implementation status: Merged. The immutable release and additional host behavior checks remain pending.
 
 | Path and symbol | Role and relevance | Status |
 | --- | --- | --- |
@@ -43,4 +43,4 @@
 - Actual files: portable compatibility reference added; core metadata/version and independent-review routing updated; README/installation rewritten around six hosts; validator and tests extended.
 - Remaining gap: representative end-to-end feature and review tasks have not yet been run in Cursor, Gemini CLI, Qwen Code, or OpenCode. Claude Code/OpenCode local availability does not itself establish model behavior.
 - Validation: `scripts/validate.py` passed; skill-creator quick validation passed; 29 tests passed; `git diff --check` passed; disposable six-target installation, interactive agent/scope prompt, agent auto-detection, and OpenCode discovery passed.
-- Status: Verified locally. Commit, hosted CI, immutable release, and additional host behavior tests remain separate release steps.
+- Status: Merged. Public main commit `4501e91` passed hosted CI run `36150773244`; immutable release and additional host behavior tests remain pending. Reconciled on 2026-10-26; historical local results above are preserved.

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "kind": "agent-forward-test",
+  "skill_sha256": {
+    "LICENSE": "32556e40bffd59a8b8dd2c4e5b31328f4db18aa792af0351c029e776d37f70ae",
+    "SKILL.md": "43d92bd9d2cf0458c2103a1ce144aefdf31f91bc7568cd51b34b67cce2a11e51",
+    "agents/openai.yaml": "eb5db65c8d93df9875b2d6c80abf2273f3d13c77df2998a9c51682f81f98e01d",
+    "assets/feature-compact-template.md": "bdef1da9512bceac20f6b26df0fbf89a00dd89b9a87cd6bb33bf5acb7fc98bea",
+    "assets/feature-template.md": "7cf252f82ac2c5b3cd7771ad324e0be5df1a92712995a4073067bb97d87a97bf",
+    "assets/lesson-template.md": "c2e2425b3b2a47eee91bc2c43bad439c4e394207d82ed18382f65c2ad88371a2",
+    "assets/pel-reviewer.toml": "3e9c55abacc3a5697d464003aff8202574c697a2ec2661af46213680c7fb51f1",
+    "assets/project-template.md": "aa26719f109d6bc83780e90fac4f7d8f7555405903f24add67146881b70a19c7",
+    "assets/review-packet-template.md": "c606784cd81a4cbb05b116ed216a1166d80484e26ac170c3bd70d64398712c15",
+    "assets/review-report-template.json": "d2a9fe50ba0c56184f36b95d78e592b08ff1447d99b45f4a8b0333a09ece3f82",
+    "assets/reviewer-prompt.md": "7a96f76e4d1721c109685b2afbf6825c6425bdd2476515ef247b8b03ec61fcdf",
+    "references/code-quality-review.md": "31d99f29d67bab8f2c4e1ed47381176c781dfee58e83ba6590078e8052a458e8",
+    "references/codex-review.md": "8181150405d0b13607ee63b8f18c772ae9517694a8093e1980077b38009c0d24",
+    "references/context-checks.md": "76b45734bfb9d62ea57395043c8b21eec24fa457413883d282bb97d2a971f883",
+    "references/documentation-modes.md": "e84233651a0269e5a9850951778dac7a749a7ace54762b9b53c80070e0e28836",
+    "references/execution-boundaries.md": "52f4d87e12521e2f2f5371ddbb558ebc6627ab124466dc3eca86dbb05a49e252",
+    "references/feature-evaluations.md": "117abb0a4f91f8b0c6fa30eb25293c4fffc99fff0987859e86424e58a38dc14c",
+    "references/host-compatibility.md": "19dfdc8a31105fef731feee8d02d797578761575e95799f0ef3a5a4a8efe4a1e",
+    "references/independent-review.md": "7903af1aa3a4903f6dc9910e9b1cffd51093bd71d36ad964785854e72ab80d4e",
+    "references/javascript-typescript.md": "125539610fb92020ebf6a51b0fa12cb92831567c2b3111dc2215967cc4a6f85a",
+    "references/project-learning.md": "8917360953ba03d51f37d843b6f44dc568918afc7d7134cdecdf25c0be28d42b",
+    "references/repository-adoption.md": "e17ad9fdcf1bd731efe13172d8a0e0d3ca7a5a06fe02881a7282ab5e5d090c76",
+    "references/review-evidence.md": "d3c33775ea460406f8307e523017b387926dad7b24e623b43684dbb75e588b99",
+    "references/risk-tiers.md": "bad5cc269cd2bd732b8d0d8115edec16205fdc6a5825da23038ddc447dad84d3",
+    "references/task-context.md": "00097e7d7a45dedbc21678778e8d675e4da33804d9f5a4792007c57603ea1841",
+    "scripts/check_context.py": "511a518b52c044835f8cd9da20e642aee2166e1f6211ea4c2b27c7a1af5a8606",
+    "scripts/review_evidence.py": "9727a8366462e95317f2395d90295f82ebb4ce3b520cb96c4983c4ba8ff0a850"
+  },
+  "runs": [
+    {
+      "id": "implementation",
+      "host": "Codex desktop subagent; exact application build unavailable",
+      "model": null,
+      "fresh_context": true,
+      "result": "passed",
+      "task": "evals/loop-2026-10-26/task-a.txt",
+      "observations": "336 independent cases and 4 native tests passed. Read source, defined regression cases, fixed mutation-before-validation, and retained a scoped lesson. Coordinator reproduced 2 original-code failures. Required additional review stayed pending under no-delegation restriction.",
+      "artifacts": {
+        "evals/loop-2026-10-26/completed-a/README.md": "17f13c29ef034d59c430e7f78f6fcc016bf29404fd94af193dd30b3d578a3eb3",
+        "evals/loop-2026-10-26/completed-a/docs/engineering-loop/PROJECT.md": "c295aa6f6f5891a2ffb4555f8e9ce7c71c8597193932243d17d2ac14ab62ce24",
+        "evals/loop-2026-10-26/completed-a/docs/engineering-loop/evidence/commands.md": "0b9b3e3270f549fc9470dd32641fa75bf207d74ff687fa30557e0b2999179a2b",
+        "evals/loop-2026-10-26/completed-a/docs/engineering-loop/evidence/review-packet.md": "9d16e531973f759b56d46e0a1ec4485f773e69de50585cb23b00b3a47618fc51",
+        "evals/loop-2026-10-26/completed-a/docs/engineering-loop/evidence/snapshot.json": "4284e15590a282cbc8b24ecd9d3033ac77efbfdabd9a6e5c5d42ee1d1eb10812",
+        "evals/loop-2026-10-26/completed-a/docs/engineering-loop/features/stock-adjustments.md": "ad7d59ae5f27b69ecd83156cb8dd90bcec9a574b829f8995b79efcf623186177",
+        "evals/loop-2026-10-26/completed-a/inventory.py": "3175687c783eaabaf352d72e3974c482123573a833876a9e9881392d45efcc7e",
+        "evals/loop-2026-10-26/completed-a/tests/test_inventory.py": "5ffe9397552ac055ae2e0fb7e2b627f10e2ea8cc4c6332245fcf9484df625f1e",
+        "evals/loop-2026-10-26/task-a.txt": "8f9b5af6e2ec11a8471d3fdec3194be7484f1ce002157326d0a5dc7b6a9870d9",
+        "evals/loop-2026-10-26/verify_single.py": "3929e9c279ab6606f5e8c64fffbefda560bad92e5a986e64f345951954951d4e"
+      },
+      "checks": [
+        {
+          "command": "python3 -B -m unittest discover -s tests -v (completed-a)",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "4 tests passed"
+        },
+        {
+          "command": "python3 -B evals/loop-2026-10-26/verify_single.py <completed-a>",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "336 independent single-item cases passed"
+        }
+      ]
+    },
+    {
+      "id": "continuation",
+      "host": "Codex desktop subagent; exact application build unavailable",
+      "model": null,
+      "fresh_context": true,
+      "result": "passed",
+      "task": "evals/loop-2026-10-26/task-b.txt",
+      "observations": "Fresh context reused the canonical stock rule, recovered stale inventory.py paths, rejected unverified zero-rejection advice, preserved logging lesson scope, and passed batch/compatibility checks. Coordinator reconstructed 7 intended scaffold failures.",
+      "artifacts": {
+        "evals/loop-2026-10-26/completed-b/README.md": "b8b007898fef08b56c63d2af57764fbce7f0741f7bb32b542e3a6086aacf592f",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/LESSONS.md": "7862213a59dcc34db999f09b05a51e22b0d22798e03eb224e8950864ccf272a3",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/PROJECT.md": "24bcceb15e3aafbc8946a0b25c6b41b8323d6f4350d97fdd0f6741b67850a713",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/commands-b.md": "1c325cb372ea742f6066b8f1c7a7187a2ef42b47608cc8de5912907721d89c65",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/commands.md": "0b9b3e3270f549fc9470dd32641fa75bf207d74ff687fa30557e0b2999179a2b",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/context-before-rename.json": "f9ac1c8887dcc44b97bc19ddbf403195a39608805bf64fe0bb69711fc73a5cdd",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/review-packet-b.md": "ab2c33cd511f17b3506dded335b0ebf9495c8b157155a5170dff8f9f0d66f6ee",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/review-packet.md": "9d16e531973f759b56d46e0a1ec4485f773e69de50585cb23b00b3a47618fc51",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/snapshot-b.json": "d2905aba5c49761f0cb82da02fca106fafafcba1814037531466ee2ed3da2e9e",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/evidence/snapshot.json": "4284e15590a282cbc8b24ecd9d3033ac77efbfdabd9a6e5c5d42ee1d1eb10812",
+        "evals/loop-2026-10-26/completed-b/docs/engineering-loop/features/stock-adjustments.md": "63df15dc422a845cb348d7aac5dd5d9529a9880c4ad5a9070553ef18a23fa60f",
+        "evals/loop-2026-10-26/completed-b/stock.py": "a2e952f410364186855885e21cd13e21ba11ba540f64266be4830fb09096f1d4",
+        "evals/loop-2026-10-26/completed-b/tests/test_inventory.py": "2bef75e703a20be4d125596f2e33066bbfcb9431e558b471eaace4f016b26cae",
+        "evals/loop-2026-10-26/task-b.txt": "eaac1574712e22e3daf1ba04666cbd7790c370ba25c1b3ce780438b757545deb"
+      },
+      "checks": [
+        {
+          "command": "python3 -B -m unittest discover -s tests -v (completed-b)",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "10 tests passed"
+        },
+        {
+          "command": "python3 -B evals/audit-2026-09-18/verify_stock.py <completed-b>",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "7380 batch cases and 42 single-item cases passed"
+        }
+      ]
+    },
+    {
+      "id": "review-only",
+      "host": "Codex desktop subagent; exact application build unavailable",
+      "model": null,
+      "fresh_context": true,
+      "result": "passed",
+      "task": "Review search.py against README without editing any workspace file",
+      "observations": "Reviewer found the zero-limit bug. Coordinator complete before/after comparison found no changes or additional files. No new project records or invented review approval.",
+      "artifacts": {
+        "evals/loop-2026-10-26/read-only-review.md": "013ee200da105aa87231c3067a5bf63b5acae9f07930838f05fb41e4120b171f",
+        "evals/loop-2026-10-26/review-only/README.md": "6fb232dfbb27ccc2ddebe5c0874c1b17b4993ecaec54ab30754ae4cb1456bf9e",
+        "evals/loop-2026-10-26/review-only/search.py": "27943244d4e204ed3dc528f9b10172c8c9192d9d36a97468eade03e26f52af18"
+      },
+      "checks": [
+        {
+          "command": "diff -qr <original-review-only> <reviewed-workspace>",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "Both original files identical; no new files"
+        },
+        {
+          "command": "Coordinator inspected fresh report against search.py and README",
+          "result": "passed",
+          "exit_code": 0,
+          "observed": "Confirmed zero becomes 100; appropriate scope and origin limitations"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "One bounded same-host run per scenario, not a matched baseline or proof of quality improvement.",
+    "All contexts inherited host configuration, including Ponytail; exact model/build independently unknown.",
+    "Writable disposable workspaces with before/after checks, not enforced read-only sandboxes.",
+    "Fresh review was deliberately prohibited inside feature fixtures and remained pending.",
+    "Cross-host runtime behavior, broad repositories, concurrent memory edits, and repeated trials were not established."
+  ]
+}

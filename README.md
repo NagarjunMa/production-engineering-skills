@@ -4,7 +4,7 @@
 
 [![Validate skill package](https://github.com/NagarjunMa/production-engineering-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/NagarjunMa/production-engineering-skills/actions/workflows/validate.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Skill metadata](https://img.shields.io/badge/skill-v0.6.0-4c1.svg)](skills/production-engineering-loop/SKILL.md)
+[![Skill metadata](https://img.shields.io/badge/skill-v0.7.0-4c1.svg)](skills/production-engineering-loop/SKILL.md)
 
 A portable skill for AI coding agents that turns implementation into a bounded loop:
 
@@ -147,7 +147,7 @@ Reliability has four different layers:
 | Agent behavior | The instructions define scope, review, verification, and stopping rules, but the host model and available tools determine how faithfully and effectively they are applied. |
 | Project outcome | Confidence comes from the acceptance cases, source inspection, tests, review, and limitations produced for that specific task. Installing the skill alone is not evidence that a change is correct. |
 
-Current local v0.6 evidence includes 29 tests, package and skill-format validation, a byte-for-byte Skills CLI installation targeting all six documented hosts, and native OpenCode discovery. The last public v0.5 revision additionally has Codex discovery, dependency auditing, and a five-job GitHub Actions matrix across Ubuntu, macOS, Windows, and Python 3.10–3.12. The security correction for the optional Git helper was independently reproduced with a positive control and return review. See the [current publication audit](docs/publication-audit-2026-09-20.md) and [retained evaluation evidence](evals/README.md) for scope and limitations.
+Public main at `4501e91` contains v0.6.0 and passed the five-job GitHub Actions matrix across Ubuntu, macOS, Windows, and Python 3.10–3.12. Its installation evidence covers six target layouts and OpenCode discovery. The local v0.7.0 work adds memory evidence checks, safer evaluators, fixture replay in CI, and an explicit review-finalization sequence; see the [implementation record](docs/engineering-loop/features/evaluation-memory-checks.md) and [current loop evaluation](evals/loop-2026-10-26/README.md) for actual results and remaining limits. Local changes are not available from GitHub until published.
 
 The evaluations do **not** prove a universal improvement over a capable baseline, a defect-free result, reliable activation in every coding tool, or measured quality-per-token gains. Evaluate the skill on representative work in your own repository before making it a required team workflow.
 
@@ -504,6 +504,8 @@ implement it and update the project records with actual results.
 
 See this repository's own [project context](docs/engineering-loop/PROJECT.md) and [learning-loop feature record](docs/engineering-loop/features/project-learning.md) for a filled example. Those records describe this skill repository, not a fictional application.
 
+For repeatable drift detection, the optional [memory checker](skills/production-engineering-loop/references/context-checks.md) fingerprints a reviewed record and selected source files. It works without Git, reports changed or missing evidence, and never edits memory or executes stored commands. Unchanged fingerprints do not prove the prose is correct or that every dependency was selected. Finalize substantive records before the final review capture; keep later snapshot IDs and receipts in separate evidence.
+
 For the detailed execution flow, memory lifecycle, optional automation components, and how to prove learning across fresh sessions, read the [self-learning implementation design](docs/self-learning-implementation.md). It distinguishes the existing workflow from proposed automation.
 
 ## Feature contracts that reduce repeated discovery
@@ -521,13 +523,13 @@ When executable testing is meaningful, the supplied plan follows red/green: add 
 | Environment | Current evidence |
 | --- | --- |
 | Codex desktop/CLI on macOS | Public and local installation, personal/project discovery, nested-project discovery, explicit invocation, and fresh-review workflow exercised |
-| GitHub Actions | [Run 35556792913](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/35556792913) passed all five package-validation and test jobs for public `main` commit `a588182` across Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11 |
+| GitHub Actions | [Run 36150773244](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/36150773244) passed all five package-validation and test jobs for public v0.6.0 commit `4501e91` across Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11; v0.7 workflow changes require a new hosted run |
 | Skills CLI | The public repository exposes one skill; local multi-target installation verifies the same package layout for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode |
 | Claude Code and OpenCode installed locally | The multi-target installer produced both host layouts and OpenCode discovered the exact current package; Claude Code runtime discovery and full task-behavior evaluations remain pending |
 | Cursor, Gemini CLI, and Qwen Code | Native paths and invocation are documented from current vendor guidance; full task behavior has not yet been independently exercised on these hosts |
 | Other file-capable agents | Can use the bundled `SKILL.md` and relative resources explicitly; this is a fallback rather than verified native integration |
 
-The repository retains source snapshots, deterministic checks, behavioral scenarios, independent findings, corrections, and limitations. Historical v0.1–v0.5 records explain how the current v0.6 workflow developed; they are not treated as proof of current behavior. Start with the [publication audit](docs/publication-audit-2026-09-20.md), [evaluation index](evals/README.md), and [community validation template](docs/community-validation.md).
+The repository retains source snapshots, deterministic checks, behavioral scenarios, independent findings, corrections, and limitations. Historical records explain the public v0.6 workflow; local v0.7 has separate [current behavioral evidence](evals/loop-2026-10-26/README.md). Older runs are not treated as proof of changed instructions. See the [evaluation index](evals/README.md) and [community validation template](docs/community-validation.md).
 
 Native skill paths are documented for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode in the [compatibility guide](docs/installation.md). Product versions, organizational policies, available models, and tool permissions can change actual behavior.
 
@@ -544,9 +546,15 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
 .venv/bin/python scripts/validate.py
 .venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/run_evaluations.py
+.venv/bin/python scripts/check_behavioral_evidence.py
 ```
 
-On Windows, use `.venv\Scripts\python.exe` instead of `.venv/bin/python`. GitHub Actions runs the same package checks and validator tests. See [CONTRIBUTING.md](CONTRIBUTING.md) for changes and [the publication checklist](docs/publishing.md) for the initial release.
+On Windows, use `.venv\Scripts\python.exe` instead of `.venv/bin/python`. GitHub Actions runs the same package checks, tests, and trusted fixture replays. The replay command checks retained implementations and expected negative controls; it does not run a model or prove current instruction following. Use `--output /absolute/scratch/replay.json` for a new receipt outside source. All assertion-based evaluators refuse optimized Python rather than silently dropping checks.
+
+Instruction changes also need the [fresh-session release protocol](evals/loop-2026-10-26/README.md). Review actual artifacts and acceptance results; neither CI nor a repeated workflow phrase establishes that an agent followed the loop. See [CONTRIBUTING.md](CONTRIBUTING.md) and [publishing](docs/publishing.md) for release requirements.
+
+The behavioral-evidence check ties the current skill files to retained fresh-context implementation, continuation, and review-only outcomes. It rejects stale package/artifact hashes or incomplete/failed records. It checks consistency rather than proving the records are true; a maintainer must review the actual runs before accepting updated evidence.
 
 ## License and origin
 

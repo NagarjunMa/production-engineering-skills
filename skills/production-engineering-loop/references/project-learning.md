@@ -37,6 +37,8 @@ At the next substantive task, read the compact project summary, relevant feature
 
 Treat memory as a fallible index into evidence. If a path was renamed, a dependency changed, or a test result belongs to an older revision, refresh that fact. Keep historical results labeled with their tested revision; they are not a pass for today's code. When user intent and source conflict, state the discrepancy and resolve the necessary product decision rather than silently treating source as the specification.
 
+When repeatable drift detection is useful, use the optional [memory evidence checker](context-checks.md). It fingerprints a reviewed record and explicitly selected evidence, works without Git, and never edits memory or runs commands. A current receipt establishes unchanged bytes only; missing dependencies, obsolete decisions, and irrelevant lessons still need inspection.
+
 Load detailed records on demand. Keep `PROJECT.md` a current summary, not a session transcript. Archive completed details through the project's normal documentation conventions, merge duplicate lessons, and supersede obsolete guidance with a reason. Preserve relevant user-authored text and concurrent edits.
 
 ## Close the learning loop

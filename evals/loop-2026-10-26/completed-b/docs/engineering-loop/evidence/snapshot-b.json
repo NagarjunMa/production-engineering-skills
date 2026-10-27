@@ -1,0 +1,18 @@
+{
+  "snapshot_id": "aa6e4253267f71e41ad886b83e42927151e54a7a3daff45366d7ecabf3cb6caf",
+  "captured_at": "2026-10-26T04:24:26.218446+00:00",
+  "files": {
+    "README.md": "b8b007898fef08b56c63d2af57764fbce7f0741f7bb32b542e3a6086aacf592f",
+    "docs/engineering-loop/LESSONS.md": "7862213a59dcc34db999f09b05a51e22b0d22798e03eb224e8950864ccf272a3",
+    "docs/engineering-loop/PROJECT.md": "24bcceb15e3aafbc8946a0b25c6b41b8323d6f4350d97fdd0f6741b67850a713",
+    "docs/engineering-loop/features/stock-adjustments.md": "63df15dc422a845cb348d7aac5dd5d9529a9880c4ad5a9070553ef18a23fa60f",
+    "stock.py": "a2e952f410364186855885e21cd13e21ba11ba540f64266be4830fb09096f1d4",
+    "tests/test_inventory.py": "2bef75e703a20be4d125596f2e33066bbfcb9431e558b471eaace4f016b26cae"
+  },
+  "excluded": {
+    "docs/engineering-loop/evidence/": "Historical/current evidence receipts only; all source, tests, requirements and substantive records included"
+  },
+  "git": null,
+  "model": null,
+  "result": "passed: two matching captures"
+}

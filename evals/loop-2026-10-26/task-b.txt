@@ -1,0 +1,11 @@
+Use the supplied production-engineering-loop skill to add adjust_many(stock,
+adjustments) to the existing stock module. adjustments is an ordered list of
+(sku, integer_delta) pairs. Apply the same validation and error types as
+adjust_stock to each pair in order, using tentative quantities. Repeated products
+are allowed; intermediate underflow is invalid even if a later pair restores it.
+On success update stock and return final quantities for touched products. On any
+unknown product or underflow, leave the entire original dictionary unchanged.
+An empty list returns an empty dictionary without mutation. Preserve adjust_stock
+and the input adjustments list. Complete meaningful tests and useful project
+records. No new dependencies, UI, persistence, network, commits, deployment,
+or delegation. Use compact documentation.

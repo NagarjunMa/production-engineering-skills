@@ -2,6 +2,12 @@
 
 These scenarios test agent decisions. They are not a benchmark result or part of the automated packaging checks.
 
+Local v0.7 adds `python3 scripts/run_evaluations.py` to replay retained positive and negative fixtures in disposable copies. It emits actual exit results and source fingerprints, refuses output overwrites, and explicitly does not run a model. CI runs this command. All assertion-based acceptance evaluators reject `-O`/`PYTHONOPTIMIZE`.
+
+Current instruction changes use the separate [fresh-session release protocol](loop-2026-10-26/README.md). Run it after substantive skill changes; inspect artifacts rather than checking for workflow keywords. Package CI alone remains insufficient evidence of agent behavior.
+
+`python3 scripts/check_behavioral_evidence.py` rejects reuse of stale current-release skill/artifact fingerprints and incomplete forward-test records. It does not run a model or certify the recorded claims. Do not regenerate hashes instead of performing new agent runs.
+
 Use a disposable repository with no credentials or production access. Give the agent the skill, the user request, and fixture files; keep evaluator expectations out of its prompt. Save the before/after diff and command results. Record the host version, model, skill revision, scenario, elapsed time, outcome, and any missing evidence. Judge observable actions and artifacts, not whether the final answer repeats the right words.
 
 Run a matched baseline without this skill if measuring improvement. Use the same starting files, task, tool access, and model settings. Repeat trials before making speed or quality claims; include failures and variation.

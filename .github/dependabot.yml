@@ -10,3 +10,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+
+  - package-ecosystem: npm
+    directory: /media/production-engineering-loop-animation
+    schedule:
+      interval: weekly

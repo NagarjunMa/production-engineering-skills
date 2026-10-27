@@ -1,8 +1,8 @@
 # Implementing the self-learning loop
 
-This is the implementation design for extending Production Engineering Loop's learning workflow introduced in v0.2.0. The v0.3.0 feature contract adds the supplied PRI structure, focused code locations, and explicit red/green guidance. The Markdown instructions, templates, and a bounded feature-build evaluation exist. Optional scripts and the multi-session evaluation harness below are proposed work, not implemented components or measured benefits.
+This is the implementation design for Production Engineering Loop's learning workflow. The Markdown instructions, templates, and historical feature evaluations exist. Local v0.7.0 adds an optional memory evidence checker and a trusted fixture replay runner. The remaining inventory and general command-recording helpers below are proposals, not implemented components or measured benefits.
 
-v0.4.0 prioritized code quality and made [compact/full documentation](../skills/production-engineering-loop/references/documentation-modes.md) explicit. v0.5.0 added a [fresh-review and resolution protocol](../skills/production-engineering-loop/references/independent-review.md) and optional [source provenance helper](../skills/production-engineering-loop/references/review-evidence.md). v0.6.0 keeps that workflow host-neutral and adds installed guidance for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode. The memory/index automation components described below remain proposals. Both documentation formats retain applicable quality checks. The [v0.3.0 audit](audit-2026-09-18.md) demonstrated one fresh-session continuation with stale-path recovery; it is historical evidence.
+v0.4.0 prioritized code quality and compact/full documentation. v0.5.0 added fresh-review resolution and optional source provenance. Public v0.6.0 keeps the workflow host-neutral across six documented coding tools. Local v0.7.0 adds selected-evidence memory checks, fixture replay, a guard against stale behavioral evidence, and a finalization protocol. General inventory/command-recording automation remains proposed. Historical v0.3 continuation evidence and current bounded forward tests do not establish broad quality or efficiency improvements.
 
 ## What learns
 
@@ -183,9 +183,9 @@ The current Markdown workflow can operate without these scripts. Add determinist
 | Proposed component | Inputs and output | Responsibility boundary |
 | --- | --- | --- |
 | `inspect_project.py` | Repository root → file/manifests inventory and snapshot | Facts and fingerprints; the agent supplies product/architecture interpretation |
-| `check_context.py` | Records plus current snapshot → stale/missing evidence report | Flags changes; cannot infer that unchanged hashes prove semantic correctness |
+| `check_context.py` — implemented in local v0.7 | Reviewed record and selected files → JSON fingerprints; existing receipt → drift report | Read-only standard-library CLI, no Git required; cannot infer semantic correctness or discover omitted dependencies; see [usage](../skills/production-engineering-loop/references/context-checks.md) |
 | `record_evaluation.py` | Approved repository check, feature/criteria IDs → structured run record | Captures command/result/snapshot; does not execute commands suggested by untrusted lesson text |
-| `validate_records.py` | Memory and referenced artifacts → integrity findings | Detects broken paths, missing required provenance, unsupported status transitions; does not score engineering quality |
+| `validate_records.py` — not implemented | Memory and referenced artifacts → integrity findings | Selected path/fingerprint checks are covered by `check_context.py`; semantic claims and status transitions still need review, rather than a second overlapping validator |
 
 Suggested implementation details:
 
@@ -242,7 +242,7 @@ The next decisive skill experiment is a controlled two-session run:
 
 Track feature correctness and escaped regressions first. Then inspect inappropriate edits, unsupported completion claims, stale-memory use, unnecessary rereading, elapsed time, and context cost. Do not optimize for more lessons or more tests. Report failures and variation rather than promising that memory always improves performance.
 
-Current evidence: the [bounded forward test](../evals/learning-loop-result.md) exercised project mapping, evaluation artifacts, feature implementation, and result recording. It did not exercise learning from a failure or a second session retrieving a saved lesson. Those are the next meaningful checks before claiming demonstrated cross-session improvement.
+Historical evidence: the [initial forward test](../evals/learning-loop-result.md) exercised mapping, feature implementation, and result recording; the v0.3 pilot later exercised one continuation. The [v0.7 release evaluation](../evals/loop-2026-10-26/README.md) now retains a fresh implementation, a fresh continuation with stale paths and contrary/irrelevant notes, and a read-only review. Independent acceptance checks passed. Repeated matched trials, other hosts, and broad improvement remain unestablished.
 
 ## 10. Evolve the shared skill separately
 

@@ -1,0 +1,5 @@
+# Receipts fingerprint exact bytes; keep source/evidence stable across Git hosts.
+* text=auto eol=lf
+*.png binary
+*.mp4 binary
+*.pdf binary

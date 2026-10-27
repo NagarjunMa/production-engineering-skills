@@ -1,0 +1,5 @@
+Use the supplied production-engineering-loop skill to make the inventory library
+satisfy README.md. Inspect the current implementation and tests, complete the
+bounded task, and leave useful project records for a later task. Use compact
+documentation. Preserve unrelated files. Use only the standard library and local
+tools. Do not install dependencies, use the network, commit, deploy, or delegate.

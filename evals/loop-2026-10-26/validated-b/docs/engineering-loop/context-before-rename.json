@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "record": "docs/engineering-loop/PROJECT.md",
+  "files": {
+    "docs/engineering-loop/PROJECT.md": {
+      "kind": "file",
+      "sha256": "60dc22591fa19d0d58a7fcaf46b8fceae3c2181ddd67d67b8e1d2830ab72f513",
+      "executable": false
+    },
+    "inventory.py": {
+      "kind": "file",
+      "sha256": "3175687c783eaabaf352d72e3974c482123573a833876a9e9881392d45efcc7e",
+      "executable": false
+    },
+    "tests/test_inventory.py": {
+      "kind": "file",
+      "sha256": "4edc2b371ffc34b1371090248262c04065efab5d112c62bcb9beddc95bbf1548",
+      "executable": false
+    }
+  },
+  "snapshot_id": "a59e013e17a38385a4b826e336c8e58364d5e59c7a535d3f52e18d2d5ae92a75"
+}

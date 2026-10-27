@@ -10,4 +10,6 @@ Project memory belongs to the target repository and must remain evidence-backed,
 
 Run the development commands in [README.md](README.md). For instruction changes, also run applicable [behavioral scenarios](evals/README.md) in disposable workspaces and report actual outcomes. A schema check or wording match cannot establish that an agent followed a workflow. Do not commit private code, secrets, or raw transcripts containing personal data.
 
+The current-release evidence guard compares the installed package with the retained fresh-context runs. After a skill change, execute the implementation, continuation, and review-only protocol, inspect the results, then update evidence and artifact fingerprints. Never update fingerprints merely to make CI green. Fixture replay and record validation are distinct from new model execution. Preserve immutable historical run records when adding a later evaluation.
+
 Record compatibility claims separately from observed runs. Update installation sources when paths change. Keep both license copies identical so the installed package retains its license.

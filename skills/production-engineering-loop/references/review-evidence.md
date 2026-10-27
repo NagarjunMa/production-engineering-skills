@@ -25,6 +25,15 @@ Ignored inputs other than the explicit contract, installed dependencies, environ
 
 Detected source/index/base changes make evidence stale. An agent can narrow which checks need rerunning, but must capture a new manifest and explain any retained historical evidence. Never replace IDs in old logs to imply reruns. Tests on an isolated copy must establish that copy matches the captured source. Exit codes: 0 current/structurally valid, 1 stale/inconsistent report, 2 input/capture error.
 
+## Finalize without invalidating the review
+
+1. Complete source, tests, substantive project memory, and feature requirements/design notes. Record known check results without embedding the future final snapshot ID in files that will be hashed.
+2. Capture the final source and these stable documents. Review that snapshot and check freshness when the reviewer returns.
+3. Write final snapshot IDs, review reports, and execution receipts outside source, or in a narrowly excluded evidence-only directory. Keep its stable path/link in the feature record before capture. Never exclude requirements, tests, source, or lessons used to justify the implementation.
+4. If a finding requires changing source or substantive records, make that correction and capture/review again. Later append-only evidence must not silently change the contract. Return final status inline when no appropriate evidence directory exists.
+
+A record cannot contain its own final content hash. Filling the full template's final-source fields after capture changes that source; use pointers to separate receipts for those fields. An edit after review remains stale even if it changes only documentation.
+
 ## Report schema version 1
 
 Fill [review-report-template.json](../assets/review-report-template.json); remove the sample finding if none exist and replace placeholders. Equivalent Markdown is valid when machine validation is unavailable.

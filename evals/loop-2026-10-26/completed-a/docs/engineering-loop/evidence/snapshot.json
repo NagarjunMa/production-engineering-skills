@@ -1,0 +1,17 @@
+{
+  "snapshot_id": "e07818b0f475656b51ec88ec538b3c1a842f476b7de64dfc6a9e5ecf58f914f1",
+  "captured_at": "2026-10-26T04:19:27.340519+00:00",
+  "files": {
+    "README.md": "17f13c29ef034d59c430e7f78f6fcc016bf29404fd94af193dd30b3d578a3eb3",
+    "docs/engineering-loop/PROJECT.md": "c295aa6f6f5891a2ffb4555f8e9ce7c71c8597193932243d17d2ac14ab62ce24",
+    "docs/engineering-loop/features/stock-adjustments.md": "ad7d59ae5f27b69ecd83156cb8dd90bcec9a574b829f8995b79efcf623186177",
+    "inventory.py": "3175687c783eaabaf352d72e3974c482123573a833876a9e9881392d45efcc7e",
+    "tests/test_inventory.py": "5ffe9397552ac055ae2e0fb7e2b627f10e2ea8cc4c6332245fcf9484df625f1e"
+  },
+  "excluded": {
+    "docs/engineering-loop/evidence/": "Evidence receipts only; source, tests, README and substantive records included"
+  },
+  "git": null,
+  "model": null,
+  "result": "passed: two matching captures"
+}

@@ -1,0 +1,71 @@
+{
+  "captured_at": "2026-10-26T14:08:15.416258+00:00",
+  "project": "/private/tmp/pel-forward-final-NhvVF0yk/session-b",
+  "snapshot_id": "985a05bd706520ce96b88d4f9f2839b439818d1e29d5e39d6fa0150918b62bcb",
+  "files_sha256": {
+    "README.md": "c80e6a10a8a754bc2cfbb6fee61ced0e1aa1672fd56e25286c6315b3ad63b8ad",
+    "docs/engineering-loop/LESSONS.md": "e019c26717bf97e732e4a42e1c27c732923f60ca6b4d2a2cd992f1b18122a2b0",
+    "docs/engineering-loop/PROJECT.md": "90b2319989e637f0923df36d4cc704431cc9329bea6ff0d5d82f2f1f139ad2da",
+    "docs/engineering-loop/context-before-rename.json": "3af97feddf1fa604ab68c8d67aae5e70946039869446213d2ff3050e9b4c78e6",
+    "docs/engineering-loop/evidence.json": "cccf3105ec8b5176d994d0bd7c7dafebe3ec792bdbecbffd3564277a7efdbc98",
+    "docs/engineering-loop/features/atomic-adjustment.md": "6e6a58ec9cf87e9ff2b438c2d7862464088fcdff8bd8546867d995f15f3d044e",
+    "stock.py": "dc9f3c8bb0e813985b89daaa13fb7dcadcd829ccd8af90204dcb5c584dcbce5a",
+    "tests/test_inventory.py": "249b5f4bce5d0eb7cd508d54bab4e2a9c4f59d367d25497912a64be05b0d601b"
+  },
+  "excluded": {
+    "docs/engineering-loop/evidence-batch.json": "Evidence-only receipt; avoids self-hash."
+  },
+  "source_state": "No project-local Git metadata; complete local file manifest except current receipt. Base/branch unknown. Prior receipts included as explicitly historical data.",
+  "runtime": "3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "checks": [
+    {
+      "command": "python3 -B -m unittest discover -s tests -v",
+      "result": "passed",
+      "tests": 8,
+      "input_cases": 27,
+      "criteria": [
+        "A1",
+        "A2",
+        "A3",
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+      ],
+      "provenance": "Executed after final code/test edit; subsequent changes are project records only."
+    },
+    {
+      "command": "python3 -B - (compile stock.py and tests/test_inventory.py source with built-in compile)",
+      "result": "passed",
+      "provenance": "In-memory static compilation; no bytecode artifacts."
+    },
+    {
+      "procedure": "Read complete implementation, tests, README and records; inspect rule ownership, ordered tentative updates, error paths and sole final commit.",
+      "result": "passed",
+      "kind": "self-review",
+      "finding": "No known material in-scope code finding."
+    },
+    {
+      "procedure": "Fresh independent review required for Significant risk",
+      "result": "not_run",
+      "reason": "Further agents explicitly prohibited; portable handoff in feature record."
+    }
+  ],
+  "history": {
+    "baseline": "passed, 3 tests / 14 input cases",
+    "batch_scaffold_red": "failed, 11 behavioral failures; no collection errors"
+  },
+  "review": {
+    "kind": "self-review",
+    "model": null,
+    "fresh_context": false,
+    "independent_review": "pending",
+    "reviewer_rounds_used": 0
+  },
+  "limits": [
+    "External consumers and Python version matrix unverified.",
+    "Concurrency and invalid input types outside contract.",
+    "No configured linter/type/CI gate; no network or installations."
+  ],
+  "release": "not requested or performed"
+}
