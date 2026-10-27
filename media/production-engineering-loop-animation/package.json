@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@remotion/cli": "4.0.527",
-    "react": "19.2.4",
+    "react": "19.3.1",
     "react-dom": "19.2.4",
     "remotion": "4.0.527",
     "zod": "4.6.7"
@@ -21,7 +21,7 @@
     "zod": "$zod"
   },
   "devDependencies": {
-    "@types/react": "19.2.14",
+    "@types/react": "19.3.0",
     "@types/react-dom": "19.2.3",
     "typescript": "5.9.3"
   }
