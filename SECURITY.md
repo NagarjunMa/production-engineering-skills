@@ -2,7 +2,7 @@
 
 ## Supported version
 
-The public default branch contains v0.6.0. The v0.7.0 changes are under local verification and are not yet released. No versioned GitHub release has been published. Report the exact commit and installation method when requesting a security fix; branch installations can change.
+The supported version is v0.7.0, available on the public default branch. Use the [tagged release](https://github.com/NagarjunMa/production-engineering-skills/releases/tag/v0.7.0) for a fixed version. Report the exact commit/version and installation method when requesting a security fix; branch installations can change. A supported version is not a guarantee of vulnerability-free output.
 
 ## Reporting a vulnerability
 
