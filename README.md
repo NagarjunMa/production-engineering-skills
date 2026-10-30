@@ -147,7 +147,7 @@ Reliability has four different layers:
 | Agent behavior | The instructions define scope, review, verification, and stopping rules, but the host model and available tools determine how faithfully and effectively they are applied. |
 | Project outcome | Confidence comes from the acceptance cases, source inspection, tests, review, and limitations produced for that specific task. Installing the skill alone is not evidence that a change is correct. |
 
-Public main at `4501e91` contains v0.6.0 and passed the five-job GitHub Actions matrix across Ubuntu, macOS, Windows, and Python 3.10–3.12. Its installation evidence covers six target layouts and OpenCode discovery. The local v0.7.0 work adds memory evidence checks, safer evaluators, fixture replay in CI, and an explicit review-finalization sequence; see the [implementation record](docs/engineering-loop/features/evaluation-memory-checks.md) and [current loop evaluation](evals/loop-2026-10-26/README.md) for actual results and remaining limits. Local changes are not available from GitHub until published.
+Version **0.7.0 is available from public `main`**, following [PR #8](https://github.com/NagarjunMa/production-engineering-skills/pull/8). The merged implementation at `fd81e9c` passed all six [GitHub Actions jobs](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/40515288544): package tests and fixture replays on Ubuntu, macOS, and Windows with Python 3.10–3.12, plus media dependency and type checks on Ubuntu. Local verification recorded 49 automated tests, 14 fixture/control checks, and bounded fresh-context Codex implementation, continuation, and read-only review trials. Version 0.7.0 adds memory evidence checks, safer evaluators, fixture replay in CI, and an explicit review-finalization sequence; see the [implementation record](docs/engineering-loop/features/evaluation-memory-checks.md) and [current loop evaluation](evals/loop-2026-10-26/README.md) for the supporting evidence and limitations. Historical records retain their original pre-merge status.
 
 The evaluations do **not** prove a universal improvement over a capable baseline, a defect-free result, reliable activation in every coding tool, or measured quality-per-token gains. Evaluate the skill on representative work in your own repository before making it a required team workflow.
 
@@ -199,6 +199,14 @@ The repository contains one installable skill, so the shortest command is:
 ```sh
 npx skills add NagarjunMa/production-engineering-skills
 ```
+
+That command follows the repository's default branch. To install the fixed **v0.7.0** version, use the tagged source instead:
+
+```sh
+npx skills add https://github.com/NagarjunMa/production-engineering-skills/tree/v0.7.0/skills/production-engineering-loop
+```
+
+The same agent and scope options below apply to either source. See the [v0.7.0 release notes](https://github.com/NagarjunMa/production-engineering-skills/releases/tag/v0.7.0) for that version's verification and known limits. Later `main` changes are not part of the tag.
 
 In a normal terminal, the installer presents this flow:
 
@@ -523,13 +531,13 @@ When executable testing is meaningful, the supplied plan follows red/green: add 
 | Environment | Current evidence |
 | --- | --- |
 | Codex desktop/CLI on macOS | Public and local installation, personal/project discovery, nested-project discovery, explicit invocation, and fresh-review workflow exercised |
-| GitHub Actions | [Run 36150773244](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/36150773244) passed all five package-validation and test jobs for public v0.6.0 commit `4501e91` across Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11; v0.7 workflow changes require a new hosted run |
+| GitHub Actions | [Run 40515288544](https://github.com/NagarjunMa/production-engineering-skills/actions/runs/40515288544) passed all six jobs for merged v0.7.0 implementation `fd81e9c`: package validation, tests, fixture replay, and behavioral-evidence consistency across Ubuntu Python 3.10–3.12, macOS Python 3.11, and Windows Python 3.11, plus Ubuntu media dependency/type checks. CI does not run coding-agent behavior trials. |
 | Skills CLI | The public repository exposes one skill; local multi-target installation verifies the same package layout for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode |
 | Claude Code and OpenCode installed locally | The multi-target installer produced both host layouts and OpenCode discovered the exact current package; Claude Code runtime discovery and full task-behavior evaluations remain pending |
 | Cursor, Gemini CLI, and Qwen Code | Native paths and invocation are documented from current vendor guidance; full task behavior has not yet been independently exercised on these hosts |
 | Other file-capable agents | Can use the bundled `SKILL.md` and relative resources explicitly; this is a fallback rather than verified native integration |
 
-The repository retains source snapshots, deterministic checks, behavioral scenarios, independent findings, corrections, and limitations. Historical records explain the public v0.6 workflow; local v0.7 has separate [current behavioral evidence](evals/loop-2026-10-26/README.md). Older runs are not treated as proof of changed instructions. See the [evaluation index](evals/README.md) and [community validation template](docs/community-validation.md).
+The repository retains source snapshots, deterministic checks, behavioral scenarios, independent findings, corrections, and limitations. Historical records explain the v0.6 workflow; v0.7 has separate [behavioral evidence](evals/loop-2026-10-26/README.md). Older runs are not treated as proof of changed instructions. The release updates documentation without changing the evaluated installable skill. See the [evaluation index](evals/README.md) and [community validation template](docs/community-validation.md).
 
 Native skill paths are documented for Codex, Claude Code, Cursor, Gemini CLI, Qwen Code, and OpenCode in the [compatibility guide](docs/installation.md). Product versions, organizational policies, available models, and tool permissions can change actual behavior.
 
